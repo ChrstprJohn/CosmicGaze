@@ -40,7 +40,7 @@ function Calendar({ id, label, value, min, max, today, onSelect, onDone }) {
   }
 
   return <div id={`${id}-calendar`} className="date-calendar" role="dialog" aria-label={`${label} calendar`}>
-    <div className="calendar-scroll">
+    <div className="calendar-body">
     <div className="calendar-heading">
       <div className="calendar-selects">
         <span className="calendar-select"><select aria-label="Month" value={month} onChange={(event) => navigate(Number(event.target.value) - month)}>
@@ -86,8 +86,8 @@ export default function DatePicker({ id, name, label, value, min, max, today, on
       const offset = viewport?.offsetTop || 0
       const below = Math.max(0, height + offset - rect.bottom - 18)
       const above = Math.max(0, rect.top - offset - 18)
-      const naturalHeight = calendar.querySelector('.calendar-scroll').scrollHeight + calendar.querySelector('.calendar-footer').offsetHeight + 2
-      const compact = window.matchMedia('(max-width: 767px), (pointer: coarse)').matches
+      const naturalHeight = calendar.offsetHeight
+      const compact = window.matchMedia('(max-width: 767px), (max-width: 1023px) and (max-height: 500px), (pointer: coarse)').matches
       const upward = !compact && below < naturalHeight && above >= naturalHeight
       const inline = compact || (below < naturalHeight && !upward)
       const workspace = host.current.closest('.sticky-preview-title, .sticky-moon-title')
@@ -96,17 +96,16 @@ export default function DatePicker({ id, name, label, value, min, max, today, on
       const pinnedHeight = heading && getComputedStyle(heading).position === 'sticky'
         ? heading.getBoundingClientRect().height + (preview && getComputedStyle(preview).position === 'sticky' ? preview.getBoundingClientRect().height : 0)
         : 0
-      // Reserve space for the pinned title/model, leaving Done on screen while
-      // dates scroll inside the calendar on short phones and landscape views.
-      const availableHeight = Math.max(100, height - pinnedHeight - 24)
+      // Inline calendars grow with their contents; the document owns scrolling.
       calendar.dataset.placement = inline ? 'inline' : upward ? 'above' : 'below'
-      calendar.style.maxHeight = `${Math.min(availableHeight, 440)}px`
       calendar.style.scrollMarginTop = `${pinnedHeight + 12}px`
       calendar.style.top = upward ? 'auto' : 'calc(100% + 10px)'
       calendar.style.bottom = upward ? 'calc(100% + 10px)' : 'auto'
     }
     position()
-    const frame = requestAnimationFrame(() => calendar.scrollIntoView({ block: 'nearest', behavior: 'instant' }))
+    const frame = requestAnimationFrame(() => {
+      if (calendar.dataset.placement === 'inline') calendar.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    })
     window.addEventListener('resize', position)
     window.visualViewport?.addEventListener('resize', position)
     return () => {

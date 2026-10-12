@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowLeft, LoaderCircle, Orbit, Telescope } from 'lucide-react'
+import { ArrowLeft, LoaderCircle, Orbit, Shuffle, Telescope } from 'lucide-react'
 import axios from 'axios'
 import { fetchApod } from './lib/apod.js'
 import { ARCHIVE_START, nasaToday, validateDate } from './lib/dates.js'
 import BirthdayImage from './BirthdayImage.jsx'
 import DatePicker from './DatePicker.jsx'
+import { imageIdentity, nextDiscovery, prepareDiscoveryImage } from './lib/shuffle.js'
 
 function EmptyPreview({ loading = false }) {
   return (
@@ -31,7 +32,15 @@ export default function BirthdayPage() {
   const [error, setError] = useState('')
   const [result, setResult] = useState(null)
   const [imageStatus, setImageStatus] = useState('loading')
+  const [shuffling, setShuffling] = useState(false)
+  const seenDates = useRef(new Set([today]))
+  const seenImages = useRef(new Set())
   const busy = loading || Boolean(result?.mediaType === 'image' && result.image && imageStatus === 'loading')
+  useEffect(() => {
+    if (!result) return
+    seenDates.current.add(result.date)
+    if (result.image) seenImages.current.add(imageIdentity(result.image))
+  }, [result])
   useEffect(() => {
     const controller = new AbortController()
     request.current = controller
@@ -46,6 +55,7 @@ export default function BirthdayPage() {
   }, [today])
 
   async function discover(selectedDate) {
+    setShuffling(false)
     setDate(selectedDate)
     request.current?.abort()
     const validation = validateDate(selectedDate, today)
@@ -65,6 +75,27 @@ export default function BirthdayPage() {
     }
   }
 
+  async function shufflePicture() {
+    request.current?.abort()
+    const controller = new AbortController()
+    request.current = controller
+    setLoading(true)
+    setShuffling(true)
+    setError('')
+    try {
+      const entry = await nextDiscovery({ fetchEntry: fetchApod, prepareImage: prepareDiscoveryImage, seenDates: seenDates.current, seenImages: seenImages.current, signal: controller.signal, today })
+      if (!controller.signal.aborted) {
+        setImageStatus('loading')
+        setDate(entry.date)
+        setResult(entry)
+      }
+    } catch (issue) {
+      if (!controller.signal.aborted) setError(issue.message?.replace('Press Surprise me', 'Press Shuffle picture') || 'Couldn’t find a picture. Shuffle again to retry.')
+    } finally {
+      if (!controller.signal.aborted) { setLoading(false); setShuffling(false) }
+    }
+  }
+
   return (
     <section className="birthday-workspace" aria-labelledby="birthday-title">
       <div className="birthday-controls">
@@ -75,8 +106,9 @@ export default function BirthdayPage() {
           <label htmlFor="birthdate">Birthday or date</label>
           <DatePicker id="birthdate" name="birthdate" label="Birthday or date" min={ARCHIVE_START} max={today} today={today} value={date} onChange={discover} describedBy={error ? 'date-help lookup-error' : 'date-help'} invalid={Boolean(error)} />
           <p id="date-help" className="date-help">Available from June 16, 1995.</p>
+          <button className="secondary-button birthday-shuffle" type="button" disabled={busy} onClick={shufflePicture}>{shuffling ? <LoaderCircle className="loading-icon" size={18} aria-hidden="true" /> : <Shuffle size={18} aria-hidden="true" />}{shuffling ? 'Finding a picture…' : 'Shuffle picture'}</button>
           {error && <p id="lookup-error" className="form-error" role="alert">{error}</p>}
-          <p className="date-help" role="status">{loading ? 'Looking up NASA’s picture for your selected date…' : ''}</p>
+          <p className="date-help" role="status">{loading ? shuffling ? 'Finding a different picture from NASA’s archive…' : 'Looking up NASA’s picture for your selected date…' : ''}</p>
         </div>
       </div>
 
