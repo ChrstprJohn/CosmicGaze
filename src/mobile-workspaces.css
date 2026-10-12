@@ -1,6 +1,8 @@
 .mobile-controls-title, .mobile-preview-label { display: none; }
 .mobile-controls-title + label { margin-top: 0; }
 .match-preview > .match-score { margin-top: 32px; text-align: center; }
+.birthday-form > [role="status"]:empty { display: none; }
+.birthday-shuffle { width: 100%; margin-top: 14px; }
 
 @media (max-width: 767px), (max-width: 1023px) and (max-height: 500px) {
   .mobile-workspace {
@@ -124,20 +126,23 @@
   .sticky-preview-title .planet-customize-link { scroll-margin-top: 0; }
   .sticky-preview-title .planet-viewer-customizable .planet-control-buttons { flex-shrink: 0; background: transparent; border: 0; }
   .sticky-preview-title .discovery-controls:focus { outline: none; }
+  /* A newly opened calendar can then occupy the viewport without a second
+     scroll container or a pinned result obscuring its heading and actions. */
+  :is(.sticky-preview-title, .sticky-moon-title):has(.date-trigger[aria-expanded="true"]) :is(h1, .mobile-preview) { position: relative; top: auto; }
   /* Above-field popovers would sit behind the pinned preview. Keep calendars
      in the page flow so all six weeks and the Done button remain reachable. */
   .mobile-workspace .date-calendar { position: relative; top: auto !important; bottom: auto !important; margin-top: 10px; }
 
-  .mobile-workspace .match-preview { --moon-size: clamp(70px, 18svh, 140px); --mobile-preview-offset: calc(var(--moon-size) + 160px); }
-  .mobile-workspace:has(.match-preview) { --mobile-preview-offset: calc(var(--mobile-title-height, 0px) + clamp(70px, 18svh, 140px) + 160px); }
-  .match-preview .moon-match-visual { min-height: calc(var(--moon-size) + 86px); gap: 12px; }
+  .mobile-workspace .match-preview { --moon-size: clamp(90px, 22svh, 170px); --mobile-preview-offset: calc(var(--moon-size) + 142px); }
+  .mobile-workspace:has(.match-preview) { --mobile-preview-offset: calc(var(--mobile-title-height, 0px) + clamp(90px, 22svh, 170px) + 142px); }
+  .match-preview .moon-match-visual { min-height: calc(var(--moon-size) + 68px); align-items: start; gap: 12px; }
   .match-preview .moon-match-visual canvas { display: block; width: var(--moon-size); max-width: 100%; height: auto; margin-inline: auto; }
   .match-preview .moon-match-visual h2 { font-size: 18px; margin-top: 4px; }
   .match-preview .moon-match-visual figcaption span { display: block; margin-top: 6px; font-size: 11px; line-height: 1.5; }
   .match-preview .moon-match-visual figcaption p { margin-top: 4px; font-size: 11px; line-height: 1.5; }
   .match-preview .moon-match-visual.is-combined .match-moon, .match-preview .moon-match-visual.is-combined .match-combined { width: var(--moon-size); }
   .match-preview .moon-match-visual.is-combined .match-combined figcaption { width: min(280px, calc(100vw - 48px)); position: relative; left: 50%; transform: translateX(-50%); }
-  .mobile-workspace .match-preview > .match-score { margin-top: 8px; font-size: 28px; line-height: 1.2; }
+  .mobile-workspace .match-preview > .match-score { margin-top: 6px; font-size: 28px; line-height: 1.2; }
   .match-preview .match-score span { display: inline; font-size: 12px; margin-top: 0; }
   .mobile-workspace .match-summary { margin-top: 20px; }
   /* Put the card actions beside the first result, before the longer form. */
@@ -226,4 +231,6 @@
   .birthday-workspace, .moon-workspace, .shuffle-workspace { padding-top: 20px; }
   .birthday-description, .moon-description, .shuffle-description { margin-top: 12px; }
   .birthday-controls .back-link, .moon-controls .back-link, .shuffle-controls .back-link { min-height: 44px; margin-bottom: 16px; }
+  .site-shell .birthday-workspace { gap: 20px; }
+  .image-workspace[aria-busy="false"] .birthday-image-stage { min-height: 0; }
 }
