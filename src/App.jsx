@@ -11,6 +11,7 @@ import './solar-system.css'
 import './pet-eyes.css'
 import './mobile-workspaces.css'
 import usePagePath from './usePagePath.js'
+import { updateSeo } from './lib/seo.js'
 
 const LandingPage = lazy(() => import('./LandingPage.jsx'))
 const MoonPage = lazy(() => import('./MoonPage.jsx'))
@@ -44,8 +45,8 @@ export default function App() {
   const isDiscovery = isBirthday || isMoon || isShuffle || isSolar || isPets || Boolean(ExtraPage)
 
   useEffect(() => {
-    document.title = extraService ? `${extraService.title} — Celestial` : isBirthday ? 'Your birthday picture — Celestial' : isMoon ? 'Moon phase — Celestial' : isShuffle ? 'Cosmic shuffle — Celestial' : isSolar ? 'Solar System — Celestial' : isPets ? 'Cosmic pets — Celestial' : 'Celestial — Among the stars'
-  }, [isBirthday, isMoon, isShuffle, isSolar, isPets, extraService])
+    updateSeo(pathname)
+  }, [pathname])
 
   return (
     <div className="site-shell">

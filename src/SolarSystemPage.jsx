@@ -15,10 +15,6 @@ export default function SolarSystemPage() {
     return () => window.removeEventListener('popstate', restore)
   }, [])
 
-  useEffect(() => {
-    document.title = `${planet.name} · Solar System — Celestial`
-  }, [planet])
-
   function choose(selected) {
     if (selected.id === planet.id) return
     const url = new URL(window.location.href)

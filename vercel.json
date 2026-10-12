@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/:page(birthday|moon|shuffle|solar-system|pets|moon-match|cosmic-age|build-your-planet|gravity-playground)",
+      "destination": "/:page.html"
     }
   ]
 }
