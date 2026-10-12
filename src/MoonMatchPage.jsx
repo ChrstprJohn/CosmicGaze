@@ -63,7 +63,6 @@ export default function MoonMatchPage() {
     ctx.fillText(`${match.fit}% full-Moon fit`, 540, 1015)
     ctx.fillStyle = '#b5bbd0'; ctx.font = '26px "DM Sans"'
     ctx.fillText(`${formatDate(firstDate)} + ${formatDate(secondDate)}`, 540, 1080)
-    ctx.font = '22px "DM Sans"'; ctx.fillText('A playful phase comparison, not relationship compatibility.', 540, 1160)
     drawCollectibleBorder(ctx)
     return saveCanvasPng(canvas, filename, { Description: 'Moon phases at noon UTC. Fit measures illuminated area covered by exactly one phase, not relationship compatibility.', Source: 'Astronomy Engine; Moon texture: Solar System Scope, CC BY 4.0.' })
   }
