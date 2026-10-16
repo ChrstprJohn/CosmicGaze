@@ -39,7 +39,7 @@ export default function BirthdayImage({ entry, onStatusChange }) {
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = `celestial-${entry.date}.${extension}`
+      link.download = `cosmicgaze-${entry.date}.${extension}`
       document.body.appendChild(link)
       link.click()
       link.remove()

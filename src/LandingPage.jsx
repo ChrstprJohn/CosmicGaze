@@ -102,15 +102,15 @@ function ShowcaseSection() {
         <video
           ref={video}
           className="showcase-video"
-          src={manual || active ? '/brag.mp4' : undefined}
-          poster="/previews/showcase.webp"
+          src={manual || active ? '/cosmicgaze-showcase.mp4' : undefined}
+          poster="/previews/cosmicgaze-showcase.webp"
           preload="none"
           autoPlay={active}
           controls={manual || blocked}
           muted
           loop
           playsInline
-          aria-label="Celestial showcase video"
+          aria-label="Cosmicgaze showcase video"
         />
       </div>
     </section>

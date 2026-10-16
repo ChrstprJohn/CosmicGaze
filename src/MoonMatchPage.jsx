@@ -88,7 +88,7 @@ export default function MoonMatchPage() {
     <div className="match-actions">
       <button className="primary-button" type="button" disabled={status !== 'ready'} onClick={showTogether}>{combined ? <><Columns2 size={18} aria-hidden="true" />See both Moons</> : <><Combine size={18} aria-hidden="true" />Combine our Moons</>}</button>
       {combined && <button type="button" className="secondary-button match-replay" disabled={status !== 'ready'} onClick={replayCollision}><RotateCcw size={16} aria-hidden="true" />Replay merge</button>}
-      <ArtDownload key={datesKey} label="Download our Moon card" filename="celestial-moon-match.png" disabled={status !== 'ready'} makeImage={exportCard} />
+      <ArtDownload key={datesKey} label="Download our Moon card" filename="cosmicgaze-moon-match.png" disabled={status !== 'ready'} makeImage={exportCard} />
     </div>
   </DiscoveryLayout>
 }

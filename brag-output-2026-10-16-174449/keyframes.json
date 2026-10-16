@@ -1,0 +1,221 @@
+◇  onion-skin screenshot saved C:\Users\picar\Desktop\random_project\CelestialBackground\brag-output-2026-10-16-174449\camera-proof.png
+   21 elements · open it to verify the motion matches your target, then read the keyframes below.
+
+{
+  "project": "composition",
+  "runtime": "all",
+  "compositions": [
+    {
+      "composition": "index.html",
+      "source": "index.html",
+      "tweens": [
+        {
+          "id": "#hook-browser-fromTo-120",
+          "target": "#hook-browser",
+          "method": "fromTo",
+          "start": 0.12,
+          "duration": 0.85,
+          "end": 0.97,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0.12,
+              "properties": {
+                "opacity": 0,
+                "y": 90,
+                "scale": 0.91,
+                "rotationX": 8,
+                "rotationY": -8
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0.97,
+              "properties": {
+                "opacity": 1,
+                "x": 0,
+                "y": 0,
+                "scale": 1,
+                "rotationX": 0,
+                "rotationY": 0,
+                "rotation": 0
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 90
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": "#hook-browser-to-1000",
+          "target": "#hook-browser",
+          "method": "to",
+          "start": 1,
+          "duration": 2.25,
+          "end": 3.25,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 1,
+              "properties": {
+                "scale": 1,
+                "y": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 3.25,
+              "properties": {
+                "scale": 1.035,
+                "y": -18
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": -18
+            }
+          ]
+        },
+        {
+          "id": "#hook-title, #hook-browser-to-3180",
+          "target": "#hook-title, #hook-browser",
+          "method": "to",
+          "start": 3.18,
+          "duration": 0.22,
+          "end": 3.4,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 3.18,
+              "properties": {
+                "opacity": 1,
+                "y": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 3.4,
+              "properties": {
+                "opacity": 0,
+                "y": -22
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": -22
+            }
+          ]
+        }
+      ],
+      "traces": [
+        {
+          "target": "#hook-browser",
+          "strokes": [
+            {
+              "id": "#hook-browser-fromTo-120",
+              "start": 0.12,
+              "end": 0.97,
+              "keyframes": [
+                {
+                  "pct": 0,
+                  "time": 0.12,
+                  "properties": {
+                    "opacity": 0,
+                    "y": 90,
+                    "scale": 0.91,
+                    "rotationX": 8,
+                    "rotationY": -8
+                  }
+                },
+                {
+                  "pct": 100,
+                  "time": 0.97,
+                  "properties": {
+                    "opacity": 1,
+                    "x": 0,
+                    "y": 0,
+                    "scale": 1,
+                    "rotationX": 0,
+                    "rotationY": 0,
+                    "rotation": 0
+                  }
+                }
+              ],
+              "points": [
+                {
+                  "x": 0,
+                  "y": 90
+                },
+                {
+                  "x": 0,
+                  "y": 0
+                }
+              ]
+            },
+            {
+              "id": "#hook-browser-to-1000",
+              "start": 1,
+              "end": 3.25,
+              "keyframes": [
+                {
+                  "pct": 0,
+                  "time": 1,
+                  "properties": {
+                    "scale": 1,
+                    "y": 0
+                  }
+                },
+                {
+                  "pct": 100,
+                  "time": 3.25,
+                  "properties": {
+                    "scale": 1.035,
+                    "y": -18
+                  }
+                }
+              ],
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "x": 0,
+                  "y": -18
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "cssKeyframes": [],
+      "anime": []
+    }
+  ],
+  "_meta": {
+    "version": "0.8.112",
+    "updateAvailable": false
+  }
+}

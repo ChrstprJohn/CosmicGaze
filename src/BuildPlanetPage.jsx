@@ -55,7 +55,7 @@ export default function BuildPlanetPage() {
     </div>
     <div className="builder-actions">
       <div className="button-row"><button className="secondary-button" type="button" onClick={surprise}><Shuffle size={16} aria-hidden="true" />Surprise me</button><button className="secondary-button" type="button" onClick={() => { setWorld(DEFAULT_WORLD); setName('Asteria') }}><RotateCcw size={16} aria-hidden="true" />Start over</button></div>
-      <ArtDownload key={`${JSON.stringify(world)}-${displayName}`} label="Download my planet card" filename="celestial-my-planet.png" disabled={ready !== planet.id || appearance !== world} makeImage={(filename) => {
+      <ArtDownload key={`${JSON.stringify(world)}-${displayName}`} label="Download my planet card" filename="cosmicgaze-my-planet.png" disabled={ready !== planet.id || appearance !== world} makeImage={(filename) => {
       if (capture.current?.appearance !== appearance) throw new Error('Your new world is still preparing.')
       return saveWorldPng({ image: capture.current.capture(), name: displayName, appearance }, filename)
     }} />

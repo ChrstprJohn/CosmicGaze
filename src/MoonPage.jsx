@@ -70,7 +70,7 @@ export default function MoonPage() {
             <p className="moon-illumination">{illumination}</p>
           </figcaption>
         </figure>
-        <ArtDownload key={result.date} label="Download my Moon card" filename={`celestial-moon-${result.date}.png`} makeImage={exportCard} />
+        <ArtDownload key={result.date} label="Download my Moon card" filename={`cosmicgaze-moon-${result.date}.png`} makeImage={exportCard} />
         <p className="moon-reference">Phase visualization · 12:00 UTC · Simplified north-up view</p>
         <div className="moon-sources"><a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noreferrer">Astronomy Engine <ArrowUpRight size={12} aria-hidden="true" /></a><a href="https://github.com/mrdoob/three.js/blob/r150/examples/textures/planets/moon_1024.jpg" target="_blank" rel="noreferrer">Surface texture <ArrowUpRight size={12} aria-hidden="true" /></a></div>
       </div>

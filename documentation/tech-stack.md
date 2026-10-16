@@ -1,6 +1,6 @@
-# Celestial: tech stack
+# Cosmicgaze: tech stack
 
-Celestial offers four discoveries from a responsive landing page: Birthday sky retrieves NASA's Astronomy Picture of the Day for a date, Moon on your day calculates a lunar phase visualization locally, Cosmic shuffle explores random usable NASA archive photographs, and Solar System showcases eight interactive 3D planets.
+Cosmicgaze offers four discoveries from a responsive landing page: Birthday sky retrieves NASA's Astronomy Picture of the Day for a date, Moon on your day calculates a lunar phase visualization locally, Cosmic shuffle explores random usable NASA archive photographs, and Solar System showcases eight interactive 3D planets.
 
 | Technology | Responsibility |
 | --- | --- |
@@ -130,6 +130,6 @@ src/lib/shuffle.js          Random dates, repeat prevention, filtering, and prel
 src/lib/shuffle.test.js     Archive bounds, filtering, retry limits, and cancellation
 public/textures/moon-surface.jpg         Locally bundled lunar map
 public/textures/moon-surface.source.json Texture provenance and upstream license link
-public/favicon.svg          Celestial orbit mark
+public/favicon.svg          Cosmicgaze orbit mark
 .env.example                Public configuration template
 ```

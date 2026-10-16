@@ -6,7 +6,7 @@ Mode: Experience at /shuffle. User requested a simple image viewer with a button
 
 THESIS: A single action discovers a new NASA archive image. The photograph owns the page; controls and captions stay quiet.
 
-OWN-WORLD: Inherit Celestial's midnight starfield, lavender actions, Instrument Serif titles, and DM Sans controls. Keep original image compositions intact and captions outside the photo.
+OWN-WORLD: Inherit Cosmicgaze's midnight starfield, lavender actions, Instrument Serif titles, and DM Sans controls. Keep original image compositions intact and captions outside the photo.
 
 STORY: Open from a third Discovery, see a verified archive image immediately, press Surprise me, and see a different usable image with its title, date, source and credit. Skip videos, known placeholders, unavailable entries and previously seen images.
 

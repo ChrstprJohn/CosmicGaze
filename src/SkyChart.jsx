@@ -50,9 +50,9 @@ export default function SkyChart({ time, location, title = 'Your star map', svgR
       {placeSkyLabels(bodies,12 * labelScale).map((body) => <g key={body.name}><circle cx={body.x} cy={body.y} r={body.name === 'Sun' || body.name === 'Moon' ? 4 : 2.5} fill={body.name === 'Sun' ? '#e9cb8e' : '#c9c1f0'} /><line x1={body.x} y1={body.y} x2={body.label.x - 2} y2={body.label.y - 3} stroke="#8d84bd" strokeWidth=".5" /><text x={body.label.x} y={body.label.y} fill="#c9c1f0" fontFamily="DM Sans, Arial, sans-serif" fontSize={12 * labelScale}>{body.name}</text></g>)}
       <g className="export-caption"><text x="350" y="710" textAnchor="middle" fill="#f3f0e9" fontFamily="Instrument Serif, Georgia, serif" fontSize={Math.min(28,560 / Math.max(1,title.length * .95))}>{title || 'Your star map'}</text>
       <text x="350" y="744" textAnchor="middle" fill="#b5bbd0" fontFamily="DM Sans, Arial, sans-serif" fontSize="14">{location.name} · {localSkyTime(time, location)}</text>
-      <text x="350" y="775" textAnchor="middle" fill="#a4abc2" fontFamily="DM Sans, Arial, sans-serif" fontSize="10">Celestial · Star catalog: d3-celestial / Hipparcos · Approximate positions</text></g>
+      <text x="350" y="775" textAnchor="middle" fill="#a4abc2" fontFamily="DM Sans, Arial, sans-serif" fontSize="10">Cosmicgaze · Star catalog: d3-celestial / Hipparcos · Approximate positions</text></g>
     </svg></div>
-    <div className="art-caption"><h2>{title || 'Your star map'}</h2><p>{location.name} · {localSkyTime(time, location)}</p><p>Celestial · Star catalog: d3-celestial / Hipparcos · Approximate positions</p></div>
+    <div className="art-caption"><h2>{title || 'Your star map'}</h2><p>{location.name} · {localSkyTime(time, location)}</p><p>Cosmicgaze · Star catalog: d3-celestial / Hipparcos · Approximate positions</p></div>
     {bodies.find((body) => body.name === 'Sun').visible && <p className="discovery-note">It’s daylight at this location. The chart shows stars for orientation; they won’t all be visible outside.</p>}
   </>
 }

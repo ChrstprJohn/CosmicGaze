@@ -1,6 +1,6 @@
 # Solar System showcase
 
-Mode: Experience. Route: /solar-system. User approved the planet showcase and pinned the shared discovery layout, with no separate sidebar/divider/navigation. The latest layout request widens every discovery to align its outer content edges with the shared header/nav. Mobile Solar System shows introduction, pill selector, model, then facts. Zoom ranges from the default view to 1.2 times the full subject's projected size, including Saturn's rings. Code-led extension within the incumbent Celestial visual system; the generated image is a critique reference, not a pixel specification.
+Mode: Experience. Route: /solar-system. User approved the planet showcase and pinned the shared discovery layout, with no separate sidebar/divider/navigation. The latest layout request widens every discovery to align its outer content edges with the shared header/nav. Mobile Solar System shows introduction, pill selector, model, then facts. Zoom ranges from the default view to 1.2 times the full subject's projected size, including Saturn's rings. Code-led extension within the incumbent Cosmicgaze visual system; the generated image is a critique reference, not a pixel specification.
 
 THESIS: One planet fills the visitor's attention; selecting another swaps the world, story, and facts.
 OWN-WORLD: Inherit DESIGN.md's midnight ground, sparse stars, lavender accents, Instrument Serif and DM Sans, unframed subjects, and quiet rules. The planet is an actual textured WebGL mesh, with dimensional Saturn rings.

@@ -11,9 +11,9 @@ function analyticsClient() {
       capture_pageview: 'history_change',
       person_profiles: 'identified_only',
       disable_session_recording: true,
-      loaded: (client) => client.register({ site_name: 'celestial' }),
+      loaded: (client) => client.register({ site_name: 'cosmicgaze' }),
       before_send: (event) => {
-        if (event) event.properties = { ...event.properties, site_name: 'celestial' }
+        if (event) event.properties = { ...event.properties, site_name: 'cosmicgaze' }
         return event
       },
     })
@@ -39,7 +39,7 @@ export async function shareVisitorLocation(coords) {
       event: 'visitor_location_shared',
       properties: {
         distinct_id: posthog.get_distinct_id(),
-        site_name: 'celestial',
+        site_name: 'cosmicgaze',
         ...place,
         latitude: coords.latitude, longitude: coords.longitude,
         accuracy_meters: coords.accuracy, location_source: 'browser_geolocation',

@@ -27,7 +27,7 @@ export default function CosmicAgePage() {
       <div className="age-caption" aria-live="polite" aria-atomic="true"><p className="age-number">{result.age.toFixed(2)} <span>{planet.name} years</span></p></div>
     </div>
     <div className="age-caption age-details" aria-live="polite"><p>Next birthday: <strong>{formatDate(result.next.toISOString().slice(0, 10))}</strong></p><p className="age-countdown">Turning {result.nextAge} in about {result.remainingDays.toLocaleString()} Earth days.</p></div>
-    <div className="age-download"><ArtDownload key={`${birthday}-${planetId}`} filename={`celestial-my-${planetId}-age.png`} label="Download my cosmic age" disabled={readyPlanet !== planetId} makeImage={(filename) => {
+    <div className="age-download"><ArtDownload key={`${birthday}-${planetId}`} filename={`cosmicgaze-my-${planetId}-age.png`} label="Download my cosmic age" disabled={readyPlanet !== planetId} makeImage={(filename) => {
       const view = planetCapture.current
       if (view?.planetId !== planetId) throw new Error('The selected planet is not ready.')
       return saveCosmicAgePng({ birthday, planetName: planet.name, planetImage: view.capture(), result, observedDate: now.toISOString().slice(0, 10) }, filename)

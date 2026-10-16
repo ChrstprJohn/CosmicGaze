@@ -1,12 +1,12 @@
 # Moon on your day
 
-Mode: Operate on /moon. User approved the interactive moon-on-your-day preview on October 3, 2026 and asked to implement it in Celestial.
+Mode: Operate on /moon. User approved the interactive moon-on-your-day preview on October 3, 2026 and asked to implement it in Cosmicgaze.
 
 ## Direction contract
 
 THESIS: A personal date reveals the Moon's calculated phase as a textured sphere. The Moon itself carries the experience.
 
-OWN-WORLD: Inherit Celestial's midnight, lavender, Instrument Serif and DM Sans. Preserve the preview's unframed Moon, content-width action, and quiet captions.
+OWN-WORLD: Inherit Cosmicgaze's midnight, lavender, Instrument Serif and DM Sans. Preserve the preview's unframed Moon, content-width action, and quiet captions.
 
 STORY: Arrive through a second Discovery, see today's Moon immediately, choose a date, and read its phase and illuminated percentage. Calculations and imagery are local; the view is explicitly a visualization at noon UTC, with simplified north-up orientation.
 

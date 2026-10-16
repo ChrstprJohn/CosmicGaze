@@ -1,5 +1,5 @@
 ---
-name: Celestial
+name: Cosmicgaze
 description: Discover a personal day in NASA's sky.
 colors:
   night: "#070b17"
@@ -39,7 +39,7 @@ components:
   image-download: {backgroundColor: "{colors.surface}", textColor: "{colors.download-text}", rounded: "{rounded.control}", typography: "{typography.download}", padding: "0 15px", height: "44px"}
 ---
 
-# Design System: Celestial
+# Design System: Cosmicgaze
 
 ## Overview
 

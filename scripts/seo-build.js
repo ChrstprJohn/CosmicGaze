@@ -5,11 +5,11 @@ const escapeHtml = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quo
 // Generate route HTML from the finished Vite template so asset hashes stay correct.
 export default function seoBuild() {
   return {
-    name: 'celestial-seo',
+    name: 'cosmicgaze-seo',
     enforce: 'post',
     generateBundle(_options, bundle) {
       const template = bundle['index.html'].source
-      const links = Object.entries(SEO_PAGES).map(([path, page]) => `<li><a href="${path}">${escapeHtml(page.title.replace(' — Celestial', ''))}</a></li>`).join('')
+      const links = Object.entries(SEO_PAGES).map(([path, page]) => `<li><a href="${path}">${escapeHtml(page.title.replace(' — Cosmicgaze', ''))}</a></li>`).join('')
       for (const [path, page] of Object.entries(SEO_PAGES)) {
         const url = `${SITE_URL}${path}`
         const title = escapeHtml(page.title)
@@ -17,21 +17,21 @@ export default function seoBuild() {
         const metadata = `<link rel="canonical" href="${url}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Celestial" />
+    <meta property="og:site_name" content="Cosmicgaze" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:url" content="${url}" />
-    <meta property="og:image" content="${SITE_URL}/previews/showcase.webp" />
-    <meta property="og:image:alt" content="Celestial astronomy tools and space experiences" />
+    <meta property="og:image" content="${SITE_URL}/previews/cosmicgaze-showcase.webp" />
+    <meta property="og:image:alt" content="Cosmicgaze astronomy tools and space experiences" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${description}" />
-    <meta name="twitter:image" content="${SITE_URL}/previews/showcase.webp" />
+    <meta name="twitter:image" content="${SITE_URL}/previews/cosmicgaze-showcase.webp" />
     <script type="application/ld+json">${JSON.stringify(pageSchema(path)).replaceAll('<', '\\u003c')}</script>`
         const html = template.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
           .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${description}" />`)
           .replace('</head>', `${metadata}\n  </head>`)
-          .replace('<div id="root"></div>', `<div id="root"><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Celestial"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></div>`)
+          .replace('<div id="root"></div>', `<div id="root"><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Cosmicgaze"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></div>`)
         if (path === '/') bundle['index.html'].source = html
         else this.emitFile({ type: 'asset', fileName: `${path.slice(1)}.html`, source: html })
       }

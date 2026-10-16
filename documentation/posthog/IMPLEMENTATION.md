@@ -1,4 +1,4 @@
-# Celestial PostHog Implementation
+# Cosmicgaze PostHog Implementation
 
 ## Entry Point and Initialization
 
@@ -11,10 +11,10 @@ The module reads `VITE_POSTHOG_TOKEN`. When it is present, it initializes `posth
 | `capture_pageview: 'history_change'` | Automatic initial pageview and SPA pathname navigation |
 | `person_profiles: 'identified_only'` | Anonymous browser events; no application `identify()` call |
 | `disable_session_recording: true` | No session replay |
-| `loaded` callback | Registers `site_name: celestial` for subsequent SDK events |
-| `before_send` callback | Adds/overrides `site_name: celestial` on SDK events |
+| `loaded` callback | Registers `site_name: cosmicgaze` for subsequent SDK events |
+| `before_send` callback | Adds/overrides `site_name: cosmicgaze` on SDK events |
 
-Autocapture uses the SDK's defaults and project settings. Celestial does not configure full DOM text/attribute masking through `mask_all_text` or `mask_all_element_attributes`. Element text and attributes may be included according to the SDK's capture rules; session recording being disabled does not disable interaction analytics.
+Autocapture uses the SDK's defaults and project settings. Cosmicgaze does not configure full DOM text/attribute masking through `mask_all_text` or `mask_all_element_attributes`. Element text and attributes may be included according to the SDK's capture rules; session recording being disabled does not disable interaction analytics.
 
 There is no custom `environment` tag, server-side PostHog SDK, or application ingestion endpoint. SDK events and the location-sharing event are sent directly from the visitor's browser to the configured PostHog host.
 
@@ -41,7 +41,7 @@ flowchart TD
     Permission --> Resolve["BigDataCloud reverse geocoding"]
     Resolve --> Manual["visitor_location_shared HTTP request"]
     Manual --> Ingest
-    Ingest --> Dashboard["Celestial dashboard"]
+    Ingest --> Dashboard["Cosmicgaze dashboard"]
 ```
 
 ## Automatic Events
@@ -80,7 +80,7 @@ This flow uses `getCurrentPosition()`, not continuous position watching. It send
 | Property | Source or meaning |
 | --- | --- |
 | `distinct_id` | SDK's anonymous visitor identity |
-| `site_name` | Always `celestial` |
+| `site_name` | Always `cosmicgaze` |
 | `latitude`, `longitude` | Consented browser location |
 | `accuracy_meters` | Browser-reported accuracy radius in meters |
 | `location_source` | Always `browser_geolocation` |
@@ -97,7 +97,7 @@ An OK ingestion response is an acknowledgement, not proof of immediate dashboard
 
 ## Remembered Choice and Opt-Out
 
-The UI stores its choice under `celestial-location-choice` and records that the prompt has appeared under `celestial-location-prompt-seen` in localStorage. A saved seen flag, or a choice of `delivered`, `dismissed`, or `declined`, suppresses the initial prompt on a later mount; a reopen button remains available. An old `shared` value alone is treated as undecided because older code stored it before acknowledging delivery, but the seen flag still suppresses automatic reopening. Storage errors are ignored so restricted browsers can still use the prompt.
+The UI stores its choice under `cosmicgaze-location-choice` and records that the prompt has appeared under `cosmicgaze-location-prompt-seen` in localStorage. A saved seen flag, or a choice of `delivered`, `dismissed`, or `declined`, suppresses the initial prompt on a later mount; a reopen button remains available. An old `shared` value alone is treated as undecided because older code stored it before acknowledging delivery, but the seen flag still suppresses automatic reopening. Storage errors are ignored so restricted browsers can still use the prompt.
 
 After successful submission, the prompt closes after three seconds. Not now remembers dismissal. Permission denial remembers a declined choice and explains that browser permissions must be changed before retrying.
 
@@ -113,4 +113,4 @@ SDK-managed anonymous identity and session storage are separate from the localSt
 
 ## Dashboard
 
-See [DASHBOARD.md](DASHBOARD.md). Filter all insights by `site_name = celestial` and the deployed site origin. Use event properties for this anonymous implementation.
+See [DASHBOARD.md](DASHBOARD.md). Filter all insights by `site_name = cosmicgaze` and the deployed site origin. Use event properties for this anonymous implementation.

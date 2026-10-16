@@ -1,0 +1,10 @@
+{
+  "src": "/cosmicgaze-showcase.mp4",
+  "poster": "http://127.0.0.1:5173/previews/cosmicgaze-showcase.webp",
+  "duration": 22,
+  "width": 1920,
+  "height": 1080,
+  "controls": true,
+  "paused": true,
+  "mobileOverflow": false
+}

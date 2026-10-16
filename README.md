@@ -1,4 +1,4 @@
-# Celestial
+# Cosmicgaze
 
 Discover NASA's Astronomy Picture of the Day from your birthday, the Moon's phase on a day that matters, a surprise from NASA's image archive, or the eight planets in 3D.
 
@@ -47,9 +47,9 @@ npm run dev
 
 Open the localhost URL shown by Vite. Stop the foreground server with Ctrl+C.
 
-PostHog analytics is enabled when `VITE_POSTHOG_TOKEN` is set in `.env.local` or your hosting build environment. Set `VITE_POSTHOG_HOST` to your project's ingestion host (US: `https://us.i.posthog.com`). Use a public project token, never a personal or secret API key. Pageviews include SPA navigation, and all events include `site_name: celestial`. Filter the Celestial dashboard by that event property when sharing a PostHog project with other websites. Session recording is disabled. Local visits also send analytics when the token is configured; remove the token to disable tracking. Set both variables on your host and rebuild to enable analytics on the deployed website.
+PostHog analytics is enabled when `VITE_POSTHOG_TOKEN` is set in `.env.local` or your hosting build environment. Set `VITE_POSTHOG_HOST` to your project's ingestion host (US: `https://us.i.posthog.com`). Use a public project token, never a personal or secret API key. Pageviews include SPA navigation, and all events include `site_name: cosmicgaze`. Filter the Cosmicgaze dashboard by that event property when sharing a PostHog project with other websites. Session recording is disabled. Local visits also send analytics when the token is configured; remove the token to disable tracking. Set both variables on your host and rebuild to enable analytics on the deployed website.
 
-See the [independent PostHog documentation](documentation/posthog/README.md) for setup, source-level implementation, automatic events, optional location sharing, privacy behavior, and the dashboard prompt. Celestial has no custom environment tag; filter by the deployed URL as well as `site_name` to exclude local testing.
+See the [independent PostHog documentation](documentation/posthog/README.md) for setup, source-level implementation, automatic events, optional location sharing, privacy behavior, and the dashboard prompt. Cosmicgaze has no custom environment tag; filter by the deployed URL as well as `site_name` to exclude local testing.
 
 ```sh
 npm run lint

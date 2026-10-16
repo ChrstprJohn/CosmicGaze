@@ -3,8 +3,8 @@ import { MapPin } from 'lucide-react'
 import { analyticsEnabled, shareVisitorLocation } from './lib/analytics.js'
 import './location-sharing.css'
 
-const choiceKey = 'celestial-location-choice'
-const seenKey = 'celestial-location-prompt-seen'
+const choiceKey = 'cosmicgaze-location-choice'
+const seenKey = 'cosmicgaze-location-prompt-seen'
 
 function hasLocationChoice() {
   // Old "shared" choices were saved before delivery was acknowledged. Allow a retry.

@@ -1,10 +1,10 @@
-# Celestial PostHog Dashboard
+# Cosmicgaze PostHog Dashboard
 
 ## Filters and Reporting Rules
 
-Use `site_name = celestial` on every insight and funnel step. Also restrict `$current_url` to the actual deployed website origin, including a trailing slash, to avoid localhost and other environments. Replace the placeholder below before using the prompt. If multiple production origins are intentional, allowlist each one.
+Use `site_name = cosmicgaze` on every insight and funnel step. Also restrict `$current_url` to the actual deployed website origin, including a trailing slash, to avoid localhost and other environments. Replace the placeholder below before using the prompt. If multiple production origins are intentional, allowlist each one.
 
-Celestial does not emit a custom `environment` property. Location events reuse anonymous visitor identity but do not explicitly attach `$session_id`, so use unique visitors for sharing insights and related funnels.
+Cosmicgaze does not emit a custom `environment` property. Location events reuse anonymous visitor identity but do not explicitly attach `$session_id`, so use unique visitors for sharing insights and related funnels.
 
 Approximate GeoIP (`$geoip_*`) and consented location fields (`city`, `country`, `region`) have different sources and coverage. Visitors who share are only a subset of visitors. Keep missing locations visible; do not add GeoIP counts and consented-location counts together as a total audience.
 
@@ -13,11 +13,11 @@ Approximate GeoIP (`$geoip_*`) and consented location fields (`city`, `country`,
 Paste into PostHog AI, or use this as a manual setup checklist:
 
 ```text
-Create a dashboard named "Celestial - Traffic and Visitor Geography".
+Create a dashboard named "Cosmicgaze - Traffic and Visitor Geography".
 Use the PostHog project configured for this website.
 
-Apply event-property filters site_name = celestial and
-$current_url starts with <YOUR_CELESTIAL_PRODUCTION_ORIGIN_WITH_TRAILING_SLASH>
+Apply event-property filters site_name = cosmicgaze and
+$current_url starts with <YOUR_COSMICGAZE_PRODUCTION_ORIGIN_WITH_TRAILING_SLASH>
 to every insight and every funnel step.
 Replace that placeholder with the actual deployed origin.
 There is no environment property in this implementation.

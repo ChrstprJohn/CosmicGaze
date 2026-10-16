@@ -39,7 +39,7 @@ const Pet = memo(function Pet({ pet, index }) {
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = `celestial-${pet.id}.png`
+      link.download = `cosmicgaze-${pet.id}.png`
       document.body.appendChild(link)
       link.click()
       link.remove()
