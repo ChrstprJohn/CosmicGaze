@@ -1,6 +1,6 @@
 # Search indexing
 
-The production domain is https://celestial-background.vercel.app. If the domain changes, update `SITE_URL` in `src/lib/seo.js` and rebuild.
+The production domain is https://cosmicgaze.chrbuilds.dev. If the domain changes, update `SITE_URL` in `src/lib/seo.js` and rebuild.
 
 `npm run build` generates a separate HTML entry for every enabled route, with its title, description, canonical URL, Open Graph and Twitter tags, and WebSite/WebPage structured data. The initial HTML contains a short page introduction and navigation; React replaces it with the interactive tool. Interactive results still require JavaScript. SPA navigation updates the page metadata as well.
 
