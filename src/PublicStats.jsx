@@ -45,7 +45,6 @@ export default function PublicStats({ totalCards }) {
         <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><StatNumber value={stats?.pageviews} loading={status === 'loading'} /></div>
         <div title="Experiences currently available in Explore."><dt>Things to explore</dt><StatNumber value={totalCards} /></div>
       </dl>
-      {status === 'unavailable' && <p className="public-stats-note" role="status">Community stats are taking a moment.</p>}
     </div>
   )
 }
