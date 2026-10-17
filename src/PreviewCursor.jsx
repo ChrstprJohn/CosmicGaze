@@ -1,13 +1,25 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import './preview-cursor.css'
 
 const dustSizes = [1, 1.7, 1, 2.6, 1.7, 1]
 
 export default function PreviewCursor() {
   const canvasRef = useRef(null)
+  const [surface, setSurface] = useState(null)
+
+  useEffect(() => {
+    // Native dialogs sit above every page z-index, so keep the cursor in their top layer.
+    const syncSurface = () => setSurface(document.querySelector('dialog[open]') || document.body)
+    const observer = new MutationObserver(syncSurface)
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['open'] })
+    syncSurface()
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
+    if (!canvas) return
     const context = canvas.getContext('2d')
     if (!context) return
     const available = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)')
@@ -146,7 +158,7 @@ export default function PreviewCursor() {
       document.removeEventListener('visibilitychange', reset)
       available.removeEventListener('change', resize)
     }
-  }, [])
+  }, [surface])
 
-  return <canvas ref={canvasRef} className="preview-cursor" aria-hidden="true" />
+  return surface ? createPortal(<canvas ref={canvasRef} className="preview-cursor" aria-hidden="true" />, surface) : null
 }

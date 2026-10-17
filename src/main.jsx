@@ -9,8 +9,11 @@ import App from './App.jsx'
 import './index.css'
 import './lib/analytics.js'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = document.getElementById('root')
+const app = (
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+if (root.hasAttribute('data-prerendered')) ReactDOM.hydrateRoot(root, app)
+else ReactDOM.createRoot(root).render(app)

@@ -12,8 +12,17 @@
 .moon-match-visual.is-combined .match-combined { display: block; max-width: 480px; justify-self: center; width: 100%; }
 .moon-match-visual.is-combined .match-combined canvas { animation: moon-meet-result 4000ms ease-out both; }
 .moon-match-visual.is-combined .match-combined figcaption { animation: moon-meet-caption 4000ms ease-out both; }
-.match-actions { display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-.match-actions .art-download-wrap { margin-top: 0; }
+.match-actions { display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.match-actions .art-download-wrap { display: flex; margin-top: 0; }
+.match-actions :is(.primary-button, .secondary-button) { min-height: 52px; }
+.match-actions:has(.match-replay) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.match-actions:has(.match-replay) .art-download-wrap { grid-column: 1 / -1; }
+.match-actions:has(.match-replay) .art-download-wrap > button { width: 100%; }
+@media (max-width: 599px) {
+  .site-shell .match-actions:has(.match-replay) > button { min-width: 0; padding-inline: 8px; gap: 6px; }
+  .match-actions > * { flex: 1 1 100%; }
+  .match-actions .art-download-wrap > button { width: 100%; }
+}
 @keyframes moon-meet-left {
   0% { transform: translateX(-77%) scale(.46); opacity: 1; }
   70% { transform: translateX(-50%) scale(1); opacity: 1; }

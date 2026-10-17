@@ -1,4 +1,4 @@
-import ResultSkeleton from './ResultSkeleton.jsx'
+import ResultLoading from './ResultLoading.jsx'
 import { memo, useEffect, useRef, useState } from 'react'
 import { ArrowLeft, Pause, Play, RotateCcw } from 'lucide-react'
 import DownloadPreview from './DownloadPreview.jsx'
@@ -49,7 +49,7 @@ const Pet = memo(function Pet({ pet, index }) {
             </span>
           ))}
         </div>
-        {status === 'loading' && <ResultSkeleton shape="round" label={`${pet.name} is arriving…`} overlay />}
+        {status === 'loading' && <ResultLoading label={`${pet.name} is arriving…`} overlay />}
         {status === 'error' && <div className="pet-load-error" role="status">
           <p>{pet.name} couldn’t appear.</p>
           <button type="button" onClick={() => { setStatus('loading'); setRetry(value => value + 1) }}><RotateCcw size={14} aria-hidden="true" /> Try again</button>

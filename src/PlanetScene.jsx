@@ -1,4 +1,3 @@
-import PlanetSkeleton from './PlanetSkeleton.jsx'
 import { planetLayout } from './lib/planet-layout.js'
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown, Hand, Minus, Plus, RotateCcw, SlidersHorizontal } from 'lucide-react'
@@ -387,7 +386,7 @@ export default function PlanetScene({ planet, decorative = false, hoverPreview =
       {!decorative && <p className="planet-rotation-hint"><Hand size={18} aria-hidden="true" />Drag or swipe the planet to rotate</p>}
       <div ref={host} className={`planet-stage${decorative ? ' planet-stage-decorative' : ''}`} aria-busy={status === 'loading'} role={decorative ? undefined : status === 'ready' ? 'img' : 'group'} aria-label={decorative ? undefined : `Interactive 3D ${planet.name}. Arrow keys rotate; plus and minus zoom; R resets.`} aria-hidden={decorative && !showFeedback || undefined} tabIndex={decorative ? undefined : 0}>
       {(!decorative || showFeedback) && status !== 'ready' && <div className="planet-stage-feedback" role="status">
-        {status === 'loading' ? <PlanetSkeleton rings={appearance ? appearance.rings : planet.id === 'saturn'} decorative={decorative} label={`Preparing ${planet.name}…`} /> : <>
+        {status === 'loading' ? <p>Preparing {planet.name}…</p> : <>
           <p>{status === 'unsupported' ? 'The 3D view needs a browser with WebGL support.' : 'The planet view could not load.'}</p>
           <p className="planet-error-help">You can still explore the story and facts.</p>
           {status !== 'unsupported' && <button className="planet-text-button" onClick={onRetry}>Try again <RotateCcw size={15} aria-hidden="true" /></button>}

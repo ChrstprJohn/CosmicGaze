@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './hero-comets.css'
 
 export default function ShootingStars() {
-  const [running, setRunning] = useState(() => !document.hidden)
+  const [running, setRunning] = useState(true)
 
   useEffect(() => {
     const update = () => setRunning(!document.hidden)

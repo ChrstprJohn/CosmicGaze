@@ -29,8 +29,7 @@ export default function SolarSystemPage() {
         <div className="planet-mobile-intro">
           <a className="back-link" href="/#services"><ArrowLeft size={20} aria-hidden="true" /> Back</a>
           <div className="planet-introduction" aria-live="polite" aria-atomic="true">
-            <h1>{planet.name}</h1>
-            <p className="planet-subtitle">{planet.subtitle}</p>
+            <h1>{planet.name}<br /><em>{planet.subtitle}</em></h1>
             <p className="planet-description">{planet.description}</p>
           </div>
         </div>

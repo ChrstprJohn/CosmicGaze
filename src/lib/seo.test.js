@@ -5,6 +5,17 @@ import seoBuild from '../../scripts/seo-build.js'
 import { SEO_PAGES, SITE_URL } from './seo.js'
 import { EXTRA_DISCOVERIES } from './discoveries.js'
 
+test('build inlines the entry stylesheet while preserving unknown external styles', () => {
+  const bundle = {
+    'index.html': { source: '<head><link rel="stylesheet" crossorigin href="/assets/main.css"><link rel="stylesheet" href="https://example.com/theme.css"></head><div id="root"></div>' },
+    'assets/main.css': { type: 'asset', fileName: 'assets/main.css', source: 'body{color:white}' },
+  }
+  seoBuild().generateBundle.call({ emitFile() {} }, {}, bundle)
+  assert.ok(bundle['index.html'].source.includes('<style>body{color:white}</style>'))
+  assert.ok(!bundle['index.html'].source.includes('href="/assets/main.css"'))
+  assert.ok(bundle['index.html'].source.includes('href="https://example.com/theme.css"'))
+})
+
 test('build emits distinct route metadata, discoverable links and matching sitemap', () => {
   const bundle = { 'index.html': { source: readFileSync(new URL('../../index.html', import.meta.url), 'utf8') } }
   const output = {}

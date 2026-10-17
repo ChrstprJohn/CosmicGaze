@@ -7,7 +7,6 @@ import PreviewCursor from './PreviewCursor.jsx'
 import ShootingStars from './ShootingStars.jsx'
 import { EXTRA_DISCOVERIES } from './lib/discoveries.js'
 import './discoveries.css'
-import LocationSharing from './LocationSharing.jsx'
 import './discovery-headings.css'
 import './solar-system.css'
 import './pet-eyes.css'
@@ -60,8 +59,8 @@ export default function App() {
         <a className="wordmark" href="/" aria-label="Cosmicgaze home"><Orbit size={27} strokeWidth={1.2} aria-hidden="true" /><span>cosmicgaze</span></a>
         <nav aria-label="Main navigation"><a href={isDiscovery ? '/#services' : '#services'}>Explore <ArrowUpRight size={15} aria-hidden="true" /></a></nav>
       </header>
-      <main>{ExtraPage ? <Suspense fallback={<LoadingState page>Opening {extraService.title}…</LoadingState>}><ExtraPage /></Suspense> : isBirthday ? <Suspense fallback={<LoadingState page>Opening your birthday picture…</LoadingState>}><BirthdayPage /></Suspense> : isMoon ? <Suspense fallback={<LoadingState page>Opening your Moon…</LoadingState>}><MoonPage /></Suspense> : isShuffle ? <Suspense fallback={<LoadingState page>Opening Cosmic shuffle…</LoadingState>}><ShufflePage /></Suspense> : isSolar ? <Suspense fallback={<LoadingState page>Opening the Solar System…</LoadingState>}><SolarSystemPage /></Suspense> : isPets ? <Suspense fallback={<LoadingState page>The pets are arriving…</LoadingState>}><PetsPage /></Suspense> : <Suspense fallback={<LoadingState page>Opening Cosmicgaze…</LoadingState>}><LandingPage /><LocationSharing /></Suspense>}</main>
-      <footer className="site-footer"><span className="footer-wordmark"><Orbit size={27} strokeWidth={1.2} aria-hidden="true" /><span>cosmicgaze</span></span><div className="footer-credit">{isPets && <span>Little companions, made for Cosmicgaze.</span>}<span>Made by dcd</span></div></footer>
+      <main>{ExtraPage ? <Suspense fallback={<LoadingState page>Opening {extraService.title}…</LoadingState>}><ExtraPage /></Suspense> : isBirthday ? <Suspense fallback={<LoadingState page>Opening your birthday picture…</LoadingState>}><BirthdayPage /></Suspense> : isMoon ? <Suspense fallback={<LoadingState page>Opening your Moon…</LoadingState>}><MoonPage /></Suspense> : isShuffle ? <Suspense fallback={<LoadingState page>Opening Cosmic shuffle…</LoadingState>}><ShufflePage /></Suspense> : isSolar ? <Suspense fallback={<LoadingState page>Opening the Solar System…</LoadingState>}><SolarSystemPage /></Suspense> : isPets ? <Suspense fallback={<LoadingState page>The pets are arriving…</LoadingState>}><PetsPage /></Suspense> : <Suspense fallback={<LoadingState page>Opening Cosmicgaze…</LoadingState>}><LandingPage /></Suspense>}</main>
+      <footer className={`site-footer${isDiscovery ? ' site-footer-discovery' : ''}`}><span className="footer-wordmark"><Orbit size={27} strokeWidth={1.2} aria-hidden="true" /><span>cosmicgaze</span></span><div className="footer-credit">{isPets && <span className="pets-footer-note">Little companions, made for Cosmicgaze.</span>}<span>Made by dcd</span></div></footer>
     </div>
   )
 }

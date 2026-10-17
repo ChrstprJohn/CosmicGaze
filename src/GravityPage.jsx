@@ -2,7 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import { Pause, Play, RotateCcw } from 'lucide-react'
 import DiscoveryLayout from './DiscoveryLayout.jsx'
 import { GRAVITY_WORLDS, gravityJump, jumpHeightAt } from './lib/gravity.js'
+import { planetTexture } from './lib/planets.js'
 import './playgrounds.css'
+
+const worldIcons = {
+  moon: 'url(/textures/moon-surface.jpg)',
+  pluto: 'radial-gradient(circle at 35% 40%, #e6d6bb 0 20%, #b99070 55%, #705c50)',
+}
 
 export default function GravityPage() {
   const [selected, setSelected] = useState('moon')
@@ -52,7 +58,7 @@ export default function GravityPage() {
   return <DiscoveryLayout mobilePreview controlsTitle="Set up your jump" id="gravity" title="Gravity" emphasis="playground." description="Compare the same jump on different worlds." controls={<>
     <label htmlFor="gravity-mass">Your mass (kg)</label><input id="gravity-mass" type="number" inputMode="decimal" className="text-field" min="1" max="300" step="any" value={mass} aria-invalid={!valid} onChange={(event) => setMass(event.target.value)} />
     {!valid && <p className="form-error" role="alert">Enter a mass between 1 and 300 kg.</p>}
-    <fieldset className="playground-fieldset"><legend>Choose a world</legend><div className="world-selector">{GRAVITY_WORLDS.map((item) => <button key={item.id} type="button" aria-pressed={selected === item.id} onClick={() => { reset(); setSelected(item.id) }}>{item.name}</button>)}</div></fieldset>
+    <fieldset className="playground-fieldset"><legend>Choose a world</legend><div className="world-selector">{GRAVITY_WORLDS.map((item) => <button key={item.id} type="button" aria-pressed={selected === item.id} onClick={() => { reset(); setSelected(item.id) }}><span className="planet-thumbnail" aria-hidden="true" style={{ backgroundImage: worldIcons[item.id] || `url(${planetTexture(item.id, true)})`, backgroundColor: item.color }} />{item.name}</button>)}</div></fieldset>
     <label htmlFor="earth-jump">Your jump on Earth · {centimeters} cm</label><input id="earth-jump" type="range" className="sky-time-slider" min="10" max="100" step="5" value={centimeters} aria-valuetext={`${centimeters} centimeters on Earth`} onChange={(event) => { reset(); setCentimeters(Number(event.target.value)) }} />
     <div className="button-row"><button className="secondary-button" type="button" disabled={!valid || running} onClick={launch}><Play size={16} />{reduced ? 'Show jump heights' : time > 0 && time < duration ? 'Resume jump' : 'Try the jump'}</button><button className="secondary-button" type="button" disabled={!running} onClick={() => setRunning(false)}><Pause size={16} />Pause</button><button className="secondary-button" type="button" onClick={reset}><RotateCcw size={16} />Reset</button></div>
     <p className="discovery-note">Same takeoff speed. Constant gravity, no air resistance.</p>

@@ -1,4 +1,4 @@
-import ResultSkeleton from './ResultSkeleton.jsx'
+import ResultLoading from './ResultLoading.jsx'
 import OriginalImageDownload from './OriginalImageDownload.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowUpRight, LoaderCircle, Shuffle } from 'lucide-react'
@@ -53,7 +53,7 @@ export default function ShufflePage() {
       <div className="shuffle-result">
         <figure className="shuffle-figure" aria-busy={loading}>
           <div className="shuffle-image-stage" aria-busy={loading || (!imageReady && !imageFailed)}>
-            {(loading || (!imageReady && !imageFailed)) && <ResultSkeleton label="Loading your discovery…" overlay />}
+            {(loading || (!imageReady && !imageFailed)) && <ResultLoading label="Loading your discovery…" overlay />}
             {imageFailed ? <div className="image-fallback"><p>The preview couldn’t load.</p><a href={result.image} target="_blank" rel="noreferrer">Open original image <ArrowUpRight size={14} aria-hidden="true" /></a></div> : <img className="shuffle-image" src={imagePreviewUrl(result.image)} alt={result.alt || result.title} decoding="async" onLoad={() => setImageReady(true)} onError={() => setImageFailed(true)} />}
           </div>
           <figcaption className="shuffle-details" aria-live="polite" aria-atomic="true"><p className="result-date">{formatDate(result.date)}</p><h2>{result.title}</h2></figcaption>

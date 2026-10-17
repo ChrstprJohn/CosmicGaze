@@ -1,4 +1,4 @@
-import ResultSkeleton from './ResultSkeleton.jsx'
+import ResultLoading from './ResultLoading.jsx'
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
@@ -118,7 +118,7 @@ export default function EarthGlobe({ station, follow }) {
     <div ref={host} aria-busy={status === 'loading'} className="earth-stage" tabIndex={0} role="group" aria-label="Earth globe with station position. Turn off Follow station to rotate with left and right arrow keys." onKeyDown={(event) => {
       if (!follow && ['ArrowLeft','ArrowRight'].includes(event.key)) { event.preventDefault(); sceneControls.current?.rotate(event.key === 'ArrowLeft' ? -1 : 1) }
     }}>
-      {status === 'loading' && <ResultSkeleton shape="round" label="Preparing Earth…" overlay />}
+      {status === 'loading' && <ResultLoading label="Preparing Earth…" overlay />}
       {status !== 'ready' && status !== 'loading' && <div className="earth-feedback" role="status"><p>{status === 'unsupported' ? 'The 3D globe isn’t supported here. The live coordinates are shown below.' : status === 'error' ? 'The Earth texture couldn’t load.' : 'Opening our world…'}</p>{status === 'error' && <button className="secondary-button" onClick={() => { setStatus('loading'); setRetry((value) => value + 1) }}>Try again</button>}</div>}
     </div>
     <p className="discovery-note">{follow ? 'Following the station. Turn off Follow station to explore Earth.' : 'Drag to rotate, or focus the globe and use left/right arrow keys.'}</p>

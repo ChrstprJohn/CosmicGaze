@@ -1,6 +1,6 @@
 import PreviewSkeleton from './PreviewSkeleton.jsx'
 import PublicStats from './PublicStats.jsx'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import HeroScene from './HeroScene.jsx'
 import DiscoveryArt from './DiscoveryArt.jsx'
@@ -63,13 +63,21 @@ function PetsArt() {
   </div>
 }
 
+function subscribePlaybackPreference(update) {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  motion.addEventListener('change', update)
+  navigator.connection?.addEventListener('change', update)
+  return () => { motion.removeEventListener('change', update); navigator.connection?.removeEventListener('change', update) }
+}
+const manualPlayback = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches || Boolean(navigator.connection?.saveData)
+
 function ShowcaseSection() {
   const video = useRef(null)
   const [active, setActive] = useState(false)
   const [blocked, setBlocked] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
   const [videoFailed, setVideoFailed] = useState(false)
-  const [manual] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches || Boolean(navigator.connection?.saveData))
+  const manual = useSyncExternalStore(subscribePlaybackPreference, manualPlayback, () => false)
   useEffect(() => {
     const element = video.current
     let inView = false

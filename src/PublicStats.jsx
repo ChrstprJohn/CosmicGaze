@@ -3,8 +3,8 @@ import { formatStat } from './lib/stat-format.js'
 import './public-stats.css'
 
 function StatNumber({ value, loading = false }) {
-  return <dd aria-label={loading ? 'Loading' : value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span className={`stat-number${loading ? ' stat-number-loading' : ''}`} aria-hidden="true">{loading ? '\u00a0' : [...formatStat(value)].map((character, index) => /[0-9]/.test(character) ? (
-    <span className="stat-digit" key={index}><span className="stat-digit-track" style={{ transform: `translateY(-${(10 + Number(character)) * 1.1}em)` }}>{Array.from({ length: 20 }, (_, digit) => <span key={digit}>{digit % 10}</span>)}</span></span>
+  return <dd><span className="sr-only">{loading ? 'Loading' : value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}</span><span className={`stat-number${loading ? ' stat-number-loading' : ''}`} aria-hidden="true">{loading ? '\u00a0' : [...formatStat(value)].map((character, index) => /[0-9]/.test(character) ? (
+    <span className="stat-digit" data-digit={character} key={index}><span className="stat-digit-track" style={{ transform: `translateY(-${(10 + Number(character)) * 1.1}em)` }}>{Array.from({ length: 20 }, (_, digit) => <span key={digit}>{digit % 10}</span>)}</span></span>
   ) : <span key={index}>{character}</span>)}</span></dd>
 }
 

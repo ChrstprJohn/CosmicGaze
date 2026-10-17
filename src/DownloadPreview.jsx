@@ -67,6 +67,7 @@ export default function DownloadPreview({ prepare, filename, label = 'Preview do
       if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) close()
     }}>
       <header className="download-preview-header"><div><h2 id={heading}>{title}</h2><p>Check your image before saving it.</p></div><button type="button" className="download-preview-close" aria-label="Close preview" onClick={close} autoFocus><X size={21} aria-hidden="true" /></button></header>
+
       <div className="download-preview-body" aria-busy={state.phase === 'loading' || (state.phase === 'ready' && !imageReady)}>
         {state.phase === 'loading' && <div className="download-preview-state" role="status"><LoaderCircle className="loading-icon" size={24} aria-hidden="true" /><p>Preparing your preview…</p></div>}
         {state.phase === 'error' && <div className="download-preview-state"><p role="alert">The preview couldn’t load. Please try again.</p><button type="button" className="secondary-button" onClick={preview}>Try again</button></div>}

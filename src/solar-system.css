@@ -34,6 +34,9 @@
 .planet-control-buttons button:disabled:hover { border-color: transparent; background: transparent; }
 .planet-customize-link { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: #c9c1f0; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
 .planet-customize-link:hover { color: #f3f0e9; }
+@media (min-width: 1024px) {
+  .solar-workspace .planet-customize-link { display: none; }
+}
 .planet-customize-link svg { flex-shrink: 0; }
 /* Keep generous hit areas around the smaller visible zoom buttons. */
 .planet-viewer-customizable .planet-control-buttons { gap: 0; background: transparent; border: 0; }

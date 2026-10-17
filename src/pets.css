@@ -38,7 +38,7 @@
   .pets-heading-row { align-items: flex-start; flex-direction: column; gap: 22px; }
   .pets-heading-row p { font-size: 13px; max-width: 28ch; }
   .pets-gallery { gap: 22px; margin-top: 30px; }
-  .pets-hint { margin-top: 32px; }
+  .pets-hint, .pets-footer-note { display: none; }
 }
 @media (max-width: 599px) {
   .pets-gallery { gap: 12px; }

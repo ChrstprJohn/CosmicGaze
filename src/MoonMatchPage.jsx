@@ -1,4 +1,4 @@
-import ResultSkeleton from './ResultSkeleton.jsx'
+import ResultLoading from './ResultLoading.jsx'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Combine, Columns2, RotateCcw } from 'lucide-react'
 import DiscoveryLayout, { ArtDownload } from './DiscoveryLayout.jsx'
@@ -83,8 +83,8 @@ export default function MoonMatchPage() {
   </>}>
     <div className="mobile-preview match-preview">
       <div ref={visual} className={`moon-match-visual${combined ? ' is-combined' : ''}`} aria-busy={status === 'loading'}>
-        <figure className="match-moon" aria-hidden={combined}>{status === 'loading' && <ResultSkeleton shape="round" label="Preparing your Moon…" overlay />}<canvas ref={firstCanvas} width="480" height="480" role="img" aria-label={`Your Moon: ${first.name}, ${Math.round(first.fraction * 100)}% illuminated`} /><figcaption><span>Your Moon · {formatDate(firstDate)}</span><h2>{first.name}</h2><p>{Math.round(first.fraction * 100)}% illuminated</p></figcaption></figure>
-        <figure className="match-moon" aria-hidden={combined}>{status === 'loading' && <ResultSkeleton shape="round" label="Preparing their Moon…" overlay />}<canvas ref={secondCanvas} width="480" height="480" role="img" aria-label={`Their Moon: ${second.name}, ${Math.round(second.fraction * 100)}% illuminated`} /><figcaption><span>Their Moon · {formatDate(secondDate)}</span><h2>{second.name}</h2><p>{Math.round(second.fraction * 100)}% illuminated</p></figcaption></figure>
+        <figure className="match-moon" aria-hidden={combined}>{status === 'loading' && <ResultLoading label="Preparing your Moon…" overlay />}<canvas ref={firstCanvas} width="480" height="480" role="img" aria-label={`Your Moon: ${first.name}, ${Math.round(first.fraction * 100)}% illuminated`} /><figcaption><span>Your Moon · {formatDate(firstDate)}</span><h2>{first.name}</h2><p>{Math.round(first.fraction * 100)}% illuminated</p></figcaption></figure>
+        <figure className="match-moon" aria-hidden={combined}>{status === 'loading' && <ResultLoading label="Preparing their Moon…" overlay />}<canvas ref={secondCanvas} width="480" height="480" role="img" aria-label={`Their Moon: ${second.name}, ${Math.round(second.fraction * 100)}% illuminated`} /><figcaption><span>Their Moon · {formatDate(secondDate)}</span><h2>{second.name}</h2><p>{Math.round(second.fraction * 100)}% illuminated</p></figcaption></figure>
         <figure className="match-combined"><canvas ref={combinedCanvas} width="480" height="480" role="img" aria-label="Both birthday Moon phases layered together" /><figcaption><h2>Your light, together.</h2><p>Both phases aligned north-up.</p></figcaption></figure>
       </div>
 
@@ -94,7 +94,7 @@ export default function MoonMatchPage() {
     <div className="match-summary" aria-live="polite"><p>{match.fit >= 90 ? 'Nearly a full Moon, with little overlap.' : match.fit >= 60 ? 'Mostly filled, with some gaps or overlap.' : 'More gaps or overlap between your phases.'}</p><p className="discovery-note">Fit counts light from exactly one phase. Gaps and overlap lower the score.</p></div>
     <div className="match-actions">
       <button className="primary-button" type="button" disabled={status !== 'ready'} onClick={showTogether}>{combined ? <><Columns2 size={18} aria-hidden="true" />See both Moons</> : <><Combine size={18} aria-hidden="true" />Combine our Moons</>}</button>
-      {combined && <button type="button" className="secondary-button match-replay" disabled={status !== 'ready'} onClick={replayCollision}><RotateCcw size={16} aria-hidden="true" />Replay merge</button>}
+      {combined && <button type="button" className="secondary-button match-replay" disabled={status !== 'ready'} onClick={replayCollision}><RotateCcw size={16} aria-hidden="true" />Replay</button>}
       <ArtDownload key={datesKey} label="Download our Moon card" filename="cosmicgaze-moon-match.png" disabled={status !== 'ready'} makeImage={exportCard} />
     </div>
   </DiscoveryLayout>

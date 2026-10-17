@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const pagePath = () => window.location.pathname.replace(/\/$/, '') || '/'
+const pagePath = () => typeof window === 'undefined' ? '/' : window.location.pathname.replace(/\/$/, '') || '/'
 
 // Keep the shared shell and already-loaded modules when following a local card.
 // Downloads, external links, modifier clicks, and same-page anchors stay native.

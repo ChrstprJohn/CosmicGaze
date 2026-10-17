@@ -1,4 +1,4 @@
-import ResultSkeleton from './ResultSkeleton.jsx'
+import ResultLoading from './ResultLoading.jsx'
 import { useEffect, useState } from 'react'
 import { Pause, Play, RefreshCw } from 'lucide-react'
 import DiscoveryLayout, { SourceNote } from './DiscoveryLayout.jsx'
@@ -45,7 +45,7 @@ export default function SpaceStationPage() {
     <SourceNote href="https://wheretheiss.at/w/developer">Live position: Where the ISS at?</SourceNote>
   </>}>
     <EarthGlobe station={station} follow={follow} />
-    {!station && !error && <ResultSkeleton shape="facts" label="Finding the station’s position…" />}
+    {!station && !error && <ResultLoading label="Finding the station’s position…" />}
     {station && <><dl className="space-facts"><div><dt>Altitude</dt><dd>{station.altitude.toFixed(0)} <span>km</span></dd></div><div><dt>Speed</dt><dd>{station.velocity.toLocaleString('en-US', { maximumFractionDigits: 0 })} <span>km/h</span></dd></div><div><dt>Latitude</dt><dd>{Math.abs(station.latitude).toFixed(2)}° <span>{station.latitude >= 0 ? 'N' : 'S'}</span></dd></div><div><dt>Longitude</dt><dd>{Math.abs(station.longitude).toFixed(2)}° <span>{station.longitude >= 0 ? 'E' : 'W'}</span></dd></div></dl><p className="discovery-note">Position received for {new Date(station.timestamp * 1000).toLocaleString()}. {stale ? 'This is an older observation.' : ''}</p></>}
     <SourceNote href="https://www.solarsystemscope.com/textures/">Earth texture: Solar System Scope · CC BY 4.0</SourceNote>
   </DiscoveryLayout>

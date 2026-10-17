@@ -3,11 +3,12 @@
 .public-stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 24px; align-items: start; }
 .public-stats-row > div { display: flex; flex-direction: column-reverse; gap: 8px; min-width: 0; text-align: center; }
 .public-stats dt { color: #b5bbd0; font-size: 14px; line-height: 1.5; }
-.public-stats dd { margin: 0; color: #c9c1f0; font-size: clamp(32px, 3vw, 40px); line-height: 1.1; font-weight: 400; letter-spacing: -.025em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.public-stats dd { margin: 0; color: #c9c1f0; font-size: clamp(32px, 3vw, 40px); line-height: 1.1; font-weight: 400; letter-spacing: -.025em; font-variant-numeric: proportional-nums; overflow-wrap: anywhere; }
 .public-stats dd a { color: inherit; text-underline-offset: 4px; }
 .stat-number { display: inline-block; }
-.stat-digit { display: inline-block; height: 1.1em; width: .62em; overflow: hidden; vertical-align: bottom; }
-.stat-digit-track { display: flex; flex-direction: column; }
+.stat-digit { position: relative; display: inline-block; height: 1.1em; overflow: hidden; vertical-align: bottom; }
+.stat-digit::before { content: attr(data-digit); visibility: hidden; }
+.stat-digit-track { position: absolute; inset: 0; display: flex; flex-direction: column; text-align: center; }
 .stat-digit-track > span { display: block; height: 1.1em; line-height: 1.1; flex-shrink: 0; }
 .public-stats dt, .public-stats dd { transition: color 180ms ease; }
 @media (hover: hover) {

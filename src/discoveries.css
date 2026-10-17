@@ -9,7 +9,7 @@
 .discovery-controls > label:first-child { margin-top: 0; }
 .discovery-controls .primary-button { margin-top: 20px; gap: 10px; }
 .discovery-result { min-width: 0; width: 100%; max-width: 700px; justify-self: end; }
-.discovery-result-first { grid-template-areas: 'intro result' 'controls result'; row-gap: 0; }
+.discovery-result-first { grid-template-areas: 'intro result' 'controls result'; grid-template-rows: min-content 1fr; row-gap: 0; }
 .discovery-result-first .discovery-sidebar { grid-area: intro; }
 .discovery-result-first .discovery-result { grid-area: result; }
 .discovery-result-first > .discovery-controls { grid-area: controls; min-width: 0; max-width: 420px; }
@@ -117,7 +117,7 @@
 @media (max-width: 767px) {
   .discovery-workspace { grid-template-columns: 1fr; gap: 36px; padding: 30px 24px 55px; }
   .discovery-sidebar, .discovery-result { max-width: 480px; width: 100%; justify-self: center; }
-  .discovery-result-first { grid-template-areas: 'intro' 'result' 'controls'; gap: 24px; }
+  .discovery-result-first { grid-template-areas: 'intro' 'result' 'controls'; grid-template-rows: auto; align-content: start; gap: 24px; }
   .discovery-result-first > .discovery-controls { margin-top: 0; max-width: 480px; width: 100%; justify-self: center; }
   .discovery-sidebar .back-link { margin-bottom: 28px; }
   .discovery-sidebar h1 { font-size: clamp(48px,12vw,64px); }
