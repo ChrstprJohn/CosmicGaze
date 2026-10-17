@@ -6,20 +6,23 @@ function StatNumber({ value, loading = false }) {
   const number = useRef(null)
   useEffect(() => {
     if (value == null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const reveal = () => number.current.animate([
-      { opacity: 0.3, filter: 'blur(5px)', transform: 'translateY(5px)', clipPath: 'inset(0 0 50% 0)' },
-      { opacity: 1, filter: 'blur(0px)', transform: 'translateY(0)', clipPath: 'inset(0)' },
-    ], { duration: 900, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
-    let animation = reveal()
+    const tracks = [...number.current.querySelectorAll('.stat-digit-track')]
+    const roll = () => tracks.map((track, index) => track.animate([
+      { transform: 'translateY(0)' },
+      { transform: track.style.transform },
+    ], { duration: 1100 + index * 80, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }))
+    let animations = roll()
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return
       observer.disconnect()
-      if (animation.playState === 'finished') animation = reveal()
+      if (animations.every(animation => animation.playState === 'finished')) animations = roll()
     }, { threshold: 0.5 })
     observer.observe(number.current)
-    return () => { observer.disconnect(); animation?.cancel() }
+    return () => { observer.disconnect(); animations.forEach(animation => animation.cancel()) }
   }, [value])
-  return <dd aria-label={loading ? 'Loading' : value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span ref={number} className={`stat-number${loading ? ' stat-number-loading' : ''}`} aria-hidden="true">{loading ? '\u00a0' : formatStat(value)}</span></dd>
+  return <dd aria-label={loading ? 'Loading' : value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span ref={number} className={`stat-number${loading ? ' stat-number-loading' : ''}`} aria-hidden="true">{loading ? '\u00a0' : [...formatStat(value)].map((character, index) => /[0-9]/.test(character) ? (
+    <span className="stat-digit" key={index}><span className="stat-digit-track" style={{ transform: `translateY(-${(10 + Number(character)) * 1.1}em)` }}>{Array.from({ length: 20 }, (_, digit) => <span key={digit}>{digit % 10}</span>)}</span></span>
+  ) : <span key={index}>{character}</span>)}</span></dd>
 }
 
 export default function PublicStats({ totalCards }) {
