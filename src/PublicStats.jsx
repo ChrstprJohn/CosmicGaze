@@ -1,5 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { formatStat } from './lib/stat-format.js'
 import './public-stats.css'
+
+function StatNumber({ value }) {
+  const number = useRef(null)
+  useEffect(() => {
+    if (value == null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const animation = number.current.animate([
+      { opacity: 0.3, filter: 'blur(5px)', transform: 'translateY(5px)', clipPath: 'inset(0 0 50% 0)' },
+      { opacity: 1, filter: 'blur(0px)', transform: 'translateY(0)', clipPath: 'inset(0)' },
+    ], { duration: 700, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
+    return () => animation.cancel()
+  }, [value])
+  return <dd aria-label={value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span ref={number} className="stat-number" aria-hidden="true">{formatStat(value)}</span></dd>
+}
 
 export default function PublicStats({ totalCards }) {
   const [stats, setStats] = useState(null)
@@ -18,15 +32,14 @@ export default function PublicStats({ totalCards }) {
       .finally(() => clearTimeout(timeout))
     return () => { disposed = true; controller.abort(); clearTimeout(timeout) }
   }, [])
-  const number = value => value == null ? '—' : new Intl.NumberFormat('en').format(value)
   return (
     <div className="public-stats" aria-label="CosmicGaze community statistics">
       <dl className="public-stats-row" aria-busy={status === 'loading'}>
-        <div><dt>Unique visitors</dt><dd>{number(stats?.explorers)}</dd></div>
-        <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><dd>{number(stats?.pageviews)}</dd></div>
-        <div title="Experiences currently available in Explore."><dt>Things to explore</dt><dd>{number(totalCards)}</dd></div>
+        <div><dt>Unique visitors</dt><StatNumber value={stats?.explorers} /></div>
+        <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><StatNumber value={stats?.pageviews} /></div>
+        <div title="Experiences currently available in Explore."><dt>Things to explore</dt><StatNumber value={totalCards} /></div>
       </dl>
-      <p className="public-stats-note" role="status">{status === 'loading' ? 'Gathering our little universe…' : status === 'unavailable' ? 'Community stats are taking a moment.' : 'All-time traffic · Refreshed hourly'}</p>
+      {status === 'unavailable' && <p className="public-stats-note" role="status">Community stats are taking a moment.</p>}
     </div>
   )
 }

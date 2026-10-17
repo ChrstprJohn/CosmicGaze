@@ -4,6 +4,7 @@
 .public-stats dt { color: #b5bbd0; font-size: 12px; line-height: 1.5; }
 .public-stats dd { margin: 0; color: #e0daff; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; font-weight: 500; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .public-stats dd a { color: inherit; text-underline-offset: 4px; }
+.stat-number { display: inline-block; }
 .public-stats .public-stats-note { color: #b5bbd0; font-size: 11px; margin: 18px 0 0; line-height: 1.5; }
 @media (max-width: 600px) {
   .public-stats { margin-top: 34px; }
