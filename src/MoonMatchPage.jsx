@@ -62,10 +62,16 @@ export default function MoonMatchPage() {
     ctx.drawImage(combinedCanvas.current, 210, 285, 660, 660)
     ctx.fillStyle = '#c9c1f0'; ctx.font = '48px "Instrument Serif"'
     ctx.fillText(`${match.fit}% full-Moon fit`, 540, 1015)
-    ctx.fillStyle = '#b5bbd0'; ctx.font = '26px "DM Sans"'
-    ctx.fillText(`${formatDate(firstDate)} + ${formatDate(secondDate)}`, 540, 1080)
+    ctx.fillStyle = '#b5bbd0'; ctx.font = '22px "DM Sans"'
+    ctx.fillText('YOUR BIRTHDAY', 540, 1080)
+    ctx.fillStyle = '#f3f0e9'; ctx.font = '40px "DM Sans"'
+    ctx.fillText(formatDate(firstDate), 540, 1122)
+    ctx.fillStyle = '#b5bbd0'; ctx.font = '22px "DM Sans"'
+    ctx.fillText('THEIR BIRTHDAY', 540, 1180)
+    ctx.fillStyle = '#f3f0e9'; ctx.font = '40px "DM Sans"'
+    ctx.fillText(formatDate(secondDate), 540, 1222)
     drawCollectibleBorder(ctx)
-    return saveCanvasPng(canvas, filename, { Description: 'Moon phases at noon UTC. Fit measures illuminated area covered by exactly one phase, not relationship compatibility.', Source: 'Astronomy Engine; Moon texture: Solar System Scope, CC BY 4.0.' })
+    return saveCanvasPng(canvas, filename, { Description: `Your birthday: ${firstDate}; their birthday: ${secondDate}. Moon phases at noon UTC. Fit measures illuminated area covered by exactly one phase, not relationship compatibility.`, Source: 'Astronomy Engine; Moon texture: Solar System Scope, CC BY 4.0.' })
   }
 
   return <DiscoveryLayout mobilePreview controlsTitle="Choose your birthdays" id="moon-match" title="Two birthdays." emphasis="One Moon?" description="See how your birthday Moons fit together." controls={<>

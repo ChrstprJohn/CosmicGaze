@@ -1,0 +1,12 @@
+/* The skeleton uses live page classes; keep layout out of this file. */
+.skeleton-ink { color: transparent !important; font-style: inherit; background: linear-gradient(#1c233a, #1c233a) center / 100% .72em no-repeat; border-radius: 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.page-skeleton { width: 100%; }
+.page-skeleton svg:not(.gravity-stage):not(.original-image):not(.shuffle-image) { opacity: 0; }
+.page-skeleton :is(button, input) { cursor: default; }
+.page-skeleton input { accent-color: #252d45; }
+.skeleton-thumbnail { background: #252d45; box-shadow: none; }
+.skeleton-color-input { display: inline-block; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid #282e44; border-radius: 6px; background: #101528; }
+.skeleton-match-disc { position: relative; aspect-ratio: 1; }
+.page-skeleton .skeleton-match-disc .result-skeleton-shape { width: 92%; }
+.page-skeleton .moon-stage .moon-canvas { visibility: hidden; }
+.page-skeleton .birthday-image-stage > svg { max-width: 500px; }

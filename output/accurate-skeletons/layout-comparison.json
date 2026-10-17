@@ -1,0 +1,128 @@
+[
+  {
+    "path": "moon",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "birthday",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "shuffle",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "solar-system",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "pets",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "moon-match",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "cosmic-age",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "build-your-planet",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "gravity-playground",
+    "device": "desktop",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "moon",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "birthday",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "shuffle",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "solar-system",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "pets",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "moon-match",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "cosmic-age",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "build-your-planet",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "path": "gravity-playground",
+    "device": "mobile",
+    "diffs": [],
+    "errors": [],
+    "overflow": false
+  }
+]

@@ -1,0 +1,3068 @@
+{
+  "lighthouseVersion": "13.5.0",
+  "requestedUrl": "https://cosmicgaze.chrbuilds.dev/",
+  "mainDocumentUrl": "https://cosmicgaze.chrbuilds.dev/",
+  "finalDisplayedUrl": "https://cosmicgaze.chrbuilds.dev/",
+  "finalUrl": "https://cosmicgaze.chrbuilds.dev/",
+  "fetchTime": "2026-10-17T16:21:17.135Z",
+  "gatherMode": "navigation",
+  "runWarnings": [],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "environment": {
+    "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+    "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "benchmarkIndex": 2200,
+    "credits": {}
+  },
+  "audits": {
+    "is-on-https": {
+      "id": "is-on-https",
+      "title": "Uses HTTPS",
+      "description": "All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content), where some resources are loaded over HTTP despite the initial request being served over HTTPS. HTTPS prevents intruders from tampering with or passively listening in on the communications between your app and your users, and is a prerequisite for HTTP/2 and many new web platform APIs. [Learn more about HTTPS](https://developer.chrome.com/docs/lighthouse/pwa/is-on-https/).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "url",
+            "valueType": "url",
+            "label": "Insecure URL"
+          },
+          {
+            "key": "resolution",
+            "valueType": "text",
+            "label": "Request Resolution"
+          }
+        ],
+        "items": []
+      }
+    },
+    "redirects-http": {
+      "id": "redirects-http",
+      "title": "Redirects HTTP traffic to HTTPS",
+      "description": "Make sure that you redirect all HTTP traffic to HTTPS in order to enable secure web features for all your users. [Learn more](https://developer.chrome.com/docs/lighthouse/pwa/redirects-http/).",
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
+    },
+    "errors-in-console": {
+      "id": "errors-in-console",
+      "title": "No browser errors logged to the console",
+      "description": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "sourceLocation",
+            "valueType": "source-location",
+            "label": "Source"
+          },
+          {
+            "key": "description",
+            "valueType": "code",
+            "label": "Description"
+          }
+        ],
+        "items": []
+      }
+    },
+    "image-aspect-ratio": {
+      "id": "image-aspect-ratio",
+      "title": "Displays images with correct aspect ratio",
+      "description": "Image display dimensions should match natural aspect ratio. [Learn more about image aspect ratio](https://developer.chrome.com/docs/lighthouse/best-practices/image-aspect-ratio/).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "node",
+            "valueType": "node",
+            "label": ""
+          },
+          {
+            "key": "url",
+            "valueType": "url",
+            "label": "URL"
+          },
+          {
+            "key": "displayedAspectRatio",
+            "valueType": "text",
+            "label": "Aspect Ratio (Displayed)"
+          },
+          {
+            "key": "actualAspectRatio",
+            "valueType": "text",
+            "label": "Aspect Ratio (Actual)"
+          }
+        ],
+        "items": []
+      }
+    },
+    "image-size-responsive": {
+      "id": "image-size-responsive",
+      "title": "Serves images with appropriate resolution",
+      "description": "Image natural dimensions should be proportional to the display size and the pixel ratio to maximize image clarity. [Learn how to provide responsive images](https://web.dev/articles/serve-responsive-images).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "node",
+            "valueType": "node",
+            "label": ""
+          },
+          {
+            "key": "url",
+            "valueType": "url",
+            "label": "URL"
+          },
+          {
+            "key": "displayedSize",
+            "valueType": "text",
+            "label": "Displayed size"
+          },
+          {
+            "key": "actualSize",
+            "valueType": "text",
+            "label": "Actual size"
+          },
+          {
+            "key": "expectedSize",
+            "valueType": "text",
+            "label": "Expected size"
+          }
+        ],
+        "items": []
+      }
+    },
+    "deprecations": {
+      "id": "deprecations",
+      "title": "Uses deprecated APIs",
+      "description": "Deprecated APIs will eventually be removed from the browser. [Learn more about deprecated APIs](https://developer.chrome.com/docs/lighthouse/best-practices/deprecations/).",
+      "score": 0,
+      "scoreDisplayMode": "binary",
+      "displayValue": "3 warnings found",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "value",
+            "valueType": "text",
+            "label": "Deprecation / Warning"
+          },
+          {
+            "key": "source",
+            "valueType": "source-location",
+            "label": "Source"
+          }
+        ],
+        "items": [
+          {
+            "value": "FencedFrame",
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          },
+          {
+            "value": "StorageType.persistent is deprecated. Please use standardized navigator.storage instead.",
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            },
+            "subItems": {
+              "type": "subitems",
+              "items": [
+                {
+                  "type": "link",
+                  "url": "https://chromestatus.com/feature/5176235376246784",
+                  "text": "Check the feature status page for more details."
+                },
+                {
+                  "type": "link",
+                  "url": "https://chromiumdash.appspot.com/schedule",
+                  "text": "This change will go into effect with milestone 106."
+                }
+              ]
+            }
+          },
+          {
+            "value": "The Protected Audience API is deprecated and will be removed in a future release.",
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          }
+        ]
+      }
+    },
+    "third-party-cookies": {
+      "id": "third-party-cookies",
+      "title": "Avoids third-party cookies",
+      "description": "Third-party cookies may be blocked in some contexts. [Learn more about preparing for third-party cookie restrictions](https://privacysandbox.google.com/cookies/prepare/overview).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "name",
+            "valueType": "text",
+            "label": "Name"
+          },
+          {
+            "key": "url",
+            "valueType": "url",
+            "label": "URL"
+          }
+        ],
+        "items": []
+      }
+    },
+    "valid-source-maps": {
+      "id": "valid-source-maps",
+      "title": "Page has valid source maps",
+      "description": "Source maps translate minified code to the original source code. This helps developers debug in production. In addition, Lighthouse is able to provide further insights. Consider deploying source maps to take advantage of these benefits. [Learn more about source maps](https://developer.chrome.com/docs/devtools/javascript/source-maps/).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "scriptUrl",
+            "valueType": "url",
+            "subItemsHeading": {
+              "key": "error"
+            },
+            "label": "URL"
+          },
+          {
+            "key": "sourceMapUrl",
+            "valueType": "url",
+            "label": "Map URL"
+          }
+        ],
+        "items": [
+          {
+            "scriptUrl": "https://us-assets.i.posthog.com/static/1.435.8/web-vitals-with-attribution.js",
+            "sourceMapUrl": "https://us-assets.i.posthog.com/static/1.435.8/web-vitals-with-attribution.js.map",
+            "subItems": {
+              "type": "subitems",
+              "items": [
+                {
+                  "error": "Error: Timed out fetching resource"
+                }
+              ]
+            }
+          },
+          {
+            "scriptUrl": "https://us-assets.i.posthog.com/static/1.435.8/dead-clicks-autocapture.js",
+            "sourceMapUrl": "https://us-assets.i.posthog.com/static/1.435.8/dead-clicks-autocapture.js.map",
+            "subItems": {
+              "type": "subitems",
+              "items": [
+                {
+                  "error": "Error: Timed out fetching resource"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "csp-xss": {
+      "id": "csp-xss",
+      "title": "Ensure CSP is effective against XSS attacks",
+      "description": "A strong Content Security Policy (CSP) significantly reduces the risk of cross-site scripting (XSS) attacks. [Learn how to use a CSP to prevent XSS](https://developer.chrome.com/docs/lighthouse/best-practices/csp-xss/)",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "description",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "description"
+            },
+            "label": "Description"
+          },
+          {
+            "key": "directive",
+            "valueType": "code",
+            "subItemsHeading": {
+              "key": "directive"
+            },
+            "label": "Directive"
+          },
+          {
+            "key": "severity",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "severity"
+            },
+            "label": "Severity"
+          }
+        ],
+        "items": [
+          {
+            "severity": "High",
+            "description": "No CSP found in enforcement mode"
+          }
+        ]
+      }
+    },
+    "has-hsts": {
+      "id": "has-hsts",
+      "title": "Use a strong HSTS policy",
+      "description": "Deployment of the HSTS header significantly reduces the risk of downgrading HTTP connections and eavesdropping attacks. A rollout in stages, starting with a low max-age is recommended. [Learn more about using a strong HSTS policy.](https://developer.chrome.com/docs/lighthouse/best-practices/has-hsts)",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "description",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "description"
+            },
+            "label": "Description"
+          },
+          {
+            "key": "directive",
+            "valueType": "code",
+            "subItemsHeading": {
+              "key": "directive"
+            },
+            "label": "Directive"
+          },
+          {
+            "key": "severity",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "severity"
+            },
+            "label": "Severity"
+          }
+        ],
+        "items": [
+          {
+            "directive": "includeSubDomains",
+            "description": "No `includeSubDomains` directive found",
+            "severity": "Medium"
+          },
+          {
+            "directive": "preload",
+            "description": "No `preload` directive found",
+            "severity": "Medium"
+          }
+        ]
+      }
+    },
+    "origin-isolation": {
+      "id": "origin-isolation",
+      "title": "Ensure proper origin isolation with COOP",
+      "description": "The Cross-Origin-Opener-Policy (COOP) can be used to isolate the top-level window from other documents such as pop-ups. [Learn more about deploying the COOP header.](https://web.dev/articles/why-coop-coep#coop)",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "description",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "description"
+            },
+            "label": "Description"
+          },
+          {
+            "key": "directive",
+            "valueType": "code",
+            "subItemsHeading": {
+              "key": "directive"
+            },
+            "label": "Directive"
+          },
+          {
+            "key": "severity",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "severity"
+            },
+            "label": "Severity"
+          }
+        ],
+        "items": [
+          {
+            "description": "No COOP header found",
+            "severity": "High"
+          }
+        ]
+      }
+    },
+    "clickjacking-mitigation": {
+      "id": "clickjacking-mitigation",
+      "title": "Mitigate clickjacking with XFO or CSP",
+      "description": "The `X-Frame-Options` (XFO) header or the `frame-ancestors` directive in the `Content-Security-Policy` (CSP) header control where a page can be embedded. These can mitigate clickjacking attacks by blocking some or all sites from embedding the page. [Learn more about mitigating clickjacking](https://developer.chrome.com/docs/lighthouse/best-practices/clickjacking-mitigation).",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "description",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "description"
+            },
+            "label": "Description"
+          },
+          {
+            "key": "severity",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "severity"
+            },
+            "label": "Severity"
+          }
+        ],
+        "items": [
+          {
+            "severity": "High",
+            "description": "No frame control policy found"
+          }
+        ]
+      }
+    },
+    "trusted-types-xss": {
+      "id": "trusted-types-xss",
+      "title": "Mitigate DOM-based XSS with Trusted Types",
+      "description": "The `require-trusted-types-for` directive in the `Content-Security-Policy` (CSP) header instructs user agents to control the data passed to DOM XSS sink functions. [Learn more about mitigating DOM-based XSS with Trusted Types](https://developer.chrome.com/docs/lighthouse/best-practices/trusted-types-xss).",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "description",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "description"
+            },
+            "label": "Description"
+          },
+          {
+            "key": "severity",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "severity"
+            },
+            "label": "Severity"
+          }
+        ],
+        "items": [
+          {
+            "severity": "High",
+            "description": "No `Content-Security-Policy` header with Trusted Types directive found"
+          }
+        ]
+      }
+    },
+    "doctype": {
+      "id": "doctype",
+      "title": "Page has the HTML doctype",
+      "description": "Specifying a doctype prevents the browser from switching to quirks-mode. [Learn more about the doctype declaration](https://developer.chrome.com/docs/lighthouse/best-practices/doctype/).",
+      "score": 1,
+      "scoreDisplayMode": "binary"
+    },
+    "charset": {
+      "id": "charset",
+      "title": "Properly defines charset",
+      "description": "A character encoding declaration is required. It can be done with a `<meta>` tag in the first 1024 bytes of the HTML or in the Content-Type HTTP response header. [Learn more about declaring the character encoding](https://developer.chrome.com/docs/lighthouse/best-practices/charset/).",
+      "score": 1,
+      "scoreDisplayMode": "binary"
+    },
+    "geolocation-on-start": {
+      "id": "geolocation-on-start",
+      "title": "Avoids requesting the geolocation permission on page load",
+      "description": "Users are mistrustful of or confused by sites that request their location without context. Consider tying the request to a user action instead. [Learn more about the geolocation permission](https://developer.chrome.com/docs/lighthouse/best-practices/geolocation-on-start/). Also consider using the [`<geolocation>` element](https://developer.chrome.com/blog/geolocation-html-element).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "source",
+            "valueType": "source-location",
+            "label": "Source"
+          }
+        ],
+        "items": []
+      }
+    },
+    "inspector-issues": {
+      "id": "inspector-issues",
+      "title": "No issues in the `Issues` panel in Chrome Devtools",
+      "description": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue.",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "issueType",
+            "valueType": "text",
+            "subItemsHeading": {
+              "key": "url",
+              "valueType": "url"
+            },
+            "label": "Issue type"
+          }
+        ],
+        "items": []
+      }
+    },
+    "js-libraries": {
+      "id": "js-libraries",
+      "title": "Detected JavaScript libraries",
+      "description": "All front-end JavaScript libraries detected on the page. [Learn more about this JavaScript library detection diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/js-libraries/).",
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
+    },
+    "notification-on-start": {
+      "id": "notification-on-start",
+      "title": "Avoids requesting the notification permission on page load",
+      "description": "Users are mistrustful of or confused by sites that request to send notifications without context. Consider tying the request to user gestures instead. [Learn more about responsibly getting permission for notifications](https://developer.chrome.com/docs/lighthouse/best-practices/notification-on-start/).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "source",
+            "valueType": "source-location",
+            "label": "Source"
+          }
+        ],
+        "items": []
+      }
+    },
+    "paste-preventing-inputs": {
+      "id": "paste-preventing-inputs",
+      "title": "Allows users to paste into input fields",
+      "description": "Preventing input pasting is a bad practice for the UX, and weakens security by blocking password managers.[Learn more about user-friendly input fields](https://developer.chrome.com/docs/lighthouse/best-practices/paste-preventing-inputs/).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "node",
+            "valueType": "node",
+            "label": "Failing Elements"
+          }
+        ],
+        "items": []
+      }
+    },
+    "baseline": {
+      "id": "baseline",
+      "title": "Baseline Features",
+      "description": "Lists web features used on the page and their Baseline status as of 2026-09-17. [Learn more about Baseline](https://webstatus.dev/).",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "details": {
+        "type": "table",
+        "headings": [
+          {
+            "key": "featureId",
+            "valueType": "link",
+            "label": "Web-features"
+          },
+          {
+            "key": "displayStatus",
+            "valueType": "baseline-status",
+            "label": "Baseline Status"
+          },
+          {
+            "key": "source",
+            "valueType": "source-location",
+            "label": "Source"
+          }
+        ],
+        "items": [
+          {
+            "featureId": {
+              "type": "link",
+              "text": "ua-client-hints",
+              "url": "https://webstatus.dev/features/ua-client-hints"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 21216
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "interaction-contentful-paint",
+              "url": "https://webstatus.dev/features/interaction-contentful-paint"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 5775
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "soft-navigations",
+              "url": "https://webstatus.dev/features/soft-navigations"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 5775
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "long-animation-frames",
+              "url": "https://webstatus.dev/features/long-animation-frames"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 5775
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "requestidlecallback",
+              "url": "https://webstatus.dev/features/requestidlecallback"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "_lighthouse-eval.js",
+              "urlProvider": "network",
+              "line": 30,
+              "column": 11
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "text-wrap-pretty",
+              "url": "https://webstatus.dev/features/text-wrap-pretty"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "canvas-2d-alpha",
+              "url": "https://webstatus.dev/features/canvas-2d-alpha"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 9,
+              "column": 55395
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "layout-instability",
+              "url": "https://webstatus.dev/features/layout-instability"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 5775
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "fencedframe",
+              "url": "https://webstatus.dev/features/fencedframe"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "device-posture",
+              "url": "https://webstatus.dev/features/device-posture"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "beforeunload",
+              "url": "https://webstatus.dev/features/beforeunload"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "limited",
+              "displayString": "Limited Availability"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/module-D8V_xHmf.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 50371
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "zstd",
+              "url": "https://webstatus.dev/features/zstd"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2026-02-11)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "scrollbar-color",
+              "url": "https://webstatus.dev/features/scrollbar-color"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2025-12-12)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "scrollend",
+              "url": "https://webstatus.dev/features/scrollend"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2025-12-12)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 8,
+              "column": 139374
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "largest-contentful-paint",
+              "url": "https://webstatus.dev/features/largest-contentful-paint"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2025-12-12)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 5775
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "event-timing",
+              "url": "https://webstatus.dev/features/event-timing"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2025-12-12)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 5775
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "view-transitions",
+              "url": "https://webstatus.dev/features/view-transitions"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2025-10-14)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "scrollbar-width",
+              "url": "https://webstatus.dev/features/scrollbar-width"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-12-11)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "fetch-priority",
+              "url": "https://webstatus.dev/features/fetch-priority"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-10-29)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "text-wrap",
+              "url": "https://webstatus.dev/features/text-wrap"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-10-17)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "http3",
+              "url": "https://webstatus.dev/features/http3"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-09-16)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "relative-color",
+              "url": "https://webstatus.dev/features/relative-color"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-09-16)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "registered-custom-properties",
+              "url": "https://webstatus.dev/features/registered-custom-properties"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-07-09)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "text-wrap-balance",
+              "url": "https://webstatus.dev/features/text-wrap-balance"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "low",
+              "displayString": "Newly Available (2024-05-13)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "avif",
+              "url": "https://webstatus.dev/features/avif"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2024-01-25)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 8,
+              "column": 89270
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "has",
+              "url": "https://webstatus.dev/features/has"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-12-19)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "masks",
+              "url": "https://webstatus.dev/features/masks"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-12-07)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "contain-intrinsic-size",
+              "url": "https://webstatus.dev/features/contain-intrinsic-size"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-09-18)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "color-mix",
+              "url": "https://webstatus.dev/features/color-mix"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-05-09)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "media-query-range-syntax",
+              "url": "https://webstatus.dev/features/media-query-range-syntax"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-03-27)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "pdf-viewer",
+              "url": "https://webstatus.dev/features/pdf-viewer"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-03-27)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "constructed-stylesheets",
+              "url": "https://webstatus.dev/features/constructed-stylesheets"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2023-03-27)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "viewport-unit-variants",
+              "url": "https://webstatus.dev/features/viewport-unit-variants"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-12-05)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "overflow-clip",
+              "url": "https://webstatus.dev/features/overflow-clip"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-09-12)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "array-findlast",
+              "url": "https://webstatus.dev/features/array-findlast"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-08-23)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 15503
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "focus-visible",
+              "url": "https://webstatus.dev/features/focus-visible"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-03-14)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "cascade-layers",
+              "url": "https://webstatus.dev/features/cascade-layers"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-03-14)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "appearance",
+              "url": "https://webstatus.dev/features/appearance"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-03-14)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "color-scheme",
+              "url": "https://webstatus.dev/features/color-scheme"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-02-03)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "font-synthesis",
+              "url": "https://webstatus.dev/features/font-synthesis"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2022-01-06)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "aspect-ratio",
+              "url": "https://webstatus.dev/features/aspect-ratio"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2021-09-20)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "file-selector-button",
+              "url": "https://webstatus.dev/features/file-selector-button"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2021-04-26)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "not",
+              "url": "https://webstatus.dev/features/not"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2021-01-21)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "is",
+              "url": "https://webstatus.dev/features/is"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2021-01-21)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "where",
+              "url": "https://webstatus.dev/features/where"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2021-01-21)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "text-underline-offset",
+              "url": "https://webstatus.dev/features/text-underline-offset"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2020-11-19)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "logical-assignments",
+              "url": "https://webstatus.dev/features/logical-assignments"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2020-09-16)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 0
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "nullish-coalescing",
+              "url": "https://webstatus.dev/features/nullish-coalescing"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2020-09-16)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 0
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "webp",
+              "url": "https://webstatus.dev/features/webp"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2020-09-16)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "string-replaceall",
+              "url": "https://webstatus.dev/features/string-replaceall"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2020-08-27)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 9,
+              "column": 75862
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "aborting",
+              "url": "https://webstatus.dev/features/aborting"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2019-03-25)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 8,
+              "column": 36451
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "intersection-observer",
+              "url": "https://webstatus.dev/features/intersection-observer"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2019-03-25)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 9,
+              "column": 78948
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "js-modules",
+              "url": "https://webstatus.dev/features/js-modules"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2018-05-09)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "grid",
+              "url": "https://webstatus.dev/features/grid"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2017-10-17)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "flexbox",
+              "url": "https://webstatus.dev/features/flexbox"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2015-09-30)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "canvas",
+              "url": "https://webstatus.dev/features/canvas"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2015-07-29)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 8,
+              "column": 89183
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "ch",
+              "url": "https://webstatus.dev/features/ch"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2015-07-29)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/",
+              "urlProvider": "network",
+              "line": -2,
+              "column": -2
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "canvas-2d",
+              "url": "https://webstatus.dev/features/canvas-2d"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2015-07-29)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/assets/index-CxPoKnvm.js",
+              "urlProvider": "network",
+              "line": 9,
+              "column": 55395
+            }
+          },
+          {
+            "featureId": {
+              "type": "link",
+              "text": "barprop",
+              "url": "https://webstatus.dev/features/barprop"
+            },
+            "displayStatus": {
+              "type": "baseline-status",
+              "status": "high",
+              "displayString": "Widely Available (2015-07-29)"
+            },
+            "source": {
+              "type": "source-location",
+              "url": "https://cosmicgaze.chrbuilds.dev/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 14803
+            }
+          }
+        ]
+      }
+    }
+  },
+  "configSettings": {
+    "output": [
+      "json"
+    ],
+    "maxWaitForFcp": 30000,
+    "maxWaitForLoad": 45000,
+    "pauseAfterFcpMs": 1000,
+    "pauseAfterLoadMs": 1000,
+    "networkQuietThresholdMs": 1000,
+    "cpuQuietThresholdMs": 1000,
+    "formFactor": "mobile",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "throttlingMethod": "simulate",
+    "screenEmulation": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+    "auditMode": false,
+    "gatherMode": false,
+    "clearStorageTypes": [
+      "file_systems",
+      "shader_cache",
+      "service_workers",
+      "cache_storage"
+    ],
+    "disableStorageReset": false,
+    "debugNavigation": false,
+    "channel": "cli",
+    "usePassiveGathering": false,
+    "disableFullPageScreenshot": false,
+    "skipAboutBlank": false,
+    "blankPage": "about:blank",
+    "ignoreStatusCode": false,
+    "locale": "en-US",
+    "blockedUrlPatterns": null,
+    "additionalTraceCategories": null,
+    "extraHeaders": null,
+    "precomputedLanternData": null,
+    "onlyAudits": null,
+    "onlyCategories": [
+      "best-practices"
+    ],
+    "skipAudits": null
+  },
+  "categories": {
+    "best-practices": {
+      "title": "Best Practices",
+      "supportedModes": [
+        "navigation",
+        "timespan",
+        "snapshot"
+      ],
+      "auditRefs": [
+        {
+          "id": "is-on-https",
+          "weight": 5,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "redirects-http",
+          "weight": 0,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "geolocation-on-start",
+          "weight": 1,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "notification-on-start",
+          "weight": 1,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "csp-xss",
+          "weight": 0,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "has-hsts",
+          "weight": 0,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "origin-isolation",
+          "weight": 0,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "clickjacking-mitigation",
+          "weight": 0,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "trusted-types-xss",
+          "weight": 0,
+          "group": "best-practices-trust-safety"
+        },
+        {
+          "id": "paste-preventing-inputs",
+          "weight": 3,
+          "group": "best-practices-ux"
+        },
+        {
+          "id": "image-aspect-ratio",
+          "weight": 1,
+          "group": "best-practices-ux"
+        },
+        {
+          "id": "image-size-responsive",
+          "weight": 1,
+          "group": "best-practices-ux"
+        },
+        {
+          "id": "doctype",
+          "weight": 1,
+          "group": "best-practices-browser-compat"
+        },
+        {
+          "id": "charset",
+          "weight": 1,
+          "group": "best-practices-browser-compat"
+        },
+        {
+          "id": "baseline",
+          "weight": 0,
+          "group": "best-practices-browser-compat"
+        },
+        {
+          "id": "js-libraries",
+          "weight": 0,
+          "group": "best-practices-general"
+        },
+        {
+          "id": "deprecations",
+          "weight": 5,
+          "group": "best-practices-general"
+        },
+        {
+          "id": "third-party-cookies",
+          "weight": 5,
+          "group": "best-practices-general"
+        },
+        {
+          "id": "errors-in-console",
+          "weight": 1,
+          "group": "best-practices-general"
+        },
+        {
+          "id": "valid-source-maps",
+          "weight": 0,
+          "group": "best-practices-general"
+        },
+        {
+          "id": "inspector-issues",
+          "weight": 1,
+          "group": "best-practices-general"
+        }
+      ],
+      "id": "best-practices",
+      "score": 0.81
+    }
+  },
+  "categoryGroups": {
+    "metrics": {
+      "title": "Metrics"
+    },
+    "insights": {
+      "title": "Insights",
+      "description": "These insights are also available in the Chrome DevTools Performance Panel - [record a trace](https://developer.chrome.com/docs/devtools/performance/reference) to view more detailed information."
+    },
+    "diagnostics": {
+      "title": "Diagnostics",
+      "description": "More information about the performance of your application. These numbers don't [directly affect](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) the Performance score."
+    },
+    "a11y-best-practices": {
+      "title": "Best practices",
+      "description": "These items highlight common accessibility best practices."
+    },
+    "a11y-color-contrast": {
+      "title": "Contrast",
+      "description": "These are opportunities to improve the legibility of your content."
+    },
+    "a11y-names-labels": {
+      "title": "Names and labels",
+      "description": "These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader."
+    },
+    "a11y-navigation": {
+      "title": "Navigation",
+      "description": "These are opportunities to improve keyboard navigation in your application."
+    },
+    "a11y-aria": {
+      "title": "ARIA",
+      "description": "These are opportunities to improve the usage of ARIA in your application which may enhance the experience for users of assistive technology, like a screen reader."
+    },
+    "a11y-language": {
+      "title": "Internationalization and localization",
+      "description": "These are opportunities to improve the interpretation of your content by users in different locales."
+    },
+    "a11y-audio-video": {
+      "title": "Audio and video",
+      "description": "These are opportunities to provide alternative content for audio and video. This may improve the experience for users with hearing or vision impairments."
+    },
+    "a11y-tables-lists": {
+      "title": "Tables and lists",
+      "description": "These are opportunities to improve the experience of reading tabular or list data using assistive technology, like a screen reader."
+    },
+    "seo-mobile": {
+      "title": "Mobile Friendly",
+      "description": "Make sure your pages are mobile friendly so users don’t have to pinch or zoom in order to read the content pages. [Learn how to make pages mobile-friendly](https://developers.google.com/search/mobile-sites/)."
+    },
+    "seo-content": {
+      "title": "Content Best Practices",
+      "description": "Format your HTML in a way that enables crawlers to better understand your app’s content."
+    },
+    "seo-crawl": {
+      "title": "Crawling and Indexing",
+      "description": "To appear in search results, crawlers need access to your app."
+    },
+    "best-practices-trust-safety": {
+      "title": "Trust and Safety"
+    },
+    "best-practices-ux": {
+      "title": "User Experience"
+    },
+    "best-practices-browser-compat": {
+      "title": "Browser Compatibility"
+    },
+    "best-practices-general": {
+      "title": "General"
+    },
+    "webmcp": {
+      "title": "WebMCP",
+      "description": "Audits validating WebMCP integration."
+    },
+    "agent-accessibility": {
+      "title": "Agent Accessibility",
+      "description": "These audits highlight best practices for improving the accessibility of the website for AI agents."
+    },
+    "agent-discoverability": {
+      "title": "Agent Discoverability",
+      "description": "These audits validate that websites expose discoverable resources, documentation, and catalogs for AI agents."
+    },
+    "hidden": {
+      "title": ""
+    }
+  },
+  "stackPacks": [],
+  "entities": [
+    {
+      "name": "chrbuilds.dev",
+      "origins": [
+        "https://cosmicgaze.chrbuilds.dev"
+      ],
+      "isFirstParty": true,
+      "isUnrecognized": true
+    },
+    {
+      "name": "Cloudflare",
+      "homepage": "https://www.cloudflare.com/website-optimization/",
+      "origins": [
+        "https://static.cloudflareinsights.com"
+      ],
+      "category": "utility"
+    },
+    {
+      "name": "posthog.com",
+      "origins": [
+        "https://us-assets.i.posthog.com"
+      ],
+      "isUnrecognized": true
+    }
+  ],
+  "fullPageScreenshot": {
+    "screenshot": {
+      "data": "data:image/webp;base64,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",
+      "width": 412,
+      "height": 3128
+    },
+    "nodes": {
+      "1-0-IMG": {
+        "id": "",
+        "top": -652,
+        "bottom": 3616,
+        "left": -115,
+        "right": 692,
+        "width": 808,
+        "height": 4267
+      },
+      "1-1-IMG": {
+        "id": "",
+        "top": 3805,
+        "bottom": 3979,
+        "left": 25,
+        "right": 199,
+        "width": 174,
+        "height": 174
+      },
+      "1-2-IMG": {
+        "id": "",
+        "top": 3805,
+        "bottom": 3979,
+        "left": 213,
+        "right": 387,
+        "width": 174,
+        "height": 174
+      },
+      "1-3-IMG": {
+        "id": "",
+        "top": 4191,
+        "bottom": 4365,
+        "left": 25,
+        "right": 199,
+        "width": 174,
+        "height": 174
+      },
+      "1-4-IMG": {
+        "id": "",
+        "top": 4191,
+        "bottom": 4365,
+        "left": 213,
+        "right": 387,
+        "width": 174,
+        "height": 174
+      },
+      "1-5-IMG": {
+        "id": "",
+        "top": 4559,
+        "bottom": 4750,
+        "left": 16,
+        "right": 208,
+        "width": 191,
+        "height": 191
+      },
+      "1-6-IMG": {
+        "id": "",
+        "top": 4576,
+        "bottom": 4733,
+        "left": 222,
+        "right": 378,
+        "width": 157,
+        "height": 157
+      },
+      "1-7-IMG": {
+        "id": "",
+        "top": 4915,
+        "bottom": 5106,
+        "left": 16,
+        "right": 208,
+        "width": 191,
+        "height": 191
+      },
+      "1-8-IMG": {
+        "id": "",
+        "top": 4915,
+        "bottom": 5106,
+        "left": 204,
+        "right": 396,
+        "width": 191,
+        "height": 191
+      },
+      "1-9-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-10-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-11-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-12-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-13-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-14-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-15-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-16-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-17-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-18-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-19-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-20-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-21-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-22-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-23-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "1-24-META": {
+        "id": "",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      }
+    }
+  },
+  "timing": {
+    "entries": [
+      {
+        "startTime": 2577.82,
+        "name": "lh:config",
+        "duration": 4302.46,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 2579.19,
+        "name": "lh:config:resolveArtifactsToDefns",
+        "duration": 95.44,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 6880.4,
+        "name": "lh:runner:gather",
+        "duration": 9158.58,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 6995.26,
+        "name": "lh:driver:connect",
+        "duration": 10.05,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 7005.66,
+        "name": "lh:driver:navigate",
+        "duration": 7.88,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 7013.9,
+        "name": "lh:gather:getBenchmarkIndex",
+        "duration": 1005.28,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8019.36,
+        "name": "lh:gather:getVersion",
+        "duration": 0.86,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8020.32,
+        "name": "lh:gather:getDevicePixelRatio",
+        "duration": 1.23,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8022.6,
+        "name": "lh:prepare:navigationMode",
+        "duration": 89.28,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8023.71,
+        "name": "lh:gather:getVersion",
+        "duration": 0.63,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8040.44,
+        "name": "lh:storage:clearDataForOrigin",
+        "duration": 38.55,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8079.2,
+        "name": "lh:storage:clearBrowserCaches",
+        "duration": 29.9,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8110.21,
+        "name": "lh:gather:prepareThrottlingAndNetwork",
+        "duration": 1.64,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 8154.11,
+        "name": "lh:driver:navigate",
+        "duration": 4501.28,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13020.69,
+        "name": "lh:computed:NetworkRecords",
+        "duration": 1.86,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13022.97,
+        "name": "lh:gather:getArtifact:DevtoolsLog",
+        "duration": 0.03,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13023.02,
+        "name": "lh:gather:getArtifact:Trace",
+        "duration": 0.02,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13023.04,
+        "name": "lh:gather:getArtifact:ConsoleMessages",
+        "duration": 0.02,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13023.07,
+        "name": "lh:gather:getArtifact:Doctype",
+        "duration": 3.13,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13026.23,
+        "name": "lh:gather:getArtifact:Inputs",
+        "duration": 2.73,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13028.98,
+        "name": "lh:gather:getArtifact:ImageElements",
+        "duration": 255.05,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13284.16,
+        "name": "lh:gather:getArtifact:InspectorIssues",
+        "duration": 0.22,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13284.41,
+        "name": "lh:gather:getArtifact:MainDocumentContent",
+        "duration": 0.85,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13284.5,
+        "name": "lh:computed:MainResource",
+        "duration": 0.11,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13285.27,
+        "name": "lh:gather:getArtifact:MetaElements",
+        "duration": 3.93,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13289.24,
+        "name": "lh:gather:getArtifact:NetworkUserAgent",
+        "duration": 0.09,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13289.35,
+        "name": "lh:gather:getArtifact:Scripts",
+        "duration": 0.1,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 13289.46,
+        "name": "lh:gather:getArtifact:SourceMaps",
+        "duration": 1514.85,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 14804.34,
+        "name": "lh:gather:getArtifact:Stacks",
+        "duration": 9.07,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 14804.47,
+        "name": "lh:gather:collectStacks",
+        "duration": 8.93,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 14813.43,
+        "name": "lh:gather:getArtifact:ViewportDimensions",
+        "duration": 1.03,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 14814.47,
+        "name": "lh:gather:getArtifact:FullPageScreenshot",
+        "duration": 1187.27,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 15997.57,
+        "name": "lh:gather:getVersion",
+        "duration": 0.81,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16039.47,
+        "name": "lh:runner:audit",
+        "duration": 63.36,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16039.66,
+        "name": "lh:runner:auditing",
+        "duration": 62.62,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16041.78,
+        "name": "lh:audit:is-on-https",
+        "duration": 5.14,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16047.5,
+        "name": "lh:audit:redirects-http",
+        "duration": 2.68,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16050.77,
+        "name": "lh:audit:errors-in-console",
+        "duration": 2.17,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16051.5,
+        "name": "lh:computed:JSBundles",
+        "duration": 0.16,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16053.22,
+        "name": "lh:audit:image-aspect-ratio",
+        "duration": 1.92,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16055.73,
+        "name": "lh:audit:image-size-responsive",
+        "duration": 3.88,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16056.55,
+        "name": "lh:computed:ImageRecords",
+        "duration": 0.45,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16059.92,
+        "name": "lh:audit:deprecations",
+        "duration": 5.12,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16065.78,
+        "name": "lh:audit:third-party-cookies",
+        "duration": 2.79,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16069.2,
+        "name": "lh:audit:valid-source-maps",
+        "duration": 5.63,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16070.04,
+        "name": "lh:computed:EntityClassification",
+        "duration": 2.99,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16075.32,
+        "name": "lh:audit:csp-xss",
+        "duration": 1.95,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16077.66,
+        "name": "lh:audit:has-hsts",
+        "duration": 1.36,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16079.22,
+        "name": "lh:audit:origin-isolation",
+        "duration": 1.04,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16080.51,
+        "name": "lh:audit:clickjacking-mitigation",
+        "duration": 1.18,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16082.17,
+        "name": "lh:audit:trusted-types-xss",
+        "duration": 1.89,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16084.6,
+        "name": "lh:audit:doctype",
+        "duration": 1.74,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16087.08,
+        "name": "lh:audit:charset",
+        "duration": 1.81,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16089.29,
+        "name": "lh:audit:geolocation-on-start",
+        "duration": 2.61,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16092.2,
+        "name": "lh:audit:inspector-issues",
+        "duration": 0.88,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16093.31,
+        "name": "lh:audit:js-libraries",
+        "duration": 0.76,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16094.37,
+        "name": "lh:audit:notification-on-start",
+        "duration": 0.91,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16095.55,
+        "name": "lh:audit:paste-preventing-inputs",
+        "duration": 0.85,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16096.63,
+        "name": "lh:audit:baseline",
+        "duration": 5.62,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 16102.29,
+        "name": "lh:runner:generate",
+        "duration": 0.51,
+        "entryType": "measure"
+      }
+    ],
+    "total": 9221.94
+  },
+  "i18n": {
+    "rendererFormattedStrings": {
+      "calculatorLink": "See calculator.",
+      "collapseView": "Collapse view",
+      "crcInitialNavigation": "Initial Navigation",
+      "crcLongestDurationLabel": "Maximum critical path latency:",
+      "dropdownCopyJSON": "Copy JSON",
+      "dropdownDarkTheme": "Toggle Dark Theme",
+      "dropdownPrintExpanded": "Print Expanded",
+      "dropdownPrintSummary": "Print Summary",
+      "dropdownSaveGist": "Save as Gist",
+      "dropdownSaveHTML": "Save as HTML",
+      "dropdownSaveJSON": "Save as JSON",
+      "dropdownViewUnthrottledTrace": "View Unthrottled Trace",
+      "dropdownViewer": "Open in Viewer",
+      "errorLabel": "Error!",
+      "errorMissingAuditInfo": "Report error: no audit information",
+      "expandView": "Expand view",
+      "firstPartyChipLabel": "1st party",
+      "footerIssue": "File an issue",
+      "hide": "Hide",
+      "labDataTitle": "Lab Data",
+      "lsPerformanceCategoryDescription": "[Lighthouse](https://developers.google.com/web/tools/lighthouse/) analysis of the current page on an emulated mobile network. Values are estimated and may vary.",
+      "manualAuditsGroupTitle": "Additional items to manually check",
+      "notApplicableAuditsGroupTitle": "Not applicable",
+      "openInANewTabTooltip": "Open in a new tab",
+      "opportunityResourceColumnLabel": "Opportunity",
+      "opportunitySavingsColumnLabel": "Estimated Savings",
+      "passedAuditsGroupTitle": "Passed audits",
+      "runtimeAnalysisWindow": "Initial page load",
+      "runtimeAnalysisWindowSnapshot": "Point-in-time snapshot",
+      "runtimeAnalysisWindowTimespan": "User interactions timespan",
+      "runtimeCustom": "Custom throttling",
+      "runtimeDesktopEmulation": "Emulated Desktop",
+      "runtimeMobileEmulation": "Emulated Moto G Power",
+      "runtimeNoEmulation": "No emulation",
+      "runtimeSettingsAxeVersion": "Axe version",
+      "runtimeSettingsBenchmark": "Unthrottled CPU/Memory Power",
+      "runtimeSettingsCPUThrottling": "CPU throttling",
+      "runtimeSettingsDevice": "Device",
+      "runtimeSettingsNetworkThrottling": "Network throttling",
+      "runtimeSettingsScreenEmulation": "Screen emulation",
+      "runtimeSettingsUANetwork": "User agent (network)",
+      "runtimeSingleLoad": "Single page session",
+      "runtimeSingleLoadTooltip": "This data is taken from a single page session, as opposed to field data summarizing many sessions.",
+      "runtimeSlow4g": "Slow 4G throttling",
+      "runtimeUnknown": "Unknown",
+      "show": "Show",
+      "showRelevantAudits": "Show audits relevant to:",
+      "snippetCollapseButtonLabel": "Collapse snippet",
+      "snippetExpandButtonLabel": "Expand snippet",
+      "thirdPartyResourcesLabel": "Show 3rd-party resources",
+      "throttlingProvided": "Provided by environment",
+      "toplevelWarningsMessage": "There were issues affecting this run of Lighthouse:",
+      "unattributable": "Unattributable",
+      "unscoredLabel": "Unscored",
+      "unscoredTitle": "This audit does not contribute to the overall category score.",
+      "varianceDisclaimer": "Values are estimated and may vary. The [performance score is calculated](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) directly from these metrics.",
+      "viewTraceLabel": "View Trace",
+      "viewTreemapLabel": "View Treemap",
+      "warningAuditsGroupTitle": "Passed audits but with warnings",
+      "warningHeader": "Warnings: "
+    },
+    "icuMessagePaths": {
+      "core/audits/is-on-https.js | title": [
+        "audits[is-on-https].title"
+      ],
+      "core/audits/is-on-https.js | description": [
+        "audits[is-on-https].description"
+      ],
+      "core/audits/is-on-https.js | columnInsecureURL": [
+        "audits[is-on-https].details.headings[0].label"
+      ],
+      "core/audits/is-on-https.js | columnResolution": [
+        "audits[is-on-https].details.headings[1].label"
+      ],
+      "core/audits/redirects-http.js | title": [
+        "audits[redirects-http].title"
+      ],
+      "core/audits/redirects-http.js | description": [
+        "audits[redirects-http].description"
+      ],
+      "core/audits/errors-in-console.js | title": [
+        "audits[errors-in-console].title"
+      ],
+      "core/audits/errors-in-console.js | description": [
+        "audits[errors-in-console].description"
+      ],
+      "core/lib/i18n/i18n.js | columnSource": [
+        "audits[errors-in-console].details.headings[0].label",
+        "audits.deprecations.details.headings[1].label",
+        "audits[geolocation-on-start].details.headings[0].label",
+        "audits[notification-on-start].details.headings[0].label",
+        "audits.baseline.details.headings[2].label"
+      ],
+      "core/lib/i18n/i18n.js | columnDescription": [
+        "audits[errors-in-console].details.headings[1].label",
+        "audits[csp-xss].details.headings[0].label",
+        "audits[has-hsts].details.headings[0].label",
+        "audits[origin-isolation].details.headings[0].label",
+        "audits[clickjacking-mitigation].details.headings[0].label",
+        "audits[trusted-types-xss].details.headings[0].label"
+      ],
+      "core/audits/image-aspect-ratio.js | title": [
+        "audits[image-aspect-ratio].title"
+      ],
+      "core/audits/image-aspect-ratio.js | description": [
+        "audits[image-aspect-ratio].description"
+      ],
+      "core/lib/i18n/i18n.js | columnURL": [
+        "audits[image-aspect-ratio].details.headings[1].label",
+        "audits[image-size-responsive].details.headings[1].label",
+        "audits[third-party-cookies].details.headings[1].label",
+        "audits[valid-source-maps].details.headings[0].label"
+      ],
+      "core/audits/image-aspect-ratio.js | columnDisplayed": [
+        "audits[image-aspect-ratio].details.headings[2].label"
+      ],
+      "core/audits/image-aspect-ratio.js | columnActual": [
+        "audits[image-aspect-ratio].details.headings[3].label"
+      ],
+      "core/audits/image-size-responsive.js | title": [
+        "audits[image-size-responsive].title"
+      ],
+      "core/audits/image-size-responsive.js | description": [
+        "audits[image-size-responsive].description"
+      ],
+      "core/audits/image-size-responsive.js | columnDisplayed": [
+        "audits[image-size-responsive].details.headings[2].label"
+      ],
+      "core/audits/image-size-responsive.js | columnActual": [
+        "audits[image-size-responsive].details.headings[3].label"
+      ],
+      "core/audits/image-size-responsive.js | columnExpected": [
+        "audits[image-size-responsive].details.headings[4].label"
+      ],
+      "core/audits/deprecations.js | failureTitle": [
+        "audits.deprecations.title"
+      ],
+      "core/audits/deprecations.js | description": [
+        "audits.deprecations.description"
+      ],
+      "core/audits/deprecations.js | displayValue": [
+        {
+          "values": {
+            "itemCount": 3
+          },
+          "path": "audits.deprecations.displayValue"
+        }
+      ],
+      "core/audits/deprecations.js | columnDeprecate": [
+        "audits.deprecations.details.headings[0].label"
+      ],
+      "node_modules/@paulirish/trace_engine/generated/Deprecation.js | PersistentQuotaType": [
+        "audits.deprecations.details.items[1].value"
+      ],
+      "core/lib/deprecation-description.js | feature": [
+        "audits.deprecations.details.items[1].subItems.items[0].text"
+      ],
+      "core/lib/deprecation-description.js | milestone": [
+        {
+          "values": {
+            "milestone": 106
+          },
+          "path": "audits.deprecations.details.items[1].subItems.items[1].text"
+        }
+      ],
+      "node_modules/@paulirish/trace_engine/generated/Deprecation.js | Fledge": [
+        "audits.deprecations.details.items[2].value"
+      ],
+      "core/audits/third-party-cookies.js | title": [
+        "audits[third-party-cookies].title"
+      ],
+      "core/audits/third-party-cookies.js | description": [
+        "audits[third-party-cookies].description"
+      ],
+      "core/lib/i18n/i18n.js | columnName": [
+        "audits[third-party-cookies].details.headings[0].label"
+      ],
+      "core/audits/valid-source-maps.js | title": [
+        "audits[valid-source-maps].title"
+      ],
+      "core/audits/valid-source-maps.js | description": [
+        "audits[valid-source-maps].description"
+      ],
+      "core/audits/valid-source-maps.js | columnMapURL": [
+        "audits[valid-source-maps].details.headings[1].label"
+      ],
+      "core/audits/csp-xss.js | title": [
+        "audits[csp-xss].title"
+      ],
+      "core/audits/csp-xss.js | description": [
+        "audits[csp-xss].description"
+      ],
+      "core/audits/csp-xss.js | columnDirective": [
+        "audits[csp-xss].details.headings[1].label"
+      ],
+      "core/audits/csp-xss.js | columnSeverity": [
+        "audits[csp-xss].details.headings[2].label"
+      ],
+      "core/lib/i18n/i18n.js | itemSeverityHigh": [
+        "audits[csp-xss].details.items[0].severity",
+        "audits[origin-isolation].details.items[0].severity",
+        "audits[clickjacking-mitigation].details.items[0].severity",
+        "audits[trusted-types-xss].details.items[0].severity"
+      ],
+      "core/audits/csp-xss.js | noCsp": [
+        "audits[csp-xss].details.items[0].description"
+      ],
+      "core/audits/has-hsts.js | title": [
+        "audits[has-hsts].title"
+      ],
+      "core/audits/has-hsts.js | description": [
+        "audits[has-hsts].description"
+      ],
+      "core/audits/has-hsts.js | columnDirective": [
+        "audits[has-hsts].details.headings[1].label"
+      ],
+      "core/audits/has-hsts.js | columnSeverity": [
+        "audits[has-hsts].details.headings[2].label"
+      ],
+      "core/audits/has-hsts.js | noSubdomain": [
+        "audits[has-hsts].details.items[0].description"
+      ],
+      "core/lib/i18n/i18n.js | itemSeverityMedium": [
+        "audits[has-hsts].details.items[0].severity",
+        "audits[has-hsts].details.items[1].severity"
+      ],
+      "core/audits/has-hsts.js | noPreload": [
+        "audits[has-hsts].details.items[1].description"
+      ],
+      "core/audits/origin-isolation.js | title": [
+        "audits[origin-isolation].title"
+      ],
+      "core/audits/origin-isolation.js | description": [
+        "audits[origin-isolation].description"
+      ],
+      "core/audits/origin-isolation.js | columnDirective": [
+        "audits[origin-isolation].details.headings[1].label"
+      ],
+      "core/audits/origin-isolation.js | columnSeverity": [
+        "audits[origin-isolation].details.headings[2].label"
+      ],
+      "core/audits/origin-isolation.js | noCoop": [
+        "audits[origin-isolation].details.items[0].description"
+      ],
+      "core/audits/clickjacking-mitigation.js | title": [
+        "audits[clickjacking-mitigation].title"
+      ],
+      "core/audits/clickjacking-mitigation.js | description": [
+        "audits[clickjacking-mitigation].description"
+      ],
+      "core/audits/clickjacking-mitigation.js | columnSeverity": [
+        "audits[clickjacking-mitigation].details.headings[1].label"
+      ],
+      "core/audits/clickjacking-mitigation.js | noClickjackingMitigation": [
+        "audits[clickjacking-mitigation].details.items[0].description"
+      ],
+      "core/audits/trusted-types-xss.js | title": [
+        "audits[trusted-types-xss].title"
+      ],
+      "core/audits/trusted-types-xss.js | description": [
+        "audits[trusted-types-xss].description"
+      ],
+      "core/audits/trusted-types-xss.js | columnSeverity": [
+        "audits[trusted-types-xss].details.headings[1].label"
+      ],
+      "core/audits/trusted-types-xss.js | noTrustedTypesToMitigateXss": [
+        "audits[trusted-types-xss].details.items[0].description"
+      ],
+      "core/audits/dobetterweb/doctype.js | title": [
+        "audits.doctype.title"
+      ],
+      "core/audits/dobetterweb/doctype.js | description": [
+        "audits.doctype.description"
+      ],
+      "core/audits/dobetterweb/charset.js | title": [
+        "audits.charset.title"
+      ],
+      "core/audits/dobetterweb/charset.js | description": [
+        "audits.charset.description"
+      ],
+      "core/audits/dobetterweb/geolocation-on-start.js | title": [
+        "audits[geolocation-on-start].title"
+      ],
+      "core/audits/dobetterweb/geolocation-on-start.js | description": [
+        "audits[geolocation-on-start].description"
+      ],
+      "core/audits/dobetterweb/inspector-issues.js | title": [
+        "audits[inspector-issues].title"
+      ],
+      "core/audits/dobetterweb/inspector-issues.js | description": [
+        "audits[inspector-issues].description"
+      ],
+      "core/audits/dobetterweb/inspector-issues.js | columnIssueType": [
+        "audits[inspector-issues].details.headings[0].label"
+      ],
+      "core/audits/dobetterweb/js-libraries.js | title": [
+        "audits[js-libraries].title"
+      ],
+      "core/audits/dobetterweb/js-libraries.js | description": [
+        "audits[js-libraries].description"
+      ],
+      "core/audits/dobetterweb/notification-on-start.js | title": [
+        "audits[notification-on-start].title"
+      ],
+      "core/audits/dobetterweb/notification-on-start.js | description": [
+        "audits[notification-on-start].description"
+      ],
+      "core/audits/dobetterweb/paste-preventing-inputs.js | title": [
+        "audits[paste-preventing-inputs].title"
+      ],
+      "core/audits/dobetterweb/paste-preventing-inputs.js | description": [
+        "audits[paste-preventing-inputs].description"
+      ],
+      "core/lib/i18n/i18n.js | columnFailingElem": [
+        "audits[paste-preventing-inputs].details.headings[0].label"
+      ],
+      "core/audits/baseline.js | title": [
+        "audits.baseline.title"
+      ],
+      "core/audits/baseline.js | description": [
+        {
+          "values": {
+            "date": "2026-09-17"
+          },
+          "path": "audits.baseline.description"
+        }
+      ],
+      "core/audits/baseline.js | columnFeature": [
+        "audits.baseline.details.headings[0].label"
+      ],
+      "core/audits/baseline.js | columnStatus": [
+        "audits.baseline.details.headings[1].label"
+      ],
+      "core/config/default-config.js | bestPracticesCategoryTitle": [
+        "categories[best-practices].title"
+      ],
+      "core/config/default-config.js | metricGroupTitle": [
+        "categoryGroups.metrics.title"
+      ],
+      "core/config/default-config.js | insightsGroupTitle": [
+        "categoryGroups.insights.title"
+      ],
+      "core/config/default-config.js | insightsGroupDescription": [
+        "categoryGroups.insights.description"
+      ],
+      "core/config/default-config.js | diagnosticsGroupTitle": [
+        "categoryGroups.diagnostics.title"
+      ],
+      "core/config/default-config.js | diagnosticsGroupDescription": [
+        "categoryGroups.diagnostics.description"
+      ],
+      "core/config/default-config.js | a11yBestPracticesGroupTitle": [
+        "categoryGroups[a11y-best-practices].title"
+      ],
+      "core/config/default-config.js | a11yBestPracticesGroupDescription": [
+        "categoryGroups[a11y-best-practices].description"
+      ],
+      "core/config/default-config.js | a11yColorContrastGroupTitle": [
+        "categoryGroups[a11y-color-contrast].title"
+      ],
+      "core/config/default-config.js | a11yColorContrastGroupDescription": [
+        "categoryGroups[a11y-color-contrast].description"
+      ],
+      "core/config/default-config.js | a11yNamesLabelsGroupTitle": [
+        "categoryGroups[a11y-names-labels].title"
+      ],
+      "core/config/default-config.js | a11yNamesLabelsGroupDescription": [
+        "categoryGroups[a11y-names-labels].description"
+      ],
+      "core/config/default-config.js | a11yNavigationGroupTitle": [
+        "categoryGroups[a11y-navigation].title"
+      ],
+      "core/config/default-config.js | a11yNavigationGroupDescription": [
+        "categoryGroups[a11y-navigation].description"
+      ],
+      "core/config/default-config.js | a11yAriaGroupTitle": [
+        "categoryGroups[a11y-aria].title"
+      ],
+      "core/config/default-config.js | a11yAriaGroupDescription": [
+        "categoryGroups[a11y-aria].description"
+      ],
+      "core/config/default-config.js | a11yLanguageGroupTitle": [
+        "categoryGroups[a11y-language].title"
+      ],
+      "core/config/default-config.js | a11yLanguageGroupDescription": [
+        "categoryGroups[a11y-language].description"
+      ],
+      "core/config/default-config.js | a11yAudioVideoGroupTitle": [
+        "categoryGroups[a11y-audio-video].title"
+      ],
+      "core/config/default-config.js | a11yAudioVideoGroupDescription": [
+        "categoryGroups[a11y-audio-video].description"
+      ],
+      "core/config/default-config.js | a11yTablesListsVideoGroupTitle": [
+        "categoryGroups[a11y-tables-lists].title"
+      ],
+      "core/config/default-config.js | a11yTablesListsVideoGroupDescription": [
+        "categoryGroups[a11y-tables-lists].description"
+      ],
+      "core/config/default-config.js | seoMobileGroupTitle": [
+        "categoryGroups[seo-mobile].title"
+      ],
+      "core/config/default-config.js | seoMobileGroupDescription": [
+        "categoryGroups[seo-mobile].description"
+      ],
+      "core/config/default-config.js | seoContentGroupTitle": [
+        "categoryGroups[seo-content].title"
+      ],
+      "core/config/default-config.js | seoContentGroupDescription": [
+        "categoryGroups[seo-content].description"
+      ],
+      "core/config/default-config.js | seoCrawlingGroupTitle": [
+        "categoryGroups[seo-crawl].title"
+      ],
+      "core/config/default-config.js | seoCrawlingGroupDescription": [
+        "categoryGroups[seo-crawl].description"
+      ],
+      "core/config/default-config.js | bestPracticesTrustSafetyGroupTitle": [
+        "categoryGroups[best-practices-trust-safety].title"
+      ],
+      "core/config/default-config.js | bestPracticesUXGroupTitle": [
+        "categoryGroups[best-practices-ux].title"
+      ],
+      "core/config/default-config.js | bestPracticesBrowserCompatGroupTitle": [
+        "categoryGroups[best-practices-browser-compat].title"
+      ],
+      "core/config/default-config.js | bestPracticesGeneralGroupTitle": [
+        "categoryGroups[best-practices-general].title"
+      ],
+      "core/config/default-config.js | webmcpGroupTitle": [
+        "categoryGroups.webmcp.title"
+      ],
+      "core/config/default-config.js | webmcpGroupDescription": [
+        "categoryGroups.webmcp.description"
+      ],
+      "core/config/default-config.js | agentAccessibilityGroupTitle": [
+        "categoryGroups[agent-accessibility].title"
+      ],
+      "core/config/default-config.js | agentAccessibilityGroupDescription": [
+        "categoryGroups[agent-accessibility].description"
+      ],
+      "core/config/default-config.js | agentDiscoverabilityGroupTitle": [
+        "categoryGroups[agent-discoverability].title"
+      ],
+      "core/config/default-config.js | agentDiscoverabilityGroupDescription": [
+        "categoryGroups[agent-discoverability].description"
+      ]
+    }
+  }
+}

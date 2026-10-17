@@ -63,6 +63,8 @@ Birthday and Shuffle imagery and content are sourced from NASA APOD. The feature
 
 ## Production performance checks
 
+All downloadable discoveries now use Preview → Download. Moon, Moon match, Cosmic age, Planet builder, pets, Birthday, and Cosmic shuffle open a modal with the exact output image and its dimensions. Nothing saves until the visitor chooses Download inside the preview. Close, Escape, and backdrop dismissal cancel without saving; loading failures offer retry. NASA files retain their original bytes and format. The Moon match card includes separate labeled lines for both selected birthdays.
+
 Run `npm run serve:production`, then audit the preview URL in Lighthouse using Desktop or Mobile mode and cleared storage. This command builds the minified app and serves it with Vite Preview. The development server serves unbundled modules and React development tooling, so its JavaScript size and performance score do not represent production. Recheck the deployed URL after deployment to validate real caching, compression, and third-party behavior.
 
 The decorative hero uses local AVIF variants of the original photograph with WebP fallbacks: 640px on phones and responsive 1100/1600px variants on larger screens. The generated homepage preloads the matching AVIF image and critical fonts. Homepage cards have smaller responsive previews, and unused PostHog survey/tour downloads are disabled. Original NASA discovery downloads remain available at their source quality. Vercel caches hashed build assets for a year and public media for a week; public media URLs must be renamed when an immediate cache refresh is needed. Other hosts need equivalent cache configuration.
