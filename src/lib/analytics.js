@@ -11,6 +11,9 @@ function analyticsClient() {
       capture_pageview: 'history_change',
       person_profiles: 'identified_only',
       disable_session_recording: true,
+      // No survey or tour surfaces are used on Cosmicgaze.
+      disable_surveys: true,
+      disable_product_tours: true,
       loaded: (client) => client.register({ site_name: 'cosmicgaze' }),
       before_send: (event) => {
         if (event) event.properties = { ...event.properties, site_name: 'cosmicgaze' }

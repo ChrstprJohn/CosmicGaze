@@ -1,4 +1,5 @@
-import ResultSkeleton from './ResultSkeleton.jsx'
+import PlanetSkeleton from './PlanetSkeleton.jsx'
+import { planetLayout } from './lib/planet-layout.js'
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown, Hand, Minus, Plus, RotateCcw, SlidersHorizontal } from 'lucide-react'
 import * as THREE from 'three'
@@ -206,10 +207,7 @@ export default function PlanetScene({ planet, decorative = false, hoverPreview =
       camera.aspect = width / height
       renderer.setSize(width, height)
       // Fit the complete subject at every rotation, including the ring edges.
-      const radius = hasRings ? 2.36 : 1.12
-      const verticalAngle = THREE.MathUtils.degToRad(18)
-      const fitAngle = Math.min(verticalAngle, Math.atan(Math.tan(verticalAngle) * camera.aspect))
-      const defaultDistance = radius / Math.sin(fitAngle) * (decorative ? 1.05 : 1.25)
+      const { distance: defaultDistance } = planetLayout(width, height, hasRings, decorative)
       camera.far = Math.max(50, defaultDistance + 10)
       camera.updateProjectionMatrix()
       // Two gentle enlargement steps, shared by all zoom inputs.
@@ -387,14 +385,15 @@ export default function PlanetScene({ planet, decorative = false, hoverPreview =
   return (
     <div className={`planet-viewer${controlsLink ? ' planet-viewer-customizable' : ''}`}>
       {!decorative && <p className="planet-rotation-hint"><Hand size={18} aria-hidden="true" />Drag or swipe the planet to rotate</p>}
-      <div ref={host} className={`planet-stage${decorative ? ' planet-stage-decorative' : ''}`} aria-busy={status === 'loading'} role={decorative ? undefined : 'img'} aria-label={decorative ? undefined : `Interactive 3D ${planet.name}. Arrow keys rotate; plus and minus zoom; R resets.`} aria-hidden={decorative || undefined} tabIndex={decorative ? undefined : 0} />
+      <div ref={host} className={`planet-stage${decorative ? ' planet-stage-decorative' : ''}`} aria-busy={status === 'loading'} role={decorative ? undefined : status === 'ready' ? 'img' : 'group'} aria-label={decorative ? undefined : `Interactive 3D ${planet.name}. Arrow keys rotate; plus and minus zoom; R resets.`} aria-hidden={decorative && !showFeedback || undefined} tabIndex={decorative ? undefined : 0}>
       {(!decorative || showFeedback) && status !== 'ready' && <div className="planet-stage-feedback" role="status">
-        {status === 'loading' ? <ResultSkeleton shape="round" label={`Preparing ${planet.name}…`} overlay /> : <>
+        {status === 'loading' ? <PlanetSkeleton rings={appearance ? appearance.rings : planet.id === 'saturn'} decorative={decorative} label={`Preparing ${planet.name}…`} /> : <>
           <p>{status === 'unsupported' ? 'The 3D view needs a browser with WebGL support.' : 'The planet view could not load.'}</p>
           <p className="planet-error-help">You can still explore the story and facts.</p>
           {status !== 'unsupported' && <button className="planet-text-button" onClick={onRetry}>Try again <RotateCcw size={15} aria-hidden="true" /></button>}
         </>}
       </div>}
+      </div>
       {!decorative && <div className="planet-view-controls">
         {controlsLink && <a className="planet-customize-link" href={controlsLink.href} onClick={showControls}><SlidersHorizontal size={15} aria-hidden="true" />{controlsLink.label}<ChevronDown size={14} aria-hidden="true" /></a>}
         <p className="planet-drag-hint">Scroll or pinch to zoom</p>

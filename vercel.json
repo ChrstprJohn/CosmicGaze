@@ -1,4 +1,18 @@
 {
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/:directory(previews|pets|textures|data)/:path*",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
+    },
+    {
+      "source": "/cosmicgaze-showcase.mp4",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
+    }
+  ],
   "rewrites": [
     {
       "source": "/:page(birthday|moon|shuffle|solar-system|pets|moon-match|cosmic-age|build-your-planet|gravity-playground)",
