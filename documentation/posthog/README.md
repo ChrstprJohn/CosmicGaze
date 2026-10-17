@@ -54,8 +54,8 @@ If tracking is unavailable, check the token, ingestion host, hosting rebuild, co
 
 ## Public homepage stats
 
-The hero displays Cosmic explorers (all-time unique pageview distinct IDs), Most explored
-(the enabled discovery path with the most pageviews), and Discoveries made (explicit
+The hero displays Cosmic explorers (unique pageview distinct IDs), Cosmic views
+(all pageviews including the homepage and repeat views), and Discoveries made (explicit
 successful birthday lookups/shuffles, Moon calculations, and cosmic shuffle requests).
 All three stats cover the last 30 days. Automatic initial results are excluded from discovery completions. Dates and form input
 are not attached to these events. Completion counts start with this implementation.
