@@ -7,9 +7,9 @@ const pages = Object.fromEntries([
 ])
 const productionFilter = "properties.site_name = 'cosmicgaze' AND properties.$current_url LIKE 'https://cosmicgaze.chrbuilds.dev/%' AND timestamp >= now() - INTERVAL 30 DAY"
 const paths = Object.keys(pages).map(path => `'${path}'`).join(', ')
-const query = `SELECT 'explorers', '', toFloat64(uniqExact(distinct_id)) FROM events WHERE event = '$pageview' AND ${productionFilter}
-UNION ALL SELECT 'discoveries', '', toFloat64(count()) FROM events WHERE event = 'discovery_completed' AND properties.discovery IN ('birthday', 'moon', 'shuffle') AND ${productionFilter}
-UNION ALL SELECT 'pageviews', '', toFloat64(count()) FROM events WHERE event = '$pageview' AND properties.$pathname IN (${paths}) AND ${productionFilter}`
+const query = `SELECT 'explorers', '', toFloat(uniqExact(distinct_id)) FROM events WHERE event = '$pageview' AND ${productionFilter}
+UNION ALL SELECT 'discoveries', '', toFloat(count()) FROM events WHERE event = 'discovery_completed' AND properties.discovery IN ('birthday', 'moon', 'shuffle') AND ${productionFilter}
+UNION ALL SELECT 'pageviews', '', toFloat(count()) FROM events WHERE event = '$pageview' AND properties.$pathname IN (${paths}) AND ${productionFilter}`
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store')
