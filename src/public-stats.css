@@ -1,4 +1,4 @@
-.community-section { position: relative; padding: 40px var(--page-gutter); }
+.community-section { position: relative; padding: 64px var(--page-gutter) 104px; }
 .public-stats { margin: 0 auto; width: 100%; max-width: 1120px; text-align: center; }
 .public-stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 24px; align-items: start; }
 .public-stats-row > div { display: flex; flex-direction: column-reverse; gap: 8px; min-width: 0; text-align: center; }
@@ -8,6 +8,7 @@
 .stat-number { display: inline-block; }
 .public-stats .public-stats-note { color: #b5bbd0; font-size: 11px; margin: 18px 0 0; line-height: 1.5; }
 @media (max-width: 600px) {
+  .community-section { padding-block: 48px 72px; }
   .public-stats-row { gap: 12px; }
   .public-stats dd { font-size: clamp(30px, 8vw, 44px); }
   .public-stats dt { font-size: 11px; }
