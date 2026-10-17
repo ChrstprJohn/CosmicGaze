@@ -1,5 +1,4 @@
 import ResultSkeleton from './ResultSkeleton.jsx'
-import { trackDiscovery } from './lib/analytics.js'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowUpRight, LoaderCircle, Shuffle } from 'lucide-react'
 import { fetchApod } from './lib/apod.js'
@@ -32,7 +31,6 @@ export default function ShufflePage() {
         setImageFailed(false)
         setImageReady(false)
         setResult(entry)
-        trackDiscovery('shuffle')
       }
     } catch (issue) {
       if (!controller.signal.aborted) setError(issue.message || 'Couldn’t find your next discovery. Please try again.')

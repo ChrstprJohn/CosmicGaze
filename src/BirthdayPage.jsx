@@ -1,6 +1,5 @@
 import LoadingState from './LoadingState.jsx'
 import { useEffect, useRef, useState } from 'react'
-import { trackDiscovery } from './lib/analytics.js'
 import { ArrowLeft, LoaderCircle, Orbit, Shuffle, Telescope } from 'lucide-react'
 import axios from 'axios'
 import { fetchApod } from './lib/apod.js'
@@ -72,7 +71,7 @@ export default function BirthdayPage() {
       const entry = await fetchApod(selectedDate, controller.signal)
       if (!controller.signal.aborted) {
         setResult(entry)
-        trackDiscovery('birthday')
+
       }
     } catch (issue) {
       if (!axios.isCancel(issue) && !controller.signal.aborted) setError(issue.message)
@@ -94,7 +93,6 @@ export default function BirthdayPage() {
         setImageStatus('loading')
         setDate(entry.date)
         setResult(entry)
-        trackDiscovery('birthday')
       }
     } catch (issue) {
       if (!controller.signal.aborted) setError(issue.message?.replace('Press Surprise me', 'Press Shuffle picture') || 'Couldn’t find a picture. Shuffle again to retry.')

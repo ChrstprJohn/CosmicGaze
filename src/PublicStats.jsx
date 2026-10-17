@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './public-stats.css'
 
-export default function PublicStats() {
+export default function PublicStats({ totalCards }) {
   const [stats, setStats] = useState(null)
   const [status, setStatus] = useState('loading')
   useEffect(() => {
@@ -24,9 +24,9 @@ export default function PublicStats() {
       <dl className="public-stats-row" aria-busy={status === 'loading'}>
         <div><dt>Cosmic explorers</dt><dd>{number(stats?.explorers)}</dd></div>
         <div title="All pageviews, including the homepage and repeat views, in the last 30 days."><dt>Cosmic views</dt><dd>{number(stats?.pageviews)}</dd></div>
-        <div title="Successful birthday lookups, Moon calculations, and cosmic shuffles since tracking began."><dt>Discoveries made</dt><dd>{number(stats?.discoveries)}</dd></div>
+        <div title="Discovery cards currently available in Explore."><dt>Total cards</dt><dd>{number(totalCards)}</dd></div>
       </dl>
-      <p className="public-stats-note" role="status">{status === 'loading' ? 'Gathering our little universe…' : status === 'unavailable' ? 'Community stats are taking a moment.' : 'Last 30 days · Refreshed hourly'}</p>
+      <p className="public-stats-note" role="status">{status === 'loading' ? 'Gathering our little universe…' : status === 'unavailable' ? 'Community stats are taking a moment.' : 'Traffic: last 30 days · Refreshed hourly'}</p>
     </div>
   )
 }

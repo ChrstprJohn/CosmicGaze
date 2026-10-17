@@ -24,11 +24,11 @@ test('public stats exposes only aggregates, filters production, and handles fail
       assert.ok(!sql.includes('properties.$pathname'))
       assert.equal((sql.match(/FROM events/g) || []).length, 1)
       assert.ok(!sql.includes('UNION'))
-      return { ok: true, json: async () => ({ results: [[42, 32, 9]] }) }
+      return { ok: true, json: async () => ({ results: [[42, 32]] }) }
     }
     res = response()
     await handler({ method: 'GET' }, res)
-    assert.deepEqual(res.body, { explorers: 42, discoveries: 9, pageviews: 32 })
+    assert.deepEqual(res.body, { explorers: 42, pageviews: 32 })
     assert.ok(res.headers['Cache-Control'].includes('s-maxage=3600'))
     globalThis.fetch = async () => { throw new Error('secret upstream detail') }
     res = response()

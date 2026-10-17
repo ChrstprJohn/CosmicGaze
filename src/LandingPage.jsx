@@ -153,7 +153,7 @@ export default function LandingPage() {
           </h1>
           <p>Explore astronomy, planets, and a little imagination.</p>
           <a href="#services" className="primary-button explore-button">Explore <ArrowDown size={18} aria-hidden="true" /></a>
-          <PublicStats />
+          <PublicStats totalCards={services.length} />
         </div>
       </section>
 
