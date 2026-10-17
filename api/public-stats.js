@@ -7,9 +7,11 @@ const pages = Object.fromEntries([
 ])
 const productionFilter = "properties.site_name = 'cosmicgaze' AND properties.$current_url LIKE 'https://cosmicgaze.chrbuilds.dev/%' AND timestamp >= now() - INTERVAL 30 DAY"
 const paths = Object.keys(pages).map(path => `'${path}'`).join(', ')
-const query = `SELECT 'explorers', '', toFloat(uniqExact(distinct_id)) FROM events WHERE event = '$pageview' AND ${productionFilter}
-UNION ALL SELECT 'discoveries', '', toFloat(count()) FROM events WHERE event = 'discovery_completed' AND properties.discovery IN ('birthday', 'moon', 'shuffle') AND ${productionFilter}
-UNION ALL SELECT 'pageviews', '', toFloat(count()) FROM events WHERE event = '$pageview' AND properties.$pathname IN (${paths}) AND ${productionFilter}`
+const query = `SELECT
+  uniqExactIf(distinct_id, event = '$pageview'),
+  countIf(event = '$pageview' AND properties.$pathname IN (${paths})),
+  countIf(event = 'discovery_completed' AND properties.discovery IN ('birthday', 'moon', 'shuffle'))
+FROM events WHERE ${productionFilter} AND event IN ('$pageview', 'discovery_completed')`
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store')
@@ -31,13 +33,14 @@ export default async function handler(req, res) {
     if (!response.ok) throw new Error('Query failed')
     const data = await response.json()
     if (!Array.isArray(data.results)) throw new Error('Missing results')
-    const rows = data.results
-    const count = type => {
-      const value = Number(rows.find(row => row[0] === type)?.[2])
+    const row = data.results[0]
+    if (!Array.isArray(row) || row.length !== 3) throw new Error('Invalid aggregate result')
+    const count = index => {
+      const value = Number(row[index])
       if (!Number.isSafeInteger(value) || value < 0) throw new Error('Invalid count')
       return value
     }
-    const result = { explorers: count('explorers'), pageviews: count('pageviews'), discoveries: count('discoveries') }
+    const result = { explorers: count(0), pageviews: count(1), discoveries: count(2) }
     res.setHeader('Cache-Control', 'public, max-age=60, s-maxage=3600, stale-while-revalidate=86400')
     return res.status(200).json(result)
   } catch {
