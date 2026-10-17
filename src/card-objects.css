@@ -15,3 +15,5 @@
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .service-pet-preview .pet-pupil { transition: transform 90ms ease-out; }
 }
+/* These captured previews include an old rounded frame; crop it inside the card. */
+.service-static-preview:is([src$="/builder.webp"], [src$="/planets.webp"], [src$="/gravity.webp"]) { transform: scale(1.1); }
