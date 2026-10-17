@@ -18,7 +18,10 @@ test('build emits distinct route metadata, discoverable links and matching sitem
     assert.equal((html.match(/rel="canonical"/g) || []).length, 1)
     assert.ok(html.includes(`href="${SITE_URL}${path}"`))
     assert.ok(html.includes(`<title>${page.title.replaceAll('&', '&amp;')}</title>`))
-    assert.ok(html.includes('<main><h1>'))
+    assert.ok(html.includes('<noscript><main><h1>'))
+    const root = html.split('<div id="root">')[1].split('<noscript>')[0]
+    assert.ok(root.includes('role="status"'))
+    assert.ok(!root.includes('<nav'))
     assert.ok(html.includes(`href="${path}"`))
     assert.ok(output['sitemap.xml'].includes(`<loc>${SITE_URL}${path}</loc>`))
     const schema = JSON.parse(html.match(/application\/ld\+json">(.*?)<\/script>/s)[1])

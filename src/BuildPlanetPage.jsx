@@ -1,3 +1,4 @@
+import LoadingState from './LoadingState.jsx'
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Shuffle, RotateCcw } from 'lucide-react'
 import DiscoveryLayout, { ArtDownload, SourceNote } from './DiscoveryLayout.jsx'
@@ -50,7 +51,7 @@ export default function BuildPlanetPage() {
     <SourceNote href={TEXTURE_SOURCE}>Cloud and ring textures · Solar System Scope · CC BY 4.0</SourceNote>
   </>}>
     <div className="builder-preview mobile-preview">
-      <div className="builder-planet"><Suspense fallback={<p className="discovery-note">Preparing your world…</p>}><PlanetScene key={retry} planet={planet} appearance={appearance} captureRef={capture} onCaptureReady={setReady} controlsLink={controlsLink} onRetry={() => setRetry((value) => value + 1)} /></Suspense></div>
+      <div className="builder-planet"><Suspense fallback={<LoadingState variant="planet">Preparing your world…</LoadingState>}><PlanetScene key={retry} planet={planet} appearance={appearance} captureRef={capture} onCaptureReady={setReady} controlsLink={controlsLink} onRetry={() => setRetry((value) => value + 1)} /></Suspense></div>
       <div className="art-caption" aria-live="polite"><h2>{displayName}</h2><p>{world.terrain === 'ocean' ? 'Oceans and continents' : world.terrain === 'rocky' ? 'A world of rocky terrain' : 'A world of swirling gas bands'}{world.rings ? ' · Ringed' : ''}{world.clouds ? ' · Clouded' : ''}</p></div>
     </div>
     <div className="builder-actions">
