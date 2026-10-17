@@ -1,4 +1,4 @@
-.community-section { position: relative; background: #0c1020; border-block: 1px solid #252a40; padding: 40px var(--page-gutter); }
+.community-section { position: relative; padding: 40px var(--page-gutter); }
 .public-stats { margin: 0 auto; width: 100%; max-width: 1120px; text-align: center; }
 .public-stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 24px; align-items: start; }
 .public-stats-row > div { display: flex; flex-direction: column-reverse; gap: 8px; min-width: 0; text-align: center; }
