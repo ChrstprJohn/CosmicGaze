@@ -1,3 +1,4 @@
+import LoadingState from './LoadingState.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { RefreshCw } from 'lucide-react'
 import DiscoveryLayout from './DiscoveryLayout.jsx'
@@ -43,7 +44,7 @@ export default function CosmicNeighborsPage() {
     {result?.entries.length > 0 && <><label htmlFor="asteroid-choice">Choose a visitor · nearest first</label><select id="asteroid-choice" className="text-field" value={selected || ''} onChange={(event) => setSelected(event.target.value)}>{result.entries.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></>}
     <p className="discovery-note">“Near Earth” is an orbital classification. A close approach isn’t a prediction of an impact.</p>
   </>}>
-    {asteroid ? <div aria-busy={loading}>
+    {loading ? <LoadingState variant="planet">Finding today’s visitors…</LoadingState> : asteroid ? <div aria-busy={loading}>
       <AsteroidVisual />
       <p className="discovery-note">Illustrative asteroid · {formatDate(result.date)}</p><h2 className="asteroid-name">{asteroid.name}</h2>
       <dl className="space-facts"><div><dt>Estimated diameter</dt><dd>{asteroid.minSize.toFixed(0)}–{asteroid.maxSize.toFixed(0)} <span>m</span></dd></div><div><dt>Closest approach</dt><dd>{asteroid.lunarDistances.toFixed(2)} <span>Moon distances</span></dd></div><div><dt>Speed relative to Earth</dt><dd>{asteroid.velocity.toLocaleString('en-US', { maximumFractionDigits: 0 })} <span>km/h</span></dd></div><div><dt>Distance from Earth</dt><dd>{asteroid.distance.toLocaleString('en-US', { maximumFractionDigits: 0 })} <span>km</span></dd></div></dl>

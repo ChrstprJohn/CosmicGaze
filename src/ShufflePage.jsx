@@ -1,3 +1,4 @@
+import ResultSkeleton from './ResultSkeleton.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowUpRight, LoaderCircle, Shuffle } from 'lucide-react'
 import { fetchApod } from './lib/apod.js'
@@ -11,6 +12,7 @@ export default function ShufflePage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [imageFailed, setImageFailed] = useState(false)
+  const [imageReady, setImageReady] = useState(false)
   const request = useRef(null)
   const seenDates = useRef(new Set([FEATURED_DISCOVERY.date]))
   const seenImages = useRef(new Set([imageIdentity(FEATURED_DISCOVERY.image)]))
@@ -27,6 +29,7 @@ export default function ShufflePage() {
       const entry = await nextDiscovery({ fetchEntry: fetchApod, prepareImage: prepareDiscoveryImage, seenDates: seenDates.current, seenImages: seenImages.current, signal: controller.signal })
       if (!controller.signal.aborted) {
         setImageFailed(false)
+        setImageReady(false)
         setResult(entry)
       }
     } catch (issue) {
@@ -48,8 +51,9 @@ export default function ShufflePage() {
       </div>
       <div className="shuffle-result">
         <figure className="shuffle-figure" aria-busy={loading}>
-          <div className="shuffle-image-stage">
-            {imageFailed ? <div className="image-fallback"><p>The preview couldn’t load.</p><a href={result.image} target="_blank" rel="noreferrer">Open original image <ArrowUpRight size={14} aria-hidden="true" /></a></div> : <img className="shuffle-image" src={imagePreviewUrl(result.image)} alt={result.alt || result.title} decoding="async" onError={() => setImageFailed(true)} />}
+          <div className="shuffle-image-stage" aria-busy={loading || (!imageReady && !imageFailed)}>
+            {(loading || (!imageReady && !imageFailed)) && <ResultSkeleton label="Loading your discovery…" overlay />}
+            {imageFailed ? <div className="image-fallback"><p>The preview couldn’t load.</p><a href={result.image} target="_blank" rel="noreferrer">Open original image <ArrowUpRight size={14} aria-hidden="true" /></a></div> : <img className="shuffle-image" src={imagePreviewUrl(result.image)} alt={result.alt || result.title} decoding="async" onLoad={() => setImageReady(true)} onError={() => setImageFailed(true)} />}
           </div>
           <figcaption className="shuffle-details" aria-live="polite" aria-atomic="true"><p className="result-date">{formatDate(result.date)}</p><h2>{result.title}</h2></figcaption>
         </figure>

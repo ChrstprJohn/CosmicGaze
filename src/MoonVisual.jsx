@@ -1,5 +1,6 @@
+import ResultSkeleton from './ResultSkeleton.jsx'
 import { useEffect, useRef, useState } from 'react'
-import { LoaderCircle, RotateCcw } from 'lucide-react'
+import { RotateCcw } from 'lucide-react'
 import { drawMoon, loadMoonTexture } from './lib/moon-render.js'
 import './moon-view.css'
 
@@ -22,7 +23,7 @@ export default function MoonVisual({ fraction, waxing, label, decorative = false
   return (
     <div className={`moon-stage${decorative ? ' moon-stage-decorative' : ''}`} aria-busy={status === 'loading'}>
       <canvas ref={canvas} className="moon-canvas" width={size} height={size} role={decorative ? undefined : 'img'} aria-label={decorative ? undefined : label} aria-hidden={decorative || status !== 'ready'} />
-      {status === 'loading' && !decorative && <p className="moon-preview-status" role="status"><LoaderCircle className="loading-icon" size={18} aria-hidden="true" /> Preparing your Moon</p>}
+      {status === 'loading' && !decorative && <ResultSkeleton shape="round" label="Preparing your Moon…" overlay />}
       {status === 'error' && !decorative && <div className="moon-preview-status"><p role="alert">The Moon surface couldn’t load.</p><button className="moon-retry" type="button" onClick={() => { setStatus('loading'); setAttempt((value) => value + 1) }}><RotateCcw size={15} aria-hidden="true" /> Try again</button></div>}
     </div>
   )
