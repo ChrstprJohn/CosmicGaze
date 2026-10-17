@@ -42,8 +42,8 @@ export default function PublicStats({ totalCards }) {
     <div className="public-stats" aria-label="CosmicGaze community statistics">
       <dl className="public-stats-row" aria-busy={status === 'loading'}>
         <div><dt>Unique visitors</dt><StatNumber value={stats?.explorers} loading={status === 'loading'} /></div>
-        <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><StatNumber value={stats?.pageviews} loading={status === 'loading'} /></div>
-        <div title="Experiences currently available in Explore."><dt>Things to explore</dt><StatNumber value={totalCards} /></div>
+        <div><dt>Page views</dt><StatNumber value={stats?.pageviews} loading={status === 'loading'} /></div>
+        <div><dt>Things to explore</dt><StatNumber value={totalCards} /></div>
       </dl>
     </div>
   )
