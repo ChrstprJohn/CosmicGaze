@@ -54,7 +54,7 @@ If tracking is unavailable, check the token, ingestion host, hosting rebuild, co
 
 ## Public homepage stats
 
-The hero displays Cosmic explorers (unique pageview distinct IDs), Total page views
+The hero displays Cosmic explorers (unique pageview distinct IDs), Cosmic views
 (all pageviews including the homepage and repeat views), and Discoveries made (explicit
 successful birthday lookups/shuffles, Moon calculations, and cosmic shuffle requests).
 All three stats cover the last 30 days. Automatic initial results are excluded from discovery completions. Dates and form input
