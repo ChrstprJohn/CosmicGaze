@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { formatStat } from './lib/stat-format.js'
 import './public-stats.css'
 
-function StatNumber({ value }) {
+function StatNumber({ value, loading = false }) {
   const number = useRef(null)
   useEffect(() => {
     if (value == null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -18,7 +18,7 @@ function StatNumber({ value }) {
     observer.observe(number.current)
     return () => { observer.disconnect(); animation?.cancel() }
   }, [value])
-  return <dd aria-label={value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span ref={number} className="stat-number" aria-hidden="true">{formatStat(value)}</span></dd>
+  return <dd aria-label={loading ? 'Loading' : value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span ref={number} className={`stat-number${loading ? ' stat-number-loading' : ''}`} aria-hidden="true">{loading ? '\u00a0' : formatStat(value)}</span></dd>
 }
 
 export default function PublicStats({ totalCards }) {
@@ -41,8 +41,8 @@ export default function PublicStats({ totalCards }) {
   return (
     <div className="public-stats" aria-label="CosmicGaze community statistics">
       <dl className="public-stats-row" aria-busy={status === 'loading'}>
-        <div><dt>Unique visitors</dt><StatNumber value={stats?.explorers} /></div>
-        <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><StatNumber value={stats?.pageviews} /></div>
+        <div><dt>Unique visitors</dt><StatNumber value={stats?.explorers} loading={status === 'loading'} /></div>
+        <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><StatNumber value={stats?.pageviews} loading={status === 'loading'} /></div>
         <div title="Experiences currently available in Explore."><dt>Things to explore</dt><StatNumber value={totalCards} /></div>
       </dl>
       {status === 'unavailable' && <p className="public-stats-note" role="status">Community stats are taking a moment.</p>}
