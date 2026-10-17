@@ -3,13 +3,14 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import seoBuild from './scripts/seo-build.js'
 import publicStats from './api/public-stats.js'
+import { SITE_URL } from './src/lib/seo.js'
 
 // Run the same server-only handler during local dev/preview as Vercel runs in production.
 function localStats() {
   let env
   let cached
   let expires = 0
-  function middleware(req, res, next) {
+  async function middleware(req, res, next) {
     if (req.url?.split('?')[0] !== '/api/public-stats') return next()
     if (req.method === 'GET' && cached && Date.now() < expires) {
       res.setHeader('Content-Type', 'application/json')
@@ -28,7 +29,19 @@ function localStats() {
         res.end(JSON.stringify(body))
       },
     }
-    publicStats(req, adapter).catch(next)
+    // Local previews can read public aggregates without a private analytics key.
+    if (req.method === 'GET' && (!process.env.POSTHOG_PERSONAL_API_KEY?.trim() || !process.env.POSTHOG_PROJECT_ID?.trim())) {
+      try {
+        const response = await fetch(`${SITE_URL}/api/public-stats`, { signal: AbortSignal.timeout(12000) })
+        if (!response.ok) throw new Error('Stats unavailable')
+        const { explorers, pageviews } = await response.json()
+        if (![explorers, pageviews].every(value => Number.isSafeInteger(value) && value >= 0)) throw new Error('Invalid counts')
+        return adapter.status(200).json({ explorers, pageviews })
+      } catch {
+        return adapter.status(503).json({ error: 'Stats unavailable' })
+      }
+    }
+    return publicStats(req, adapter).catch(next)
   }
   return {
     name: 'local-public-stats',

@@ -54,8 +54,8 @@ If tracking is unavailable, check the token, ingestion host, hosting rebuild, co
 
 ## Public homepage stats
 
-The hero displays Cosmic explorers (unique pageview distinct IDs), Cosmic views
-(all pageviews including the homepage and repeat views), and Cosmic discoveries
+The homepage displays Unique visitors (unique pageview distinct IDs), Page views
+(all pageviews including the homepage and repeat views), and Things to explore
 (the current number of discovery cards rendered in Explore). Traffic covers all recorded history across both CosmicGaze and Celestial tags. The card count comes directly from the homepage list, needs no analytics,
 and remains visible if the stats endpoint is unavailable. Completion-event tracking
 has been removed; the public stats no longer count tool actions.
@@ -66,12 +66,14 @@ has been removed; the public stats no longer count tool actions.
 server-only; never prefix it with `VITE_`. Redeploy after saving settings and code.
 Existing public `VITE_POSTHOG_TOKEN` and `VITE_POSTHOG_HOST` are still required for capture.
 
-Queries restrict events to `site_name = cosmicgaze` and URLs starting with
-`https://cosmicgaze.chrbuilds.dev/`. Earlier domains and Celestial-tagged events are excluded.
+Queries include both `cosmicgaze` and `celestial` site tags across all recorded URLs.
 Vercel caches aggregate responses for one hour. Errors show dashes rather than fake counts.
-Plain Vite development/preview does not run Vercel functions; use a Vercel preview deployment
-with the matching environment variables to verify real data. Check `/api/public-stats` for
-a 200 JSON response containing only the three aggregate fields, then confirm the hero.
+Vite development/preview runs the same handler when private PostHog settings are available.
+Without a private key or project ID, it reads the deployed site's public aggregate endpoint
+and caches successful responses for one hour. This fallback is local only; production still
+requires the private server settings above. All three values show loading placeholders together,
+then roll together when the stats row enters view. If traffic counts fail, the card count remains
+available. Check `/api/public-stats` for a 200 JSON response containing `explorers` and `pageviews`.
 
 ## API references
 
