@@ -1,3 +1,4 @@
+import ResultSkeleton from './ResultSkeleton.jsx'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Combine, Columns2, RotateCcw } from 'lucide-react'
 import DiscoveryLayout, { ArtDownload } from './DiscoveryLayout.jsx'
@@ -76,11 +77,11 @@ export default function MoonMatchPage() {
   </>}>
     <div className="mobile-preview match-preview">
       <div ref={visual} className={`moon-match-visual${combined ? ' is-combined' : ''}`} aria-busy={status === 'loading'}>
-        <figure className="match-moon" aria-hidden={combined}><canvas ref={firstCanvas} width="480" height="480" role="img" aria-label={`Your Moon: ${first.name}, ${Math.round(first.fraction * 100)}% illuminated`} /><figcaption><span>Your Moon · {formatDate(firstDate)}</span><h2>{first.name}</h2><p>{Math.round(first.fraction * 100)}% illuminated</p></figcaption></figure>
-        <figure className="match-moon" aria-hidden={combined}><canvas ref={secondCanvas} width="480" height="480" role="img" aria-label={`Their Moon: ${second.name}, ${Math.round(second.fraction * 100)}% illuminated`} /><figcaption><span>Their Moon · {formatDate(secondDate)}</span><h2>{second.name}</h2><p>{Math.round(second.fraction * 100)}% illuminated</p></figcaption></figure>
+        <figure className="match-moon" aria-hidden={combined}>{status === 'loading' && <ResultSkeleton shape="round" label="Preparing your Moon…" overlay />}<canvas ref={firstCanvas} width="480" height="480" role="img" aria-label={`Your Moon: ${first.name}, ${Math.round(first.fraction * 100)}% illuminated`} /><figcaption><span>Your Moon · {formatDate(firstDate)}</span><h2>{first.name}</h2><p>{Math.round(first.fraction * 100)}% illuminated</p></figcaption></figure>
+        <figure className="match-moon" aria-hidden={combined}>{status === 'loading' && <ResultSkeleton shape="round" label="Preparing their Moon…" overlay />}<canvas ref={secondCanvas} width="480" height="480" role="img" aria-label={`Their Moon: ${second.name}, ${Math.round(second.fraction * 100)}% illuminated`} /><figcaption><span>Their Moon · {formatDate(secondDate)}</span><h2>{second.name}</h2><p>{Math.round(second.fraction * 100)}% illuminated</p></figcaption></figure>
         <figure className="match-combined"><canvas ref={combinedCanvas} width="480" height="480" role="img" aria-label="Both birthday Moon phases layered together" /><figcaption><h2>Your light, together.</h2><p>Both phases aligned north-up.</p></figcaption></figure>
       </div>
-      {status === 'loading' && <p className="discovery-note" role="status">Preparing your Moons…</p>}
+
       {status === 'error' && <p className="form-error" role="alert">The Moon texture couldn’t load. <button className="secondary-button" onClick={() => { setStatus('loading'); setRetry(retry + 1) }}>Try again</button></p>}
       <p className="match-score" aria-live="polite">{match.fit}% <span>full-Moon fit</span></p>
     </div>

@@ -24,3 +24,48 @@
   .mobile-preview .loading-state-planet .loading-skeleton { width: min(120px, 35%); }
   .mobile-preview .loading-state-label { font-size: 12px; }
 }
+
+.loading-state-logo { min-height: calc(100svh - 96px); }
+.loading-brand-mark { color: #c9c1f0; flex-shrink: 0; animation: brand-orbit 1.8s linear infinite; }
+@keyframes brand-orbit { to { transform: rotate(360deg); } }
+@media (max-width: 767px) { .loading-state-logo { min-height: calc(100svh - 68px); } }
+@media (prefers-reduced-motion: reduce) { .loading-brand-mark { animation: none; } }
+
+.preview-media, .preview-media-content { position: relative; width: 100%; height: 100%; min-width: 0; }
+.preview-media-content { opacity: 0; transition: opacity .3s ease-out; }
+.preview-media.is-ready .preview-media-content { opacity: 1; }
+.media-skeleton { position: absolute; inset: 0; overflow: hidden; background: #151c30; pointer-events: none; }
+.media-skeleton::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, #c9c1f014 50%, transparent 80%); transform: translateX(-100%); animation: media-shimmer 1.8s ease-in-out infinite; }
+@keyframes media-shimmer { to { transform: translateX(100%); } }
+.showcase-video-wrap { position: relative; aspect-ratio: 16 / 9; }
+.video-skeleton { z-index: 1; }
+.video-skeleton-controls { bottom: 44px; }
+.video-load-error { position: absolute; inset: 0 0 44px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; background: #101528; padding: 24px; color: #b5bbd0; font-size: 14px; }
+.video-load-error button { min-height: 44px; padding: 8px 16px; border: 1px solid #4c5270; border-radius: 6px; background: #101528; color: #ded8fa; }
+@media (prefers-reduced-motion: reduce) { .media-skeleton::after { animation: none; } .preview-media-content { transition: none; } }
+
+.result-skeleton { position: relative; width: 100%; min-height: 240px; display: grid; place-items: center; pointer-events: none; }
+.result-skeleton-overlay { position: absolute; inset: 0; min-height: 0; z-index: 1; background: #070b17; }
+.result-skeleton-shape { position: relative; width: 100%; height: 100%; min-height: inherit; border-radius: 12px; }
+.result-skeleton-round .result-skeleton-shape { width: min(65%, 280px); height: auto; min-height: 0; aspect-ratio: 1; border-radius: 50%; }
+.result-skeleton-facts { min-height: 100px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-block: 16px; }
+.result-skeleton-facts .result-skeleton-shape { height: 64px; min-height: 0; }
+.shuffle-image-stage { position: relative; min-height: clamp(240px, 45svh, 460px); }
+.moon-match-visual .match-moon { position: relative; }
+.moon-match-visual[aria-busy="true"] canvas { opacity: 0; }
+.moon-match-visual .match-moon > .result-skeleton { bottom: auto; aspect-ratio: 1; }
+.quiz-art .preview-media { min-height: 320px; }
+.quiz-art .preview-media-content { display: grid; place-items: center; }
+.planet-stage-feedback:has(.result-skeleton) { padding: 0; }
+.planet-stage-feedback .result-skeleton { background: transparent; }
+.loading-skeleton span { overflow: hidden; position: relative; }
+.loading-skeleton span::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, #c9c1f014 50%, transparent 80%); transform: translateX(-100%); animation: media-shimmer 1.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .loading-skeleton span::after { animation: none; } }
+.planet-stage[aria-busy="true"] canvas, .earth-stage[aria-busy="true"] > canvas { opacity: 0; }
+.pet-portrait .result-skeleton { background: #0b1021; }
+
+.landing-hero:has(.loading-state-logo) { padding: 0; }
+.landing-hero > .loading-state-logo { min-height: inherit; }
+.service-card:has(.preview-media[aria-busy="true"]) .service-copy { position: relative; }
+.service-card:has(.preview-media[aria-busy="true"]) .service-copy > * { visibility: hidden; }
+.service-card:has(.preview-media[aria-busy="true"]) .service-copy::after { content: ''; position: absolute; inset: 28px; background: linear-gradient(#252d45,#252d45) left top / 76% 24px no-repeat, linear-gradient(#1c233a,#1c233a) left 44px / 100% 10px no-repeat, linear-gradient(#1c233a,#1c233a) left 64px / 80% 10px no-repeat, linear-gradient(#252d45,#252d45) left bottom / 60% 10px no-repeat; }

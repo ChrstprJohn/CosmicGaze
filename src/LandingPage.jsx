@@ -1,3 +1,4 @@
+import PreviewSkeleton from './PreviewSkeleton.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import HeroScene from './HeroScene.jsx'
@@ -65,6 +66,8 @@ function ShowcaseSection() {
   const video = useRef(null)
   const [active, setActive] = useState(false)
   const [blocked, setBlocked] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
+  const [videoFailed, setVideoFailed] = useState(false)
   const [manual] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches || Boolean(navigator.connection?.saveData))
   useEffect(() => {
     const element = video.current
@@ -98,13 +101,18 @@ function ShowcaseSection() {
   return (
     <section className="showcase-section" aria-labelledby="showcase-title">
       <h2 id="showcase-title" className="showcase-title" data-scroll-reveal>See it come alive.</h2>
-      <div className="showcase-video-wrap" data-scroll-reveal>
+      <div className="showcase-video-wrap" data-scroll-reveal aria-busy={(!videoReady) && !videoFailed}>
         <video
           ref={video}
           className="showcase-video"
           src={manual || active ? '/cosmicgaze-showcase.mp4' : undefined}
           poster="/previews/cosmicgaze-showcase.webp"
-          preload="none"
+          preload={manual ? 'metadata' : 'none'}
+          onLoadedData={() => setVideoReady(true)}
+          onCanPlay={() => setVideoReady(true)}
+          onWaiting={() => setVideoReady(false)}
+          onPlaying={() => setVideoReady(true)}
+          onError={() => setVideoFailed(true)}
           autoPlay={active}
           controls={manual || blocked}
           muted
@@ -112,6 +120,8 @@ function ShowcaseSection() {
           playsInline
           aria-label="Cosmicgaze showcase video"
         />
+        {(!videoReady) && !videoFailed && <div className={`media-skeleton video-skeleton${manual || blocked ? ' video-skeleton-controls' : ''}`} aria-hidden="true" />}
+        {videoFailed && <p className="video-load-error" role="status">The video couldn’t load. <button type="button" onClick={() => { setVideoFailed(false); setVideoReady(false); video.current.load() }}>Try again</button></p>}
       </div>
     </section>
   )
@@ -153,9 +163,9 @@ export default function LandingPage() {
           {services.map(({ title, emphasis, description, href, action, art }) => (
             <a key={href} href={href} className="service-card" data-scroll-reveal>
               <div className={`service-art${art === 'moon' ? ' service-art-moon' : ''}`} aria-hidden="true">
-                <CardObjectPreview type={art}>
+                <PreviewSkeleton><CardObjectPreview type={art}>
                   {staticPreviews.has(art) ? <img className="service-static-preview" src={`/previews/${art}.webp`} alt="" width="602" height="560" loading="lazy" decoding="async" /> : art === 'pets' ? <PetsArt /> : art === 'shuffle' ? <img className="service-photo" src={SHUFFLE_IMAGE} alt="" loading="lazy" decoding="async" /> : <DiscoveryArt type={art} />}
-                </CardObjectPreview>
+                </CardObjectPreview></PreviewSkeleton>
               </div>
               <div className="service-copy"><h3>{title}{emphasis && <><br /><em>{emphasis}</em></>}</h3><p>{description}</p><span>{action} <ArrowRight size={18} aria-hidden="true" /></span></div>
             </a>

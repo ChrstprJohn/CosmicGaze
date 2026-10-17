@@ -15,7 +15,7 @@ import './mobile-workspaces.css'
 import usePagePath from './usePagePath.js'
 import { updateSeo } from './lib/seo.js'
 
-const LandingPage = lazy(() => import('./LandingPage.jsx'))
+import LandingPage from './LandingPage.jsx'
 const MoonPage = lazy(() => import('./MoonPage.jsx'))
 const BirthdayPage = lazy(() => import('./BirthdayPage.jsx'))
 const ShufflePage = lazy(() => import('./ShufflePage.jsx'))

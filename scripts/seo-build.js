@@ -1,3 +1,6 @@
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { Orbit } from 'lucide-react'
 import { SEO_PAGES, SITE_URL, pageSchema } from '../src/lib/seo.js'
 
 const escapeHtml = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -9,6 +12,8 @@ export default function seoBuild() {
     enforce: 'post',
     generateBundle(_options, bundle) {
       const template = bundle['index.html'].source
+      const logo = renderToStaticMarkup(createElement(Orbit, { width: 56, height: 56, strokeWidth: 1.2, className: 'boot-logo', 'aria-hidden': true }))
+      const bootStyles = '<style>body{margin:0;background:#070b17}.boot-logo{color:#c9c1f0;animation:boot-orbit 1.8s linear infinite}@keyframes boot-orbit{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.boot-logo{animation:none}}</style>'
       const links = Object.entries(SEO_PAGES).map(([path, page]) => `<li><a href="${path}">${escapeHtml(page.title.replace(' — Cosmicgaze', ''))}</a></li>`).join('')
       for (const [path, page] of Object.entries(SEO_PAGES)) {
         const url = `${SITE_URL}${path}`
@@ -30,8 +35,8 @@ export default function seoBuild() {
     <script type="application/ld+json">${JSON.stringify(pageSchema(path)).replaceAll('<', '\\u003c')}</script>`
         const html = template.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
           .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${description}" />`)
-          .replace('</head>', `${metadata}\n  </head>`)
-          .replace('<div id="root"></div>', `<div id="root"><div role="status" aria-label="Loading Cosmicgaze" style="box-sizing:border-box;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px;background:#070b17;color:#b5bbd0;font:14px/1.6 sans-serif;text-align:center"><div aria-hidden="true" style="width:min(240px,100%);height:112px;border-radius:12px;background:#101528"></div><p style="margin:0">Opening Cosmicgaze…</p></div></div><noscript><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Cosmicgaze"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></noscript>`)
+          .replace('</head>', `${metadata}${bootStyles}\n  </head>`)
+          .replace('<div id="root"></div>', `<div id="root"><div role="status" aria-label="Loading Cosmicgaze" style="box-sizing:border-box;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px;background:#070b17;color:#b5bbd0;font:14px/1.6 sans-serif;text-align:center">${logo}</div></div><noscript><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Cosmicgaze"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></noscript>`)
         if (path === '/') bundle['index.html'].source = html
         else this.emitFile({ type: 'asset', fileName: `${path.slice(1)}.html`, source: html })
       }
