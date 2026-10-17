@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import handler from '../../api/public-stats.js'
 
-test('public stats exposes only aggregates, filters production, and handles failures privately', async () => {
+test('public stats exposes only aggregates, combines both site tags, and handles failures privately', async () => {
   const saved = { ...process.env }
   const originalFetch = globalThis.fetch
   const response = () => ({ headers: {}, setHeader(k, v) { this.headers[k] = v }, status(code) { this.code = code; return this }, json(body) { this.body = body; return this } })
@@ -17,8 +17,8 @@ test('public stats exposes only aggregates, filters production, and handles fail
     globalThis.fetch = async (url, options) => {
       assert.equal(url, 'https://us.posthog.com/api/projects/643035/query/')
       const sql = JSON.parse(options.body).query.query
-      assert.ok(sql.includes("properties.site_name = 'cosmicgaze'"))
-      assert.ok(sql.includes('https://cosmicgaze.chrbuilds.dev/%'))
+      assert.ok(sql.includes("properties.site_name IN ('cosmicgaze', 'celestial')"))
+      assert.ok(!sql.includes('properties.$current_url'))
       assert.ok(sql.includes('timestamp >= now() - INTERVAL 30 DAY'))
       assert.ok(sql.includes("countIf(event = '$pageview')"))
       assert.ok(!sql.includes('properties.$pathname'))
