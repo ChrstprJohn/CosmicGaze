@@ -1,14 +1,14 @@
-.public-stats { margin: 48px auto 0; width: min(760px, calc(100vw - 48px)); }
-.public-stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 32px; }
-.public-stats-row > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px; min-width: 0; text-align: center; }
+.public-stats { margin: 40px auto 0; width: min(540px, calc(100vw - 48px)); }
+.public-stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 24px; align-items: start; }
+.public-stats-row > div { display: flex; flex-direction: column-reverse; gap: 7px; min-width: 0; text-align: center; }
 .public-stats dt { color: #b5bbd0; font-size: 12px; line-height: 1.5; }
-.public-stats dd { margin: 0; color: #e0daff; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; font-weight: 500; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.public-stats dd { margin: 0; color: #c9c1f0; font-size: clamp(26px, 2.5vw, 32px); line-height: 1.2; font-weight: 400; letter-spacing: -.025em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .public-stats dd a { color: inherit; text-underline-offset: 4px; }
 .stat-number { display: inline-block; }
 .public-stats .public-stats-note { color: #b5bbd0; font-size: 11px; margin: 18px 0 0; line-height: 1.5; }
 @media (max-width: 600px) {
-  .public-stats { margin-top: 34px; }
+  .public-stats { margin-top: 32px; }
   .public-stats-row { gap: 12px; }
-  .public-stats dd { font-size: clamp(24px, 6.5vw, 32px); }
+  .public-stats dd { font-size: clamp(24px, 6vw, 28px); }
   .public-stats dt { font-size: 11px; }
 }
