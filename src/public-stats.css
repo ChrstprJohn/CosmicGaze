@@ -6,6 +6,11 @@
 .public-stats dd { margin: 0; color: #c9c1f0; font-size: clamp(32px, 3vw, 40px); line-height: 1.1; font-weight: 400; letter-spacing: -.025em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .public-stats dd a { color: inherit; text-underline-offset: 4px; }
 .stat-number { display: inline-block; }
+.public-stats dt, .public-stats dd { transition: color 180ms ease; }
+@media (hover: hover) {
+  .public-stats-row > div:hover dd { color: #eee9ff; }
+  .public-stats-row > div:hover dt { color: #ddd7f5; }
+}
 .stat-number-loading { position: relative; width: 3ch; overflow: hidden; vertical-align: bottom; }
 .stat-number-loading::before { content: ''; position: absolute; inset: 20% 0 12%; border-radius: 6px; background: #c9c1f014; }
 .stat-number-loading::after { content: ''; position: absolute; inset: 20% 0 12%; background: linear-gradient(100deg, transparent, #c9c1f030, transparent); transform: translateX(-100%); animation: stat-shimmer 1.6s ease-in-out infinite; }
