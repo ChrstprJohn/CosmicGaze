@@ -1,0 +1,24 @@
+.download-preview { width: min(720px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); padding: 0; margin: auto; border: 1px solid #3f4664; border-radius: 14px; background: #0b1021; color: #f3f0e9; box-shadow: 0 20px 70px #0009; overflow: hidden; }
+.download-preview[open] { display: flex; flex-direction: column; }
+.download-preview::backdrop { background: #030611cf; }
+.download-preview-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #282e44; flex-shrink: 0; }
+.download-preview-header h2 { font-size: 28px; line-height: 1.2; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.download-preview-header p { margin-top: 6px; color: #b5bbd0; font-size: 13px; line-height: 1.5; }
+.download-preview-close { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; flex-shrink: 0; border: 1px solid #3f4664; border-radius: 6px; background: transparent; color: #c9c1f0; }
+.download-preview-body { min-height: 0; overflow: auto; padding: 20px 24px; }
+.download-preview-loading { color: #b5bbd0; font-size: 13px; text-align: center; padding: 24px; }
+.shuffle-download { margin-top: 22px; }
+.download-preview-body > img { display: block; width: auto; height: auto; max-width: 100%; max-height: min(64dvh, 760px); object-fit: contain; margin-inline: auto; }
+.download-preview-state { min-height: min(42dvh, 320px); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; color: #b5bbd0; font-size: 14px; line-height: 1.6; text-align: center; }
+.download-preview-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px 24px; border-top: 1px solid #282e44; flex-shrink: 0; }
+.download-preview-footer > div { display: flex; gap: 10px; margin-left: auto; }
+.download-preview-footer .primary-button { min-height: 44px; gap: 8px; padding-inline: 18px; }
+.download-preview-dimensions { color: #b5bbd0; font-size: 12px; font-variant-numeric: tabular-nums; }
+@media (max-width: 599px) {
+  .download-preview-header { padding: 16px; }
+  .download-preview-header h2 { font-size: 25px; }
+  .download-preview-body { padding: 16px; }
+  .download-preview-footer { padding: 12px 16px max(12px, env(safe-area-inset-bottom)); }
+  .download-preview-footer > div { width: 100%; }
+  .download-preview-footer > div > * { flex: 1; }
+}

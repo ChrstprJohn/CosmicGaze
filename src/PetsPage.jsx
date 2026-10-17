@@ -1,6 +1,7 @@
 import ResultSkeleton from './ResultSkeleton.jsx'
 import { memo, useEffect, useRef, useState } from 'react'
-import { ArrowLeft, Download, LoaderCircle, Pause, Play, RotateCcw } from 'lucide-react'
+import { ArrowLeft, Pause, Play, RotateCcw } from 'lucide-react'
+import DownloadPreview from './DownloadPreview.jsx'
 import { PETS, pupilOffset } from './lib/pets.js'
 import { defaultPetImage } from './lib/pet-image.js'
 import './pets.css'
@@ -9,12 +10,9 @@ const Pet = memo(function Pet({ pet, index }) {
   const image = useRef(null)
   const portrait = useRef(null)
   const [visible, setVisible] = useState(index < 3)
-  const downloads = useRef(new Map())
   const downloadBlob = useRef(null)
   const [status, setStatus] = useState('loading')
   const [retry, setRetry] = useState(0)
-  const [downloading, setDownloading] = useState(false)
-  const [downloadError, setDownloadError] = useState('')
 
   useEffect(() => {
     if (visible) return
@@ -25,31 +23,11 @@ const Pet = memo(function Pet({ pet, index }) {
     return () => observer.disconnect()
   }, [visible])
 
-  useEffect(() => {
-    const active = downloads.current
-    return () => { for (const [url, timer] of active) { clearTimeout(timer); URL.revokeObjectURL(url) } }
-  }, [])
-
-  async function download() {
-    setDownloading(true)
-    setDownloadError('')
-    try {
+  async function prepareImage() {
       // A pet's neutral face does not change with its animated gaze.
       const blob = downloadBlob.current ?? await defaultPetImage(image.current, pet)
       downloadBlob.current = blob
-      const url = URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `cosmicgaze-${pet.id}.png`
-      document.body.appendChild(link)
-      link.click()
-      link.remove()
-      downloads.current.set(url, setTimeout(() => { URL.revokeObjectURL(url); downloads.current.delete(url) }, 60000))
-    } catch {
-      setDownloadError('Couldn’t download the image. Try again.')
-    } finally {
-      setDownloading(false)
-    }
+      return URL.createObjectURL(blob)
   }
   return (
     <figure className="cosmic-pet">
@@ -80,8 +58,7 @@ const Pet = memo(function Pet({ pet, index }) {
       <figcaption>
         <h2>{pet.name}</h2>
         <p>{pet.description}</p>
-        <div className="pet-card-actions"><button className="pet-download" type="button" onClick={download} disabled={status !== 'ready' || downloading} aria-label={`Download ${pet.name} image`} title={`Download ${pet.name} as PNG`}>{downloading ? <LoaderCircle className="loading-icon" size={16} aria-hidden="true" /> : <Download size={16} strokeWidth={1.5} aria-hidden="true" />}<span>{downloading ? 'Saving…' : 'Download'}</span></button></div>
-        {downloadError && <p className="pet-download-error" role="alert">{downloadError}</p>}
+        <div className="pet-card-actions"><DownloadPreview className="pet-download" label="Preview" title={`Preview ${pet.name}`} filename={`cosmicgaze-${pet.id}.png`} disabled={status !== 'ready'} prepare={prepareImage} /></div>
       </figcaption>
     </figure>
   )

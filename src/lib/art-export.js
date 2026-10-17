@@ -1,23 +1,11 @@
 import { addPngMetadata } from './png-metadata.js'
 
-export async function saveCanvasPng(canvas, filename, metadata = {}) {
+// Prepare the exact bytes for preview; saving requires the modal's download link.
+export async function saveCanvasPng(canvas, _filename, metadata = {}) {
   let blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
   if (!blob) throw new Error('Image export failed.')
   if (Object.keys(metadata).length) blob = new Blob([addPngMetadata(new Uint8Array(await blob.arrayBuffer()), metadata)], { type: 'image/png' })
-  const downloadUrl = URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  try {
-    link.href = downloadUrl
-    link.download = filename
-    document.body.appendChild(link)
-    link.click()
-    return downloadUrl
-  } catch (error) {
-    URL.revokeObjectURL(downloadUrl)
-    throw error
-  } finally {
-    link.remove()
-  }
+  return URL.createObjectURL(blob)
 }
 
 export async function saveSvgPng(element, filename) {

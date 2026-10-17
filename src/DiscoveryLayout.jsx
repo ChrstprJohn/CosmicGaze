@@ -1,5 +1,5 @@
-import { ArrowLeft, ArrowUpRight, Download, LoaderCircle } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { ArrowLeft, ArrowUpRight } from 'lucide-react'
+import DownloadPreview from './DownloadPreview.jsx'
 import { saveSvgPng } from './lib/art-export.js'
 import './discoveries.css'
 
@@ -21,20 +21,7 @@ export function SourceNote({ href, children }) {
 }
 
 export function ArtDownload({ svgRef, makeImage, filename, disabled = false, label = 'Download image' }) {
-  const [saving, setSaving] = useState(false)
-  const [error, setError] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  useEffect(() => () => { if (imageUrl) URL.revokeObjectURL(imageUrl) }, [imageUrl])
-  async function download() {
-    setSaving(true)
-    setError('')
-    try { setImageUrl(makeImage ? await makeImage(filename) : await saveSvgPng(svgRef.current, filename)) }
-    catch { setError('The image couldn’t be saved. Please try again.') }
-    finally { setSaving(false) }
-  }
   return <div className="art-download-wrap">
-    <button className="secondary-button" type="button" disabled={disabled || saving} onClick={download}>{saving ? <LoaderCircle className="loading-icon" size={16} aria-hidden="true" /> : <Download size={16} aria-hidden="true" />}{saving ? 'Saving…' : label}</button>
-    {error && <p className="form-error" role="alert">{error}</p>}
-    {imageUrl && <><p className="discovery-note" role="status">PNG ready. <a href={imageUrl} download={filename}>Download PNG</a></p><details className="export-preview"><summary>Preview PNG</summary><img src={imageUrl} alt="Your exported artwork as a PNG" /></details></>}
+    <DownloadPreview label={label.replace(/^(Download|Save)/, 'Preview')} title={label.replace(/^(Download|Save)/, 'Preview')} filename={filename} disabled={disabled} prepare={() => makeImage ? makeImage(filename) : saveSvgPng(svgRef.current, filename)} />
   </div>
 }

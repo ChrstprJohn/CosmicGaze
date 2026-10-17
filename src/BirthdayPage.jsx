@@ -1,4 +1,4 @@
-import LoadingState from './LoadingState.jsx'
+import { ImageResultSkeleton } from './PageSkeleton.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, LoaderCircle, Orbit, Shuffle, Telescope } from 'lucide-react'
 import axios from 'axios'
@@ -9,7 +9,7 @@ import DatePicker from './DatePicker.jsx'
 import { imageIdentity, nextDiscovery, prepareDiscoveryImage } from './lib/shuffle.js'
 
 function EmptyPreview({ loading = false }) {
-  if (loading) return <LoadingState>Loading NASA’s picture…</LoadingState>
+  if (loading) return <div aria-busy="true"><span className="sr-only" role="status">Loading NASA’s picture…</span><div inert aria-hidden="true"><ImageResultSkeleton /></div></div>
   return (
     <div className="empty-preview" role={loading ? 'status' : undefined}>
       {loading ? <LoaderCircle className="loading-icon" size={32} strokeWidth={1.5} aria-hidden="true" /> : <Orbit size={40} strokeWidth={1} aria-hidden="true" />}<p>{loading ? 'Loading NASA’s picture' : 'Choose a date'}</p>

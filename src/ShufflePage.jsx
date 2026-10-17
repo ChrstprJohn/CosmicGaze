@@ -1,4 +1,5 @@
 import ResultSkeleton from './ResultSkeleton.jsx'
+import OriginalImageDownload from './OriginalImageDownload.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowUpRight, LoaderCircle, Shuffle } from 'lucide-react'
 import { fetchApod } from './lib/apod.js'
@@ -57,6 +58,7 @@ export default function ShufflePage() {
           </div>
           <figcaption className="shuffle-details" aria-live="polite" aria-atomic="true"><p className="result-date">{formatDate(result.date)}</p><h2>{result.title}</h2></figcaption>
         </figure>
+        <div className="shuffle-download"><OriginalImageDownload key={result.image} entry={result} /></div>
         {result.credit && <div className="result-attribution shuffle-attribution"><p className="image-credit">{result.credit}</p></div>}
       </div>
     </section>
