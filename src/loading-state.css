@@ -62,3 +62,61 @@
 .service-card:has(.preview-media[aria-busy="true"]) .service-copy { position: relative; }
 .service-card:has(.preview-media[aria-busy="true"]) .service-copy > * { visibility: hidden; }
 .service-card:has(.preview-media[aria-busy="true"]) .service-copy::after { content: ''; position: absolute; inset: 28px; background: linear-gradient(#252d45,#252d45) left top / 76% 24px no-repeat, linear-gradient(#1c233a,#1c233a) left 44px / 100% 10px no-repeat, linear-gradient(#1c233a,#1c233a) left 64px / 80% 10px no-repeat, linear-gradient(#252d45,#252d45) left bottom / 60% 10px no-repeat; }
+
+/* Loading silhouettes occupy the same stage as the rendered object. */
+.planet-stage > .planet-stage-feedback { inset: 0; padding: 0; }
+.planet-skeleton { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; overflow: hidden; }
+.planet-skeleton-disc { position: relative; inset: auto; width: var(--skeleton-diameter, 0px); height: var(--skeleton-diameter, 0px); border-radius: 50%; }
+.planet-skeleton-ringed .planet-skeleton-disc { transform: scaleY(.9); }
+.planet-skeleton-ring { position: absolute; width: calc(var(--skeleton-diameter, 0px) * 2.32); height: calc(var(--skeleton-diameter, 0px) * .65); border: max(3px, calc(var(--skeleton-diameter, 0px) * .12)) solid #1c233a; border-radius: 50%; transform: rotate(-24deg); }
+.moon-stage, .page-skeleton-moon-stage, .page-skeleton-moons > div { container-type: size; }
+.moon-stage > .result-skeleton-round .result-skeleton-shape,
+.page-skeleton-moon-stage .result-skeleton-shape,
+.page-skeleton-moons .result-skeleton-shape { width: min(92cqw, 92cqh); }
+.moon-match-visual .match-moon > .result-skeleton { width: min(100%, var(--moon-size, 100%)); left: 50%; transform: translateX(-50%); container-type: size; }
+.moon-match-visual .match-moon > .result-skeleton .result-skeleton-shape { width: 92cqw; }
+.skeleton-control { display: block; height: 48px; width: 100%; border: 1px solid #282e44; border-radius: 6px; background: #101528; }
+.planet-viewer-loading > .planet-view-controls .skeleton-control { width: 116px; height: 36px; }
+.page-skeleton { max-width: var(--page-width); margin-inline: auto; min-height: calc(100svh - 178px); padding: 40px var(--page-gutter); display: grid; grid-template-columns: clamp(280px, 36%, 460px) minmax(0, 1fr); grid-template-rows: auto 1fr; gap: 24px clamp(32px, 5vw, 72px); align-items: start; }
+.page-skeleton-intro { min-width: 0; }
+.page-skeleton h1 { font-size: var(--discovery-title-size); line-height: var(--discovery-title-leading); }
+.page-skeleton-back { width: 64px; height: 16px; background: #1c233a; border-radius: 4px; margin: 12px 0 36px; }
+.page-skeleton-label { margin-top: 17px; font-size: 14px; line-height: 1.8; color: #b5bbd0; }
+.page-skeleton-controls { grid-column: 1; display: grid; gap: 24px; }
+.page-skeleton-bars { width: 100%; display: grid; gap: 12px; }
+.page-skeleton-bars span { height: 10px; width: 100%; border-radius: 4px; background: #1c233a; }
+.page-skeleton-bars span:first-child { width: 62%; height: 18px; }
+.page-skeleton-bars span:last-child { width: 78%; }
+.page-skeleton-result { grid-column: 2; grid-row: 1 / 3; min-width: 0; width: 100%; max-width: 640px; justify-self: end; }
+.page-skeleton-result > .page-skeleton-bars { width: 65%; margin: 24px auto; }
+.page-skeleton-image { position: relative; aspect-ratio: 4 / 3; border-radius: 12px; }
+.page-skeleton-moon-stage { position: relative; height: clamp(320px, calc(100svh - 370px), 520px); }
+.page-skeleton-age .planet-stage { height: clamp(300px,35vw,420px); }
+.page-skeleton-builder .planet-stage { height: clamp(360px,40vw,530px); }
+.page-skeleton-moons { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.page-skeleton-moons > div { position: relative; aspect-ratio: 1; }
+.page-skeleton-gravity { position: relative; aspect-ratio: 700 / 440; border-bottom: 1px solid #3f4664; display: flex; justify-content: space-around; align-items: end; padding: 36px; }
+.page-skeleton-gravity span { width: 24px; height: 24px; border-radius: 50%; background: #252d45; }
+.page-skeleton-gravity span:last-child { align-self: center; }
+.page-skeleton-pets { grid-template-columns: 1fr; }
+.page-skeleton-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.page-skeleton-gallery > div { min-width: 0; }
+.page-skeleton-pet { position: relative; aspect-ratio: 1; margin-bottom: 24px; border-radius: 12px; }
+@media (max-width: 767px), (max-width: 1023px) and (max-height: 500px) {
+  .page-skeleton { padding: 16px 24px 48px; display: flex; flex-direction: column; gap: 20px; }
+  .page-skeleton > div { width: 100%; }
+  .page-skeleton h1 { font-size: clamp(36px, 10vw, 48px); }
+  .page-skeleton-preview-first h1 { font-size: clamp(30px, 8.5vw, 36px); }
+  .page-skeleton-back { margin-bottom: 16px; }
+  .page-skeleton-label { margin-top: 12px; font-size: 13px; }
+  .page-skeleton-controls { order: 1; }
+  .page-skeleton-result { order: 2; align-self: center; max-width: 480px; }
+  .page-skeleton-preview-first .page-skeleton-result { order: 1; }
+  .page-skeleton-preview-first .page-skeleton-controls { order: 2; }
+  .page-skeleton .planet-stage { height: clamp(100px, 26svh, 220px); }
+  .page-skeleton-planet .planet-stage { height: clamp(110px, 30svh, 250px); }
+  .page-skeleton-moon-stage { height: clamp(200px, 60vw, 280px); }
+  .page-skeleton-moons { justify-content: center; grid-template-columns: repeat(2, clamp(90px, 22svh, 170px)); gap: 12px; }
+  .page-skeleton-gravity { height: clamp(100px, 26svh, 220px); }
+  .page-skeleton-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}

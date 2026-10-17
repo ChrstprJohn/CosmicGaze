@@ -1,0 +1,97 @@
+{
+  "metrics": {
+    "cls": 0.00705802168481144,
+    "blockingMs": 0,
+    "lcp": {
+      "ms": 1640,
+      "url": "",
+      "element": "SPAN"
+    }
+  },
+  "resources": [
+    {
+      "url": "http://127.0.0.1:4188/assets/index-OI5bhsRk.js",
+      "bytes": 82399,
+      "duration": 685.6000000014901
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/jsx-runtime-D3jfb0Ew.js",
+      "bytes": 3382,
+      "duration": 215.79999999701977
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/index-kIVuglXi.css",
+      "bytes": 14529,
+      "duration": 340.5
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/cosmicgaze-showcase.webp",
+      "bytes": 26106,
+      "duration": 740.6000000014901
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/dm-sans-latin-400-normal-CW0RaeGs.woff2",
+      "bytes": 14200,
+      "duration": 679.3999999985099
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/dm-sans-latin-500-normal-B9HHJjqV.woff2",
+      "bytes": 14304,
+      "duration": 690
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/instrument-serif-latin-400-normal-DnYpCC2O.woff2",
+      "bytes": 21032,
+      "duration": 832.3999999985099
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/dm-sans-latin-600-normal-Aqo67rzb.woff2",
+      "bytes": 14144,
+      "duration": 720
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/instrument-serif-latin-400-italic-DKMiL14s.woff2",
+      "bytes": 22128,
+      "duration": 840.5999999940395
+    },
+    {
+      "url": "http://127.0.0.1:4188/api/public-stats",
+      "bytes": 33,
+      "duration": 5
+    },
+    {
+      "url": "http://127.0.0.1:4188/favicon.svg",
+      "bytes": 323,
+      "duration": 794.9000000059605
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/module-D8V_xHmf.js",
+      "bytes": 96226,
+      "duration": 1771.8000000044703
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/array/phc_sW78EMxm9qUcV6ukkvjX9oQTJVFc4iUPyCVp8YiiwQLx/config.js",
+      "bytes": 0,
+      "duration": 520.3999999985099
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/static/1.435.8/surveys.js",
+      "bytes": 0,
+      "duration": 929.1000000014901
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/static/1.435.8/dead-clicks-autocapture.js",
+      "bytes": 0,
+      "duration": 323.29999999701977
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/static/1.435.8/web-vitals-with-attribution.js",
+      "bytes": 0,
+      "duration": 305.5
+    }
+  ],
+  "hero": "https://assets.science.nasa.gov/content/dam/science/cds/apod/apod/2024/january/ngc1232b_vlt_3969.jpg?w=1000&h=1100&fit=clip",
+  "heroLoaded": true,
+  "overflow": false,
+  "errors": []
+}

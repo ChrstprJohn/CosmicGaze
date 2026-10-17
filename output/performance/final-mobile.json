@@ -1,0 +1,122 @@
+{
+  "metrics": {
+    "cls": 0,
+    "blockingMs": 180,
+    "lcp": {
+      "ms": 1928,
+      "url": "http://127.0.0.1:4188/previews/hero-galaxy-640.webp",
+      "element": "IMG"
+    }
+  },
+  "resources": [
+    {
+      "url": "http://127.0.0.1:4188/assets/index-OUs_cp_Y.js",
+      "bytes": 82411,
+      "duration": 1272.3999999985099
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/jsx-runtime-D3jfb0Ew.js",
+      "bytes": 3382,
+      "duration": 265.5
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/index-kIVuglXi.css",
+      "bytes": 14529,
+      "duration": 609.4000000059605
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/dm-sans-latin-400-normal-CW0RaeGs.woff2",
+      "bytes": 14200,
+      "duration": 561.7000000029802
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/instrument-serif-latin-400-italic-DKMiL14s.woff2",
+      "bytes": 22128,
+      "duration": 721.9000000059605
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/instrument-serif-latin-400-normal-DnYpCC2O.woff2",
+      "bytes": 21032,
+      "duration": 733.7999999970198
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/hero-galaxy-640.webp",
+      "bytes": 52772,
+      "duration": 1159.2000000029802
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/cosmicgaze-showcase.webp",
+      "bytes": 26106,
+      "duration": 295.20000000298023
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/dm-sans-latin-500-normal-B9HHJjqV.woff2",
+      "bytes": 14304,
+      "duration": 646
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/dm-sans-latin-600-normal-Aqo67rzb.woff2",
+      "bytes": 14144,
+      "duration": 645.1000000014901
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/galaxy.webp",
+      "bytes": 23390,
+      "duration": 657.5
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/moon.webp",
+      "bytes": 10366,
+      "duration": 473.20000000298023
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/moon-match.webp",
+      "bytes": 19520,
+      "duration": 630.3999999985099
+    },
+    {
+      "url": "http://127.0.0.1:4188/previews/age.webp",
+      "bytes": 5764,
+      "duration": 724.8999999985099
+    },
+    {
+      "url": "http://127.0.0.1:4188/api/public-stats",
+      "bytes": 33,
+      "duration": 12.300000004470348
+    },
+    {
+      "url": "http://127.0.0.1:4188/favicon.svg",
+      "bytes": 323,
+      "duration": 227.90000000596046
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/module-D8V_xHmf.js",
+      "bytes": 96226,
+      "duration": 984.6999999955297
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/array/phc_sW78EMxm9qUcV6ukkvjX9oQTJVFc4iUPyCVp8YiiwQLx/config.js",
+      "bytes": 0,
+      "duration": 198
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/static/1.435.8/surveys.js",
+      "bytes": 0,
+      "duration": 445.8999999985099
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/static/1.435.8/dead-clicks-autocapture.js",
+      "bytes": 0,
+      "duration": 291
+    },
+    {
+      "url": "https://us-assets.i.posthog.com/static/1.435.8/web-vitals-with-attribution.js",
+      "bytes": 0,
+      "duration": 285.3999999985099
+    }
+  ],
+  "hero": "http://127.0.0.1:4188/previews/hero-galaxy-640.webp",
+  "heroLoaded": true,
+  "overflow": false,
+  "errors": []
+}

@@ -58,7 +58,7 @@ function PetsArt() {
     }
   }, [])
   return <div ref={portrait} className="service-pet-preview">
-    <img src={`/pets/${pet.id}-480.webp`} srcSet={`/pets/${pet.id}-480.webp 480w, /pets/${pet.id}-960.webp 960w`} sizes="(max-width: 600px) 45vw, 300px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
+    <img src={`/pets/${pet.id}-480.webp`} srcSet={`/pets/${pet.id}-240.webp 240w, /pets/${pet.id}-480.webp 480w, /pets/${pet.id}-960.webp 960w`} sizes="(max-width: 599px) calc((100vw - 60px) * 0.45), 240px" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
     <div className="pet-eyes">{pet.eyes.map((eye, index) => <span key={index} className="pet-eye" style={{ left: `${eye.x}%`, top: `${eye.y}%`, width: `${eye.width}%`, height: `${eye.height}%` }}><span className="pet-pupil" /></span>)}</div>
   </div>
 }
@@ -169,7 +169,7 @@ export default function LandingPage() {
             <a key={href} href={href} className="service-card" data-scroll-reveal>
               <div className={`service-art${art === 'moon' ? ' service-art-moon' : ''}`} aria-hidden="true">
                 <PreviewSkeleton><CardObjectPreview type={art}>
-                  {staticPreviews.has(art) ? <img className="service-static-preview" src={`/previews/${art}.webp`} alt="" width="602" height="560" loading="lazy" decoding="async" /> : art === 'pets' ? <PetsArt /> : art === 'shuffle' ? <img className="service-photo" src={SHUFFLE_IMAGE} alt="" loading="lazy" decoding="async" /> : <DiscoveryArt type={art} />}
+                  {staticPreviews.has(art) ? <img className="service-static-preview" src={`/previews/${art}.webp`} srcSet={`/previews/${art}-320.webp 320w, /previews/${art}.webp 602w`} sizes="(max-width: 599px) calc((100vw - 60px) / 2), (max-width: 767px) 274px, 300px" alt="" width="602" height="560" loading="lazy" decoding="async" /> : art === 'pets' ? <PetsArt /> : art === 'shuffle' ? <img className="service-photo" src={SHUFFLE_IMAGE} alt="" loading="lazy" decoding="async" /> : <DiscoveryArt type={art} />}
                 </CardObjectPreview></PreviewSkeleton>
               </div>
               <div className="service-copy"><h3>{title}{emphasis && <><br /><em>{emphasis}</em></>}</h3><p>{description}</p><span>{action} <ArrowRight size={18} aria-hidden="true" /></span></div>
