@@ -52,7 +52,28 @@ The app marks location sharing successful after an OK HTTP response from ingesti
 
 If tracking is unavailable, check the token, ingestion host, hosting rebuild, content blockers, capture opt-out, and network. Location-specific problems can also involve browser permission, secure context, device location availability, or reverse geocoding.
 
-## References
+## Public homepage stats
+
+The hero displays Cosmic explorers (all-time unique pageview distinct IDs), Most explored
+(the enabled discovery path with the most pageviews), and Discoveries made (explicit
+successful birthday lookups/shuffles, Moon calculations, and cosmic shuffle requests).
+All three stats cover the last 30 days. Automatic initial results are excluded from discovery completions. Dates and form input
+are not attached to these events. Completion counts start with this implementation.
+
+`api/public-stats.js` is a Vercel function. Configure Production environment variables
+`POSTHOG_PROJECT_ID`, `POSTHOG_API_HOST` (US: `https://us.posthog.com`), and
+`POSTHOG_PERSONAL_API_KEY` (project-restricted, `query:read`). Keep the key sensitive and
+server-only; never prefix it with `VITE_`. Redeploy after saving settings and code.
+Existing public `VITE_POSTHOG_TOKEN` and `VITE_POSTHOG_HOST` are still required for capture.
+
+Queries restrict events to `site_name = cosmicgaze` and URLs starting with
+`https://cosmicgaze.chrbuilds.dev/`. Earlier domains and Celestial-tagged events are excluded.
+Vercel caches aggregate responses for one hour. Errors show dashes rather than fake counts.
+Plain Vite development/preview does not run Vercel functions; use a Vercel preview deployment
+with the matching environment variables to verify real data. Check `/api/public-stats` for
+a 200 JSON response containing only the three aggregate fields, then confirm the hero.
+
+## API references
 
 - [PostHog JavaScript configuration](https://posthog.com/docs/libraries/js/config)
 - [PostHog capture opt-out](https://posthog.com/docs/libraries/js#opt-out-of-data-capture)

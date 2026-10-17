@@ -9,6 +9,8 @@ import { drawCollectibleBorder } from './lib/collectible-card.js'
 import { MOON_END, MOON_START, localToday, moonForDate, validateMoonDate } from './lib/moon.js'
 import { formatDate } from './lib/dates.js'
 
+import { trackDiscovery } from './lib/analytics.js'
+
 export default function MoonPage() {
   const [result, setResult] = useState(() => moonForDate(localToday()))
   const [date, setDate] = useState(result.date)
@@ -20,6 +22,7 @@ export default function MoonPage() {
     if (validation) { setError(validation); return }
     setError('')
     setResult(moonForDate(selectedDate))
+    trackDiscovery('moon')
   }
 
   const illumination = `${(result.fraction * 100).toFixed(1)}% illuminated`
