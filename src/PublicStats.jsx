@@ -6,11 +6,17 @@ function StatNumber({ value }) {
   const number = useRef(null)
   useEffect(() => {
     if (value == null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const animation = number.current.animate([
+    let animation
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      observer.disconnect()
+      animation = number.current.animate([
       { opacity: 0.3, filter: 'blur(5px)', transform: 'translateY(5px)', clipPath: 'inset(0 0 50% 0)' },
       { opacity: 1, filter: 'blur(0px)', transform: 'translateY(0)', clipPath: 'inset(0)' },
     ], { duration: 700, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
-    return () => animation.cancel()
+    }, { threshold: 0.5 })
+    observer.observe(number.current)
+    return () => { observer.disconnect(); animation?.cancel() }
   }, [value])
   return <dd aria-label={value == null ? 'Unavailable' : new Intl.NumberFormat('en').format(value)}><span ref={number} className="stat-number" aria-hidden="true">{formatStat(value)}</span></dd>
 }
