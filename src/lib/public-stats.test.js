@@ -19,7 +19,7 @@ test('public stats exposes only aggregates, combines both site tags, and handles
       const sql = JSON.parse(options.body).query.query
       assert.ok(sql.includes("properties.site_name IN ('cosmicgaze', 'celestial')"))
       assert.ok(!sql.includes('properties.$current_url'))
-      assert.ok(sql.includes('timestamp >= now() - INTERVAL 30 DAY'))
+      assert.ok(!sql.includes('timestamp'))
       assert.ok(sql.includes("countIf(event = '$pageview')"))
       assert.ok(!sql.includes('properties.$pathname'))
       assert.equal((sql.match(/FROM events/g) || []).length, 1)

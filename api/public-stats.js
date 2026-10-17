@@ -1,4 +1,4 @@
-const productionFilter = "properties.site_name IN ('cosmicgaze', 'celestial') AND timestamp >= now() - INTERVAL 30 DAY"
+const productionFilter = "properties.site_name IN ('cosmicgaze', 'celestial')"
 const query = `SELECT
   uniqExactIf(distinct_id, event = '$pageview'),
   countIf(event = '$pageview')

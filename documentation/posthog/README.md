@@ -56,8 +56,7 @@ If tracking is unavailable, check the token, ingestion host, hosting rebuild, co
 
 The hero displays Cosmic explorers (unique pageview distinct IDs), Cosmic views
 (all pageviews including the homepage and repeat views), and Cosmic discoveries
-(the current number of discovery cards rendered in Explore). Traffic covers the last
-30 days. The card count comes directly from the homepage list, needs no analytics,
+(the current number of discovery cards rendered in Explore). Traffic covers all recorded history across both CosmicGaze and Celestial tags. The card count comes directly from the homepage list, needs no analytics,
 and remains visible if the stats endpoint is unavailable. Completion-event tracking
 has been removed; the public stats no longer count tool actions.
 

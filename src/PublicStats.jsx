@@ -23,10 +23,10 @@ export default function PublicStats({ totalCards }) {
     <div className="public-stats" aria-label="CosmicGaze community statistics">
       <dl className="public-stats-row" aria-busy={status === 'loading'}>
         <div><dt>Unique visitors</dt><dd>{number(stats?.explorers)}</dd></div>
-        <div title="All pageviews, including the homepage and repeat views, in the last 30 days."><dt>Page views</dt><dd>{number(stats?.pageviews)}</dd></div>
+        <div title="All pageviews, including the homepage and repeat views, since tracking began."><dt>Page views</dt><dd>{number(stats?.pageviews)}</dd></div>
         <div title="Experiences currently available in Explore."><dt>Things to explore</dt><dd>{number(totalCards)}</dd></div>
       </dl>
-      <p className="public-stats-note" role="status">{status === 'loading' ? 'Gathering our little universe…' : status === 'unavailable' ? 'Community stats are taking a moment.' : 'Traffic: last 30 days · Refreshed hourly'}</p>
+      <p className="public-stats-note" role="status">{status === 'loading' ? 'Gathering our little universe…' : status === 'unavailable' ? 'Community stats are taking a moment.' : 'All-time traffic · Refreshed hourly'}</p>
     </div>
   )
 }
