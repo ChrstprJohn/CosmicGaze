@@ -55,7 +55,7 @@ If tracking is unavailable, check the token, ingestion host, hosting rebuild, co
 ## Public homepage stats
 
 The hero displays Cosmic explorers (unique pageview distinct IDs), Cosmic views
-(all pageviews including the homepage and repeat views), and Total cards
+(all pageviews including the homepage and repeat views), and Cosmic discoveries
 (the current number of discovery cards rendered in Explore). Traffic covers the last
 30 days. The card count comes directly from the homepage list, needs no analytics,
 and remains visible if the stats endpoint is unavailable. Completion-event tracking
