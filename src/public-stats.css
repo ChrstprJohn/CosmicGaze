@@ -1,0 +1,14 @@
+.public-stats { margin: 42px auto 0; max-width: 620px; }
+.public-stats-row { display: grid; grid-template-columns: 1fr 1.3fr 1fr; margin: 0; }
+.public-stats-row > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 8px; padding: 0 24px; min-width: 0; }
+.public-stats-row > div + div { border-left: 1px solid #2b3047; }
+.public-stats dt { color: #b5bbd0; font-size: 12px; line-height: 1.5; }
+.public-stats dd { margin: 0; color: #e0daff; font-size: 20px; line-height: 1.35; font-weight: 500; font-variant-numeric: tabular-nums; text-wrap: balance; }
+.public-stats dd a { color: inherit; text-underline-offset: 4px; }
+.public-stats .public-stats-note { color: #b5bbd0; font-size: 11px; margin: 18px 0 0; line-height: 1.5; }
+@media (max-width: 600px) {
+  .public-stats { margin-top: 34px; }
+  .public-stats-row > div { padding-inline: 10px; }
+  .public-stats dd { font-size: 16px; }
+  .public-stats dt { font-size: 11px; }
+}

@@ -1,4 +1,5 @@
 import PreviewSkeleton from './PreviewSkeleton.jsx'
+import PublicStats from './PublicStats.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import HeroScene from './HeroScene.jsx'
@@ -152,6 +153,7 @@ export default function LandingPage() {
           </h1>
           <p>Explore astronomy, planets, and a little imagination.</p>
           <a href="#services" className="primary-button explore-button">Explore <ArrowDown size={18} aria-hidden="true" /></a>
+          <PublicStats />
         </div>
       </section>
 

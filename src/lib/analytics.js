@@ -21,6 +21,13 @@ function analyticsClient() {
   }).catch((error) => { clientPromise = undefined; throw error })
   return clientPromise
 }
+export function trackDiscovery(discovery) {
+  if (!token || !['birthday', 'moon', 'shuffle'].includes(discovery)) return
+  analyticsClient().then(client => {
+    if (!client.has_opted_out_capturing()) client.capture('discovery_completed', { discovery })
+  }).catch(() => {})
+}
+
 export async function shareVisitorLocation(coords) {
   if (!token) throw new Error('Analytics is disabled; your location was not sent.')
   const posthog = await analyticsClient()
