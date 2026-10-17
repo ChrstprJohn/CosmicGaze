@@ -1,15 +1,7 @@
-import { EXTRA_DISCOVERIES } from '../src/lib/discoveries.js'
-
-const pages = Object.fromEntries([
-  ['/birthday', 'Birthday sky'], ['/moon', 'Moon phase'], ['/shuffle', 'Cosmic shuffle'],
-  ['/solar-system', 'Solar System'], ['/pets', 'Cosmic pets'],
-  ...EXTRA_DISCOVERIES.filter(page => page.enabled).map(page => [page.href, page.title]),
-])
 const productionFilter = "properties.site_name = 'cosmicgaze' AND properties.$current_url LIKE 'https://cosmicgaze.chrbuilds.dev/%' AND timestamp >= now() - INTERVAL 30 DAY"
-const paths = Object.keys(pages).map(path => `'${path}'`).join(', ')
 const query = `SELECT
   uniqExactIf(distinct_id, event = '$pageview'),
-  countIf(event = '$pageview' AND properties.$pathname IN (${paths})),
+  countIf(event = '$pageview'),
   countIf(event = 'discovery_completed' AND properties.discovery IN ('birthday', 'moon', 'shuffle'))
 FROM events WHERE ${productionFilter} AND event IN ('$pageview', 'discovery_completed')`
 

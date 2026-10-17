@@ -23,7 +23,7 @@ export default function PublicStats() {
     <div className="public-stats" aria-label="CosmicGaze community statistics">
       <dl className="public-stats-row" aria-busy={status === 'loading'}>
         <div><dt>Cosmic explorers</dt><dd>{number(stats?.explorers)}</dd></div>
-        <div><dt>Discovery page views</dt><dd>{number(stats?.pageviews)}</dd></div>
+        <div><dt>Total page views</dt><dd>{number(stats?.pageviews)}</dd></div>
         <div title="Successful birthday lookups, Moon calculations, and cosmic shuffles since tracking began."><dt>Discoveries made</dt><dd>{number(stats?.discoveries)}</dd></div>
       </dl>
       <p className="public-stats-note" role="status">{status === 'loading' ? 'Gathering our little universe…' : status === 'unavailable' ? 'Community stats are taking a moment.' : 'Last 30 days · Refreshed hourly'}</p>

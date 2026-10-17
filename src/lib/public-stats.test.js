@@ -20,7 +20,8 @@ test('public stats exposes only aggregates, filters production, and handles fail
       assert.ok(sql.includes("properties.site_name = 'cosmicgaze'"))
       assert.ok(sql.includes('https://cosmicgaze.chrbuilds.dev/%'))
       assert.ok(sql.includes('timestamp >= now() - INTERVAL 30 DAY'))
-      assert.ok(sql.includes("properties.$pathname IN ("))
+      assert.ok(sql.includes("countIf(event = '$pageview')"))
+      assert.ok(!sql.includes('properties.$pathname'))
       assert.equal((sql.match(/FROM events/g) || []).length, 1)
       assert.ok(!sql.includes('UNION'))
       return { ok: true, json: async () => ({ results: [[42, 32, 9]] }) }
