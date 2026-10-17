@@ -1,14 +1,20 @@
-.public-stats { margin: 42px auto 0; max-width: 620px; }
-.public-stats-row { display: grid; grid-template-columns: 1fr 1.3fr 1fr; margin: 0; }
-.public-stats-row > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 8px; padding: 0 24px; min-width: 0; }
-.public-stats-row > div + div { border-left: 1px solid #2b3047; }
-.public-stats dt { color: #b5bbd0; font-size: 12px; line-height: 1.5; }
-.public-stats dd { margin: 0; color: #e0daff; font-size: 20px; line-height: 1.35; font-weight: 500; font-variant-numeric: tabular-nums; text-wrap: balance; }
+.community-section { position: relative; padding: 64px var(--page-gutter) 104px; }
+.public-stats { margin: 0 auto; width: 100%; max-width: 1120px; text-align: center; }
+.public-stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 24px; align-items: start; }
+.public-stats-row > div { display: flex; flex-direction: column-reverse; gap: 8px; min-width: 0; text-align: center; }
+.public-stats dt { color: #b5bbd0; font-size: 14px; line-height: 1.5; }
+.public-stats dd { margin: 0; color: #c9c1f0; font-size: clamp(32px, 3vw, 40px); line-height: 1.1; font-weight: 400; letter-spacing: -.025em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .public-stats dd a { color: inherit; text-underline-offset: 4px; }
+.stat-number { display: inline-block; }
+.stat-number-loading { position: relative; width: 3ch; overflow: hidden; vertical-align: bottom; }
+.stat-number-loading::before { content: ''; position: absolute; inset: 20% 0 12%; border-radius: 6px; background: #c9c1f014; }
+.stat-number-loading::after { content: ''; position: absolute; inset: 20% 0 12%; background: linear-gradient(100deg, transparent, #c9c1f030, transparent); transform: translateX(-100%); animation: stat-shimmer 1.6s ease-in-out infinite; }
+@keyframes stat-shimmer { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .stat-number-loading::after { animation: none; display: none; } }
 .public-stats .public-stats-note { color: #b5bbd0; font-size: 11px; margin: 18px 0 0; line-height: 1.5; }
 @media (max-width: 600px) {
-  .public-stats { margin-top: 34px; }
-  .public-stats-row > div { padding-inline: 10px; }
-  .public-stats dd { font-size: 16px; }
+  .community-section { padding-block: 48px 72px; }
+  .public-stats-row { gap: 12px; }
+  .public-stats dd { font-size: clamp(30px, 8vw, 44px); }
   .public-stats dt { font-size: 11px; }
 }

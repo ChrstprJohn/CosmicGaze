@@ -1,9 +1,8 @@
-const productionFilter = "properties.site_name = 'cosmicgaze' AND properties.$current_url LIKE 'https://cosmicgaze.chrbuilds.dev/%' AND timestamp >= now() - INTERVAL 30 DAY"
+const productionFilter = "properties.site_name IN ('cosmicgaze', 'celestial')"
 const query = `SELECT
   uniqExactIf(distinct_id, event = '$pageview'),
-  countIf(event = '$pageview'),
-  countIf(event = 'discovery_completed' AND properties.discovery IN ('birthday', 'moon', 'shuffle'))
-FROM events WHERE ${productionFilter} AND event IN ('$pageview', 'discovery_completed')`
+  countIf(event = '$pageview')
+FROM events WHERE ${productionFilter} AND event = '$pageview'`
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store')
@@ -26,13 +25,13 @@ export default async function handler(req, res) {
     const data = await response.json()
     if (!Array.isArray(data.results)) throw new Error('Missing results')
     const row = data.results[0]
-    if (!Array.isArray(row) || row.length !== 3) throw new Error('Invalid aggregate result')
+    if (!Array.isArray(row) || row.length !== 2) throw new Error('Invalid aggregate result')
     const count = index => {
       const value = Number(row[index])
       if (!Number.isSafeInteger(value) || value < 0) throw new Error('Invalid count')
       return value
     }
-    const result = { explorers: count(0), pageviews: count(1), discoveries: count(2) }
+    const result = { explorers: count(0), pageviews: count(1) }
     res.setHeader('Cache-Control', 'public, max-age=60, s-maxage=3600, stale-while-revalidate=86400')
     return res.status(200).json(result)
   } catch {

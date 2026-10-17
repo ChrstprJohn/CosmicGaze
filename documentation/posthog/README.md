@@ -55,10 +55,10 @@ If tracking is unavailable, check the token, ingestion host, hosting rebuild, co
 ## Public homepage stats
 
 The hero displays Cosmic explorers (unique pageview distinct IDs), Cosmic views
-(all pageviews including the homepage and repeat views), and Discoveries made (explicit
-successful birthday lookups/shuffles, Moon calculations, and cosmic shuffle requests).
-All three stats cover the last 30 days. Automatic initial results are excluded from discovery completions. Dates and form input
-are not attached to these events. Completion counts start with this implementation.
+(all pageviews including the homepage and repeat views), and Cosmic discoveries
+(the current number of discovery cards rendered in Explore). Traffic covers all recorded history across both CosmicGaze and Celestial tags. The card count comes directly from the homepage list, needs no analytics,
+and remains visible if the stats endpoint is unavailable. Completion-event tracking
+has been removed; the public stats no longer count tool actions.
 
 `api/public-stats.js` is a Vercel function. Configure Production environment variables
 `POSTHOG_PROJECT_ID`, `POSTHOG_API_HOST` (US: `https://us.posthog.com`), and
