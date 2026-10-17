@@ -25,11 +25,6 @@
   .mobile-preview .loading-state-label { font-size: 12px; }
 }
 
-.loading-state-logo { min-height: calc(100svh - 96px); }
-.loading-brand-mark { color: #c9c1f0; flex-shrink: 0; animation: brand-orbit 1.8s linear infinite; }
-@keyframes brand-orbit { to { transform: rotate(360deg); } }
-@media (max-width: 767px) { .loading-state-logo { min-height: calc(100svh - 68px); } }
-@media (prefers-reduced-motion: reduce) { .loading-brand-mark { animation: none; } }
 
 .preview-media, .preview-media-content { position: relative; width: 100%; height: 100%; min-width: 0; }
 .preview-media-content { opacity: 0; transition: opacity .3s ease-out; }
@@ -64,8 +59,6 @@
 .planet-stage[aria-busy="true"] canvas, .earth-stage[aria-busy="true"] > canvas { opacity: 0; }
 .pet-portrait .result-skeleton { background: #0b1021; }
 
-.landing-hero:has(.loading-state-logo) { padding: 0; }
-.landing-hero > .loading-state-logo { min-height: inherit; }
 .service-card:has(.preview-media[aria-busy="true"]) .service-copy { position: relative; }
 .service-card:has(.preview-media[aria-busy="true"]) .service-copy > * { visibility: hidden; }
 .service-card:has(.preview-media[aria-busy="true"]) .service-copy::after { content: ''; position: absolute; inset: 28px; background: linear-gradient(#252d45,#252d45) left top / 76% 24px no-repeat, linear-gradient(#1c233a,#1c233a) left 44px / 100% 10px no-repeat, linear-gradient(#1c233a,#1c233a) left 64px / 80% 10px no-repeat, linear-gradient(#252d45,#252d45) left bottom / 60% 10px no-repeat; }
