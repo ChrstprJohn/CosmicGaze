@@ -31,7 +31,7 @@ export default function seoBuild() {
         const html = template.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
           .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${description}" />`)
           .replace('</head>', `${metadata}\n  </head>`)
-          .replace('<div id="root"></div>', `<div id="root"><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Cosmicgaze"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></div>`)
+          .replace('<div id="root"></div>', `<div id="root"><div role="status" aria-label="Loading Cosmicgaze" style="box-sizing:border-box;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px;background:#070b17;color:#b5bbd0;font:14px/1.6 sans-serif;text-align:center"><div aria-hidden="true" style="width:min(240px,100%);height:112px;border-radius:12px;background:#101528"></div><p style="margin:0">Opening Cosmicgaze…</p></div></div><noscript><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Cosmicgaze"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></noscript>`)
         if (path === '/') bundle['index.html'].source = html
         else this.emitFile({ type: 'asset', fileName: `${path.slice(1)}.html`, source: html })
       }
