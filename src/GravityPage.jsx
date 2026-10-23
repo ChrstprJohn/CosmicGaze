@@ -17,7 +17,7 @@ export default function GravityPage() {
   const [time, setTime] = useState(0)
   const [running, setRunning] = useState(false)
   const [peaks, setPeaks] = useState(false)
-  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [reduced, setReduced] = useState(() => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   const elapsed = useRef(0)
   const world = GRAVITY_WORLDS.find((item) => item.id === selected)
   const valid = mass !== '' && Number(mass) >= 1 && Number(mass) <= 300

@@ -6,14 +6,21 @@ import { SEO_PAGES, SITE_URL } from './seo.js'
 import { EXTRA_DISCOVERIES } from './discoveries.js'
 
 test('build inlines the entry stylesheet while preserving unknown external styles', () => {
+  const output = {}
   const bundle = {
     'index.html': { source: '<head><link rel="stylesheet" crossorigin href="/assets/main.css"><link rel="stylesheet" href="https://example.com/theme.css"></head><div id="root"></div>' },
     'assets/main.css': { type: 'asset', fileName: 'assets/main.css', source: 'body{color:white}' },
+    'assets/tool.css': { type: 'asset', fileName: 'assets/tool.css', source: '.moon-stage{display:grid}' },
   }
-  seoBuild().generateBundle.call({ emitFile() {} }, {}, bundle)
+  seoBuild().generateBundle.call({ emitFile: asset => { output[asset.fileName] = asset.source } }, {}, bundle)
   assert.ok(bundle['index.html'].source.includes('<style>body{color:white}</style>'))
   assert.ok(!bundle['index.html'].source.includes('href="/assets/main.css"'))
   assert.ok(bundle['index.html'].source.includes('href="https://example.com/theme.css"'))
+  assert.ok(!bundle['index.html'].source.includes('.moon-stage{display:grid}'))
+  for (const [name, html] of Object.entries(output).filter(([name]) => name.endsWith('.html'))) {
+    assert.ok(html.includes('<style>.moon-stage{display:grid}</style>'), `${name} needs styles before JavaScript`)
+    assert.equal(html.split('body{color:white}').length - 1, 1)
+  }
 })
 
 test('build emits distinct route metadata, discoverable links and matching sitemap', () => {

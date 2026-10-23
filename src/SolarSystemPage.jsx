@@ -6,7 +6,7 @@ import { PLANETS, TEXTURE_SOURCE, findPlanet, planetTexture } from './lib/planet
 const controlsLink = { href: '#planet-selection', label: 'Choose a planet' }
 
 export default function SolarSystemPage() {
-  const [planet, setPlanet] = useState(() => findPlanet(new URLSearchParams(window.location.search).get('planet')))
+  const [planet, setPlanet] = useState(() => findPlanet(new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search).get('planet')))
   const [retry, setRetry] = useState(0)
 
   useEffect(() => {

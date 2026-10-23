@@ -34,8 +34,8 @@ const extraPages = {
 }
 const routes = new Set(['/', '/birthday', '/moon', '/shuffle', '/solar-system', '/pets', ...EXTRA_DISCOVERIES.filter((service) => service.enabled).map((service) => service.href)])
 
-export default function App() {
-  const pathname = usePagePath(routes)
+export default function App({ initialPath = '/' }) {
+  const pathname = usePagePath(routes, initialPath)
   const extraService = EXTRA_DISCOVERIES.find((service) => service.enabled && service.href === pathname)
   const ExtraPage = extraService ? extraPages[pathname] : null
   const isBirthday = pathname === '/birthday'

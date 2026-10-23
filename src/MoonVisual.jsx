@@ -8,7 +8,7 @@ export default function MoonVisual({ fraction, waxing, label, decorative = false
   const canvas = useRef(null)
   const [status, setStatus] = useState('loading')
   const [attempt, setAttempt] = useState(0)
-  const [size] = useState(() => decorative ? 360 : window.matchMedia('(max-width: 767px), (pointer: coarse)').matches ? 480 : 720)
+  const [size] = useState(() => decorative ? 360 : typeof window !== 'undefined' && window.matchMedia('(max-width: 767px), (pointer: coarse)').matches ? 480 : 720)
 
   useEffect(() => {
     let active = true

@@ -66,7 +66,7 @@ const Pet = memo(function Pet({ pet, index }) {
 
 export default function PetsPage() {
   const gallery = useRef(null)
-  const [paused, setPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [paused, setPaused] = useState(() => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')

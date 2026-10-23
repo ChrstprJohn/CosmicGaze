@@ -8,10 +8,16 @@ export default function seoBuild() {
     name: 'cosmicgaze-seo',
     enforce: 'post',
     generateBundle(_options, bundle) {
+      const entryStyles = new Set()
       const template = bundle['index.html'].source.replace(/<link\b[^>]*rel="stylesheet"[^>]*href="\/([^\"]+)"[^>]*>/g, (link, fileName) => {
         const css = bundle[fileName]
+        if (css?.type === 'asset') entryStyles.add(fileName)
         return css?.type === 'asset' ? `<style>${String(css.source).replaceAll('</style', '<\\/style')}</style>` : link
       })
+      // Prerendered tools need their lazy-loaded styles before JavaScript runs.
+      const toolStyles = Object.values(bundle)
+        .filter(asset => asset.type === 'asset' && asset.fileName?.endsWith('.css') && !entryStyles.has(asset.fileName))
+        .map(asset => `<style>${String(asset.source).replaceAll('</style', '<\\/style')}</style>`).join('')
       const bootStyles = '<style>body{margin:0;background:#070b17}</style>'
       // Discover fonts in HTML instead of waiting for the CSS request chain.
       const fontPreloads = Object.values(bundle)
@@ -39,7 +45,7 @@ export default function seoBuild() {
         const html = template.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
           .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${description}" />`)
           .replace('</title>', `</title>\n    ${fontPreloads}\n    ${path === '/' ? '<link rel="preload" as="image" type="image/avif" href="/previews/hero-galaxy-640.avif" media="(max-width: 767px)" fetchpriority="high" /><link rel="preload" as="image" type="image/avif" href="/previews/hero-galaxy-1100.avif" imagesrcset="/previews/hero-galaxy-1100.avif 1100w, /previews/hero-galaxy-1600.avif 1600w" imagesizes="1100px" media="(min-width: 768px)" fetchpriority="high" />' : ''}`)
-          .replace('</head>', `${metadata}${bootStyles}\n  </head>`)
+          .replace('</head>', `${metadata}${bootStyles}${path === '/' ? '' : toolStyles}\n  </head>`)
           .replace('<div id="root"></div>', `<div id="root"><div role="status" aria-label="Loading Cosmicgaze" style="box-sizing:border-box;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px;background:#070b17;color:#b5bbd0;font:14px/1.6 sans-serif;text-align:center"></div></div><noscript><main><h1>${title}</h1><p>${description}</p><nav aria-label="Explore Cosmicgaze"><ul>${links}</ul></nav><p>Enable JavaScript to use the interactive astronomy tools.</p></main></noscript>`)
         if (path === '/') bundle['index.html'].source = html
         else this.emitFile({ type: 'asset', fileName: `${path.slice(1)}.html`, source: html })

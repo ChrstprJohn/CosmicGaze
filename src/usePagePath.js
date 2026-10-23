@@ -4,8 +4,8 @@ const pagePath = () => typeof window === 'undefined' ? '/' : window.location.pat
 
 // Keep the shared shell and already-loaded modules when following a local card.
 // Downloads, external links, modifier clicks, and same-page anchors stay native.
-export default function usePagePath(routes) {
-  const [pathname, setPathname] = useState(pagePath)
+export default function usePagePath(routes, initialPath = '/') {
+  const [pathname, setPathname] = useState(() => typeof window === 'undefined' ? initialPath : pagePath())
   useEffect(() => {
     function changed() { setPathname(pagePath()) }
     function navigate(event) {
