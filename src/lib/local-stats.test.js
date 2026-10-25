@@ -26,7 +26,7 @@ test('local preview loads and caches public counts without private settings, and
     let calls = 0
     globalThis.fetch = async (url, options) => {
       calls++
-      assert.equal(url, 'https://orbitmallow.chrbuilds.dev/api/public-stats')
+      assert.equal(url, 'https://cosmicgaze.chrbuilds.dev/api/public-stats')
       assert.equal(options.headers, undefined)
       return { ok: true, json: async () => ({ explorers: 110, pageviews: 2733, privateField: 'excluded' }) }
     }

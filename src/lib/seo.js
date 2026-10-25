@@ -1,6 +1,6 @@
 import { EXTRA_DISCOVERIES } from './discoveries.js'
 
-export const SITE_URL = 'https://orbitmallow.chrbuilds.dev'
+export const SITE_URL = 'https://cosmicgaze.chrbuilds.dev'
 export const SEO_PAGES = {
   '/': { title: 'Cosmicgaze — Birthday NASA Pictures, Moon Phases & Planets', description: 'Find NASA’s astronomy picture from your birthday, calculate Moon phases, explore the Solar System, and try free interactive astronomy tools.' },
   '/birthday': { title: 'NASA Picture on My Birthday — Cosmicgaze', description: 'Enter a date to discover NASA’s Astronomy Picture of the Day from your birthday. Explore the image, read its story, and download your birthday picture.' },
