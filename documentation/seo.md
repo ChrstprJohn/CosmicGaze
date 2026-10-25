@@ -13,7 +13,7 @@ After deployment:
 3. Use URL Inspection on the homepage and key tool pages, test the live URL, and request indexing.
 4. Monitor Page indexing for crawl or indexing errors. Discovery and indexing can take time and are not guaranteed.
 
-The original Google verification file must remain in `public/`. The sitemap does not include date or planet query variants because they share their tool’s canonical URL.
+The current Search Console verification file is `public/googlea9a57c4ee9eb8005.html`, served at `/googlea9a57c4ee9eb8005.html`. Keep its contents unchanged and keep it deployed after verification. It replaces the previous account verification file. The sitemap does not include date or planet query variants because they share their tool’s canonical URL.
 
 ## Coverage export from October 23, 2026
 
