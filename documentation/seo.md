@@ -1,6 +1,6 @@
 # Search indexing
 
-The production domain is https://cosmicgaze.chrbuilds.dev. If the domain changes, update `SITE_URL` in `src/lib/seo.js` and rebuild.
+The production domain is https://orbitmallow.chrbuilds.dev. If the domain changes, update `SITE_URL` in `src/lib/seo.js` and rebuild.
 
 `npm run build` generates a separate HTML entry for every enabled route, with its title, description, canonical URL, Open Graph and Twitter tags, and WebSite/WebPage structured data. The prerender step waits for lazy components and writes the actual page heading, content, controls and navigation into each entry. Tool styles are included in the initial HTML. The build fails if a page cannot render or has no heading. React hydrates the homepage and remounts tools using the visitor's current date, query parameters and motion preferences. Interactive results still require JavaScript. SPA navigation updates the page metadata as well.
 
