@@ -42,14 +42,15 @@ h2 { font-size: clamp(40px, 4vw, 56px); line-height: 1.1; }
 .site-header nav a { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: #c2c5d8; }
 .site-header nav { display: flex; align-items: center; gap: clamp(18px, 3vw, 32px); }
 .site-header nav a[aria-current="page"] { color: #c9c1f0; text-decoration: underline; text-underline-offset: 7px; }
-.landing-hero { position: relative; min-height: max(640px, calc(100svh - 96px)); display: grid; place-items: center; padding: 70px 24px 120px; overflow: hidden; }
+.landing-hero { position: relative; min-height: max(640px, calc(100svh - 96px)); display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; padding: 70px 24px 120px; overflow: hidden; }
 .galaxy-scene { position: absolute; width: min(1100px, 100vw); height: 100%; right: -15%; top: -4%; opacity: .32; pointer-events: none; mask-image: radial-gradient(ellipse 48% 48% at 50% 50%, #000 12%, transparent 100%); }
-.galaxy-scene img { width: 100%; height: 100%; object-fit: cover; }
+.galaxy-scene picture { display: block; width: 100%; height: 100%; }
+.galaxy-scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .deferred-preview { width: 100%; height: 100%; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); place-items: center; min-width: 0; min-height: 0; }
 .match-card-preview { display: flex; align-items: center; width: 90%; }
 .match-card-preview .moon-stage { width: 58%; flex-shrink: 0; }
 .match-card-preview .moon-stage + .moon-stage { margin-left: -16%; }
-.hero-copy { position: relative; text-align: center; }
+.hero-copy { grid-area: 1 / 1; position: relative; text-align: center; }
 .hero-title-line { display: block; }
 .hero-title-word { display: inline-block; }
 .hero-copy > p { color: #b5bbd0; font-size: 15px; line-height: 1.8; margin-top: 24px; }
@@ -164,7 +165,8 @@ h2 { font-size: clamp(40px, 4vw, 56px); line-height: 1.1; }
   .site-header { height: 80px; padding-inline: 24px; }
   .wordmark, .footer-wordmark { font-size: 23px; }
   .site-header nav a { font-size: 12px; gap: 6px; }
-  .landing-hero { min-height: calc(100svh - 80px); padding: 60px 24px 100px; }
+  /* Keep the introduction bounded on tall mobile and crawler viewports. */
+  .landing-hero { min-height: clamp(480px, calc(100svh - 80px), 820px); padding: 60px 24px 100px; }
   h1 { font-size: clamp(58px, 10vw, 76px); }
   .hero-copy > p { font-size: 13px; max-width: 27ch; margin: 22px auto 0; }
   .galaxy-scene { width: 140vw; right: -40%; opacity: .38; }
